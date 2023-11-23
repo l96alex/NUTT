@@ -69,7 +69,35 @@
 
 % *********************************** SI Units *********************************
 
-%\usepackage{siunitx} % use this package module for SI units
+\usepackage{siunitx} % use this package module for SI units.. fixed for ohms since the package itself is a bit whack
+
+\DeclareSIUnit{\atom}{at}
+\DeclareSIUnit{\atoms}{at}
+
+\usepackage{lmodern}
+% from your class definition
+%\DeclareMathSymbol{\Omega}{\mathalpha}{letters}{"0A}
+\DeclareMathSymbol{\varOmega}{\mathalpha}{operators}{"0A}
+
+% ***************************** Chemical formula notation 
+\usepackage[version=4]{mhchem}
+
+% ***************************** Miller indices package for pretty brackets and stuff
+
+\usepackage{miller}
+
+%***************************** Other stuff I'm lazy
+\usepackage{amsmath}
+
+\usepackage{physics}
+
+\usepackage{hyperref}
+
+\usepackage{comment}
+
+\usepackage{placeins}
+
+\usepackage{bm}%bold italics in math mode for vectors and stuff
 
 
 % ******************************* Line Spacing *********************************
