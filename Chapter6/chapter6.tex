@@ -282,7 +282,7 @@ In this section, the measured I-V curves for samples C and D ranging from room t
 \subsection{Ti/Pt/Au I-V Results}
 The linear plots of measured current vs applied voltage for samples C and D for temperatures of 21, 150 and 300 \si{\degreeCelsius} are presented in this section, for a bias range of $\pm10$ \si{\volt}. For a full set of I-V data please see section \ref{app:LTLM_I_V_data}.
 
-For reference, error bars of 2 \si{\pico\ampere} are plotted on a limited bias range of $\pm1$ \si{\volt} in figure \ref{fig:1V_C_current_voltage_21} to examine the potential magnitudes of error. Typical errors for the B1500A as calibrated are typically no higher than 1 \si{\pico\ampere} as calibrated, with the measured data hence only showing noise when the applied bias is close to 0 \si{\volt}.
+For reference, error bars of 2 \si{\pico\ampere} are plotted on a limited bias range of $\pm1$ \si{\volt} in figure \ref{fig:1V_C_current_voltage_21} to examine the potential magnitudes of error. Typical errors for the B1500A are typically no higher than 1 \si{\pico\ampere} as calibrated, with the measured data hence only showing noise when the applied bias is close to 0 \si{\volt}.
 
 \begin{figure}[h]
     \centering
@@ -486,7 +486,7 @@ Where:
     \label{tab:richardsonD_50V}
 \end{table}
 
-To examine the method of electron emission from the contacts, a conventional Richardson plot is shown in figures \ref{fig:richardsonC} and \ref{fig:richardsonD} for a constant bias range of $\pm10$ \si{\volt}. By fitting a linear relationship to this data, as according to equation \ref{eq:thermionic_emission_graphical}, the average Schottky barrier height for samples C and D is extracted to be 0.161 \si{\electronvolt} and 0.150 \si{\electronvolt}, with a standard deviation of $5.56\times10^{-3}$ \si{\electronvolt} and $3.86\times10^{-2}$ \si{\electronvolt}, respectively. The exact results as determined from linear lines of best fit are shown in tables \ref{tab:richardsonC} and \ref{tab:richardsonD}.
+To examine the method of electron emission from the contacts, a conventional Richardson plot is shown in figures \ref{fig:richardsonC} and \ref{fig:richardsonD} for a constant bias range of $\pm10$ \si{\volt}. By fitting a linear relationship to this data, as according to equation \ref{eq:thermionic_emission_graphical}, the average Schottky barrier height for samples C and D is extracted to be 0.161 \si{\electronvolt} and 0.150 \si{\electronvolt}, with a standard deviation of $5.56\times10^{-3}$ \si{\electronvolt} and $3.86\times10^{-2}$ \si{\electronvolt}, respectively. The exact results determined from the best-fit linear lines are shown in tables \ref{tab:richardsonC} and \ref{tab:richardsonD}.
 
 \begin{figure}[htbp]
     \centering
@@ -505,10 +505,9 @@ To examine the method of electron emission from the contacts, a conventional Ric
     \label{fig:side_by_side_barrier_richardson}
 \end{figure}
 
- One observation from this data is that sample C displayed a relatively constant barrier height, regardless of the channel length, while sample D shows a proportionality between the channel length and the effective barrier height. This could be due to the difference in the smallest channel sizes. While both sets of metal contacts were formed with the same shadow mask in the process of metal deposition via photolithography, the as formed contacts had a measurably different channel length at the smallest scales. The smallest channel as measured via AFM on sample C was $3.5$ \si{\micro\metre}, while sample D had a channel length of $\approx2.8$ \si{\micro\metre}. 
+ One observation from this data is that sample C displayed a relatively constant barrier height, regardless of the channel length, while sample D shows a proportionality between the channel length and the effective barrier height. This could be due to the difference in the smallest channel sizes. While both sets of metal contacts were formed with the same shadow mask in the process of metal deposition via photolithography, the as formed contacts had a measurably different channel length at the smallest scales. The smallest channel measured by AFM in sample C was $3.5$ \si{\micro\metre}, while sample D had a channel length of $\approx2.8$ \si{\micro\metre}. 
  
  The smallest channel of sample D presents an effective barrier height of $\approx0.08$ \si{\electronvolt}, while the largest channel was $\approx0.22$ \si{\electronvolt}. Similarly, there is an inverse proportionality between the channel length and the observed Richardson constant for both samples, with sample C's Richardson constant consistently an order of magnitude greater than sample D. This is shown in figure \ref{}
-
 
 \subsection{XPS Analysis}
 
@@ -581,7 +580,40 @@ where the voltage $V_{C}$ applied to both electrodes of the TLM structure can be
     V_{C}(I_{0}) = R_{L+N}(I_{0})I_{0}
     \label{eq:tlm_voltage_V_C(I_0)}
 \end{equation}
-Generally, it is possible to ignore the nonlinear terms of $V_{N}(I)$ and $V_{N}(-I)$ as they are significantly smaller than the linear term $V_{L} = R_{L}I$ for ohmic contacts to standard semiconductors. However, in the case of phosphorous doped diamond with Fermi-level pinned Schottky barriers present for both electrodes in the TLM structure, the Schottky terms cannot be ignored.
+Generally, it is possible to ignore the nonlinear terms of $V_{N}(I)$ and $V_{N}(-I)$ as they are significantly smaller than the linear term $V_{L} = R_{L}I$ for ohmic contacts to standard semiconductors. However, in the case of phosphorous doped diamond with Fermi-level pinned Schottky barriers present for both electrodes in the TLM structure, the Schottky (non-linear) terms cannot be ignored.
+
+\subsection{Ti/Au Contacts}
+\subsubsection{Circular TLM Ti/Au Structures}
+(Sample F from table \ref{table:samples_summary} - for reference.)
+In this study, Titanium/Gold (Ti/Au) Schottky contacts were fabricated to investigate their performance in phosphorous-doped diamond electronic devices. The substrate used for the experiment was a mechanically polished, high-pressure high-temperature (HPHT) diamond sample, with an orientation of 111 and dimensions of approximately 2\si{\milli\metre} in width/length and 0.5\si{\milli\metre} in depth. A homoepitaxial heavily phosphorous doped layer was grown on this substrate with the same recipe as for the two previous TLM samples (C and D), however the growth duration was increased to 4 hours, allowing for a thicker surface layer of approximately 1.2 \si{\micro\metre} to be grown. Samples E and G were also included in this same growth phase, and sample E was previously used in XPS measurements to confirm that despite the longer growth time, the surface layer maintained the previously established concentration of phosphorous at around $1\times10^{20}$\si{\per\centi\metre\cubed}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Chapter6/Figs/Raster/Sample F 2022/IMG20220607171511 trim.jpg}
+    \caption{Sample F, as seen under a wide-field optical microscope following photolithography.}
+    \label{fig:sampleF}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Chapter6/Figs/Raster/Sample F 2022/111 062022 CTLM labelled.png}
+    \caption{The circular contacts used in the electrical characterisation on sample F, as seen under a optical microscope during pre-annealing testing.}
+    \label{fig:sampleF}
+\end{figure}
+
+The Ti/Au contacts were structured in a circular Transfer Length Method (TLM) configuration as previously outlined. Standard photolithography was performed, with e-beam deposition of 30\si{\nano\metre}/100\si{\nano\metre} Ti/Au followed by a lift off process using N-Methyl-2-pyrrolidone. The resulting structure is shown in figure \ref{fig:sampleF}. The full lithography mask was designed to replicate the pattern used in \cite{kato2009} and \cite{matsumoto2013}, with channel spacings in the range of 2--18\si{\micro\metre}. Additional contacts were intended to be present for Hall-effect measurements, however significant edge bead issues with the photolithography process resulted in a sub-optimal liftoff, and these contacts failed to materialise. This also resulted in an overall lower resolution of effective feature sizes, with the smallest channel spacing (of the contacts that were suitably circular, with minimal defects) observed to be approximately 11\si{\micro\metre}, rather than the intended 2\si{\micro\metre}. Hence, the experimental range of channel lengths was between 11--30\si{\micro\metre}, for channels that were visually observed to be of high quality, with no notable damage to the contacts or visual lithography errors. Following preliminary electrical measurements, the contacts were annealed at a temperature of 500 degrees Celsius in high vacuum. This annealing temperature was selected based on a review of the literature, with temperatures both above and below 500 degrees Celsius being a common choice for annealing Ti/Au contacts. Then, further electrical characterisation was performed to test the effectiveness of annealing on ohmic contact formation.
+
+The device's electrical characteristics were evaluated using two probe stations, the Keithley 4200A and the Cascade B1500. I-V sweeps were performed at various voltage ranges, starting from low voltages and gradually increasing up to biases of $\pm$200 V.
+
+The resistivity of the device was found to be higher than the values reported in the literature. For instance, a resistance of 5E6 ohms was measured with a 50 V bias across a 4um gap in a linear TLM structure. This discrepancy with the literature suggests that further optimisation of the fabrication and annealing process may be needed.
+
+The results of this experiment form a baseline for comparison with the performance of laser graphitised contacts, which will be discussed in the following sections.
+
+\subsection{Pre-Annealing Electrical Characterisation}
+\subsubsection{I-V Plots}
+
+\subsubsection{J-V Plots}
+\subsection{Post-Annealing Electrical Characterisation}
 
 \subsection{Annealing at \SI{500}{\celsius} and Contact Degradation}
 \subsection{Microscopy Characterisation}
@@ -592,18 +624,7 @@ Generally, it is possible to ignore the nonlinear terms of $V_{N}(I)$ and $V_{N}
 \subsection{Richardson Plots}
 \subsection{Summary}
 
-\subsection{Ti/Au Contacts}
-\subsubsection{Circular TLM Ti/Au Structures}
-(Sample F from table \ref{table:samples_summary} - for reference.)
-In this study, one device was fabricated with Titanium/Gold (Ti/Au) Schottky contacts to investigate their performance in phosphorous-doped diamond electronic devices. The substrates used for the experiment were mechanically polished, high-pressure high-temperature (HPHT) diamond samples, with an orientation of 111 and dimensions of approximately 2mm in width/length and 0.5mm in depth.
 
-The Ti/Au contacts were structured in a circular Transfer Length Method (TLM) configuration. The contacts were annealed at a temperature of 500 degrees Celsius. This annealing temperature was selected based on a review of the literature, with 500 degrees Celsius being a common choice for annealing Ti/Au contacts.
-
-The device's electrical characteristics were evaluated using two probe stations, the Keithley 4200A and the Cascade B1500. I-V sweeps were performed at various voltage ranges, starting from low voltages and gradually increasing up to biases of +-400 V.
-
-The resistivity of the device was found to be higher than the values reported in the literature. For instance, a resistance of 5E6 ohms was measured with a 50 V bias across a 4um gap in a linear TLM structure. This discrepancy with the literature suggests that further optimisation of the fabrication and annealing process may be needed.
-
-The results of this experiment form a baseline for comparison with the performance of laser graphitised contacts, which will be discussed in the following sections.
 
 \subsubsection{Annealing at \SI{500}{\celsius} and Contact Degradation}
 \label{subsubsec:annealing}
