@@ -1,569 +1,312 @@
-%!TEX root = ../thesis.tex
-%*******************************************************************************
-%****************************** Third Chapter **********************************
-%*******************************************************************************
-\chapter{Theory and Modelling of Semiconductor Contacts}
+\begin{refsection}
+\chapter{Characterisation of Laser Processed Phosphorous Doped Diamond}
+\section{Introduction}
+\subsection{Summary of Previous Experimental Work}
+Chapter \ref{ch:electrical_experiments} examines the formation of conventional metal contacts to heavily phosphorous doped diamond, via annealed titanium-based contacts. The literature best-case value for the specific contact resistivity with titanium contacts is $10^{-3}$~\si{\ohm\centi\metre\squared} \cite{matsumoto2013}. The contacts formed in this work, both in the CTLM and LTLM experiments and under different annealing conditions, differ markedly from these examples. With LTLM samples, the specific contact resistivity was measured to be 472 and 494\si{\kilo\ohm\centi\metre\squared}, with a resistivity of the phosphorous doped film of 132 and 464~\si{\mega\ohm\centi\metre} for samples C and D respectively at 10 V. For sample F and the CTLM results, at a constant current condition of -100 \si{\nano\ampere}, a specific contact resistivity of around 2.1~\si{\kilo\ohm\centi\metre\squared} and resistivity of around 490~\si{\kilo\ohm\centi\metre} was measured. Following these observations, it was clear that an alternative approach must be taken to form superior ohmic contacts on these samples which are sufficient to allow for competitiveness between diamond based power devices and current best case values on standard materials. For example, SiC is able to achive extremely low resistance ohmic contacts below $1\times10^{-7}$~\si{\ohm\centi\metre\squared} \cite{pan2013}.
 
-% **************************** Define Graphics Path **************************
-\ifpdf
-    \graphicspath{{Chapter3/Figs/Raster/}{Chapter3/Figs/PDF/}{Chapter3/Figs/}}
-\else
-    \graphicspath{{Chapter3/Figs/Vector/}{Chapter3/Figs/}}
-\fi
+\subsection{Improved Contacts to Diamond Devices}
+Novel approaches to the formation of ohmic contacts with n-type diamond are an ongoing area of research, with unique orientation and substrate dependent methodologies being developed. For instance, \cite{temahuki2017} demonstrated the ability of Ni-catalysed etching to provide pyramidal \hkl(111) oriented pits for a heavily phosphorous doped overgrowth layer. This method provides both geometrically enhanced emitter-type structures, as well as a greater phosphorous concentration than what is otherwise obtainable on a \hkl(100) oriented substrate, hence producing significantly improved contacts than other contacts to n-type \hkl(100) substrates without micro-structures. For \hkl(111) oriented substrates, the results of various metal contact formations are summarised in (reference to comparison of metal contacts on phosphorous doped diamond). While much work in this area treats these metal contacts as ohmic in nature due solely to the nature of the heavy n-type doping and subsequent formation of titanium carbide contacts, unique approaches to further reducing this specific contact resistivity can be seen in \cite{matsumoto2013} and \cite{valappil2022, valappil2023}. In the first such case, thermal graphitisation of the diamond surface is used to provide an additional intermediate layer for the formation of ohmic contacts, achieving an order of magnitude reduction in the specific contact resistivity when compared to the titanium carbide contacts \cite{matsumoto2013}. In the more recent work by Valappil et al, coaxial arc plasma deposition (CAPD) is used to form nanocarbon electrodes which show a similar order of magnitude improvement over the conventional titanium contacts.
 
-% Chapter 3
-% Chapter X
+One technique that has not yet been utilised for the reduction in specific contact resistivity on heavily phosphorous doped diamond is that of laser processing for the purpose of graphitisation. Laser processing offers numerous advantages over the procedures of nanocarbon CAPD, or thermal graphitisation, such as the ability to directly pattern working contacts without standard photolithography steps, the ability to write 3D structures such as wires passing through the diamond substrate for diamond detectors \cite{bloomer2020}, and the ability to also create waveguides within the diamond substrates through modification of the local refractive index \cite{courvoisier2016}. While unrelated to power electronic applications, it is also worth noting that this process can also be used to generate point defects within diamond substrates, which can be used to generate single negatively charged nitrogen-vacancy (NV$^{-}$) centres, and have a wide array of potential applications in magnetometry, single photon sources, quantum centres, etc. \cite{chen2016}. The combination, or specific usage of any of these key features allows for a large range of device structures to be fabricated by laser graphitisation processes. For a complete review of laser graphitisation, please see chapter \ref{sec:laser}.
 
-\part{Metal-Semiconductor Contacts} % Chapter title
+\subsection{Field Effect Emission}
+\label{subsec:field_effect_emission}
+A device structure that may particularly benefit from 3D laser graphitisation is that of the cold-cathode type structure. As described in the seminal work \cite{spindt1976}, it is possible to induce cold-field effect emission with sufficiently sharp (geometrically enhanced) structures. This structure was then proposed to be used in conjunction with the negative electron affinity of hydrogen-terminated diamond \cite{geis1996}, allowing for lower applied voltages to generate practical electron sources that could compete with thermionic emitters. Significant issues with this design structure arise during the fabrication of such structures, due in large part to the etching process and overgrowth of heavily n-type diamond. Parallels could be drawn between the fabrication of these structures and the work of \cite{temahuki2017}, where a random distribution of Ni-etched pits are overgrown with heavily phosphorous doped diamond, and finally contacted with standard Ti/Au contacts. However, the fabrication of emitters as in Geis et al. requires the emitters to be fabricated such that the tips are perpendicular and very close to the surface of the diamond emitters. Any spacing between the tip of the cathode-emitter and the hydrogen terminated diamond surface will result in a large potential difference drop between the cathode and the anode, reducing the effective field strength at the tip and hence significantly affecting the field effect emission of such a device. In practice, this narrow spacing is extremely difficult to achieve via etching, as dislocations or other defects in the diamond substrate will generate fault lines for the etching process, drastically altering the etching rate. Several alternative approaches have been attempted in recent history. Significantly, several devices have been suggested which attempt to either create sharp diamond cathodes \cite{davidson2007diamond}, etching back substrates \cite{sakuma2000manufacturing}, or utilising designs that allow for carbon nanotubes to be employed. There is a notable overlap in device designs that attempt to fabricate emitters based on diamond and graphite \cite{ono2008cold, sakai2004cold}, carbon nanotubes \cite{dimitrijevic2005diamond}, diamond-like carbon layers \cite{goel2002electrically}, amorphous carbon \cite{falabella2001amorphous}, or diamondoid monolayers \cite{yang2013diamondoid}, all of which were designed prior to the development of 3D laser graphitisation processes. Ultimately, all such devices present insufficient properties or flaws, and this area of research is ongoing.
 
-\label{ch:contacts} % For referencing the chapter elsewhere, use \autoref{ch:name} 
+\subsection{Laser Written Geometrically Enhanced Emitters}
+A natural proposition for 3D micron scaled laser graphitised wires within diamond such as that demonstrated within \cite{sun2014} is that of cold-cathode type devices. While a practical device that can compete with either one of the aforementioned designs or silicon-based devices is ambitious, as the phosphorous doped CVD growth of diamond and the laser graphitisation processes continue to mature, future devices which make use of these capabilities to generate cold-cathode structures with only one laser processing step may start to appear achievable. This would eliminate the need for many of the processing steps such as the deposition of Ti-C based ohmic contacts, or the need for various etching steps and differing metal depositions to produce sufficient gate electrodes in the triode structure. It also addresses the issue of thin electronic grade diamond samples being required for a suitably narrow region between the emitters and the hydrogen terminated diamond surface, which brings about a host of practical processing concerns. Also note that the requirement of electronic grade diamond for carefully controlled, reliable etching procedures is also tentatively eliminated, as the priority can instead be given to high quality phosphorous doped diamond substrates, benefiting the reduction of Schottky barrier height at the graphite/diamond interface.
 
-The first observations of rectifying metal-semiconductor contacts were made in 1874 by F. Braun, who made mercury contacts to copper and iron sulfide semiconductors \cite{braun:1874}. In 1907 G.W. Pierce published his work on the rectification properties of various metals made by sputtering on semiconductors \cite{pierce:1907}, which led to the proposal of a MESFET (metal-semiconductor field effect transistor) in 1926 by J. Lilienfeld \cite{lilienfeld:1926}. The theory of field effect transistors was then described by W. Shockley in 1939 \cite{shockley:1939}. In 1938, Schottky suggested the potential barrier between metal and semiconductor could be due to the presence of stable space charges without any chemical interaction \cite{schottky:1938}, which is now commonly known as the Schottky barrier. In the following year, Mott published the first theoretical model predicting the direction of rectification, entitled "The theory of crystal rectifiers" \cite{mott:1939}. Hence, this rectification will sometimes be referred to as the Mott barrier. Bethe expanded upon this theory in a 1942 technical report \cite{bethe:1942}, with further detail given in the book by Torrey and Whitmer in 1948 \cite{torrey:1948} forming a full thermionic-emission model of electrical behaviour.
+Hence, experimental work was planned to examine both the effect of laser processing for the purpose of reduced specific contact resistivity ohmic contacts, and to also explore the possibility of laser written structures utilising an emitter type design.
 
+\subsection{Laser Graphitised Device Design}
 
-\section{Barrier Formation}
-In the case of a metal making direct contact with a semiconductor, a potential barrier is formed at the interface which controls the current conductivity as well as the capacitance. In this section, the principles behind metal-semiconductor contacts are considered.
-%----------------------------------------------------------------------------------------
-\subsection{Ideal}
-In perfect conditions, there are no anomalous surface states. The typical energy band diagram of a high work function metal and an n-type semiconductor is shown in figure(MAKE A BAND DIAGRAM and then explain not in contact, with a reduced gap and zero gap equilibrium state...)
-
-The work function $q\phi_{m}$ is defined as the energy difference between the Fermi and vacuum levels. For a semiconductor, the bandgap and corresponding conduction band gives rise to the electron affinity $q\chi$, defined as the difference in energy between the bottom of the conduction band and the vacuum level, which can be defined in terms of the work function as $q(\chi+\phi_{n})$ where $\phi_{n}$ is the difference in energy between the bottom of the conduction band and the Fermi level $\phi_{n}=E_{C}-E_{F}$. This distinction is not made for the metal, as conduction will occur in one or more partially filled bands which take on properties of the conduction and valence bands.  
-
-As the metal and semiconductor are brought together, the metal and semiconductor Fermi energies do not change immediately, as shown by typical flat-band energy level diagrams such as [flatband diagram]. The barrier height in a flat=band model is hence defined as the potential difference between the Fermi energy of the metal and the band edge of majority carriers within the semiconductor:
-
-\begin{equation}
-    \phi_{Bn} = \phi_{m} - \chi
-    \label{eq:barrier_height_ideal_n_type}
-\end{equation}
-
-\begin{equation}
-    \phi_{Bp} = \frac{E_{g}}{q} + \chi - \Phi_{m}
-    \label{eq:barrier_height_ideal_p_type}
-\end{equation}
-
-Hence, a barrier is formed for electrons and holes if the Fermi energy of the metal in the flat-band model is between the conduction and valence band edge. The difference between the Fermi energy of the metal and that of the semiconductor is defined as the built in potential $\phi_{bi}$.
-
-\subsection{Depletion Layer}
-At thermal equilibrium with no externally applied votage with a metal brought into contact with the semiconductor, a region within the semiconductor which is close to the junction will be depleted of mobile carriers. This is known as the depletion region, with a potential difference that is equal to the built in potential $\psi_{bi}$.
-
-This is outlined by the band diagram model, the surface conduction and valence bands of the semiconductor will be brought into an energy relationship with the metal Fermi level. Once established, this forms a boundary condition to the Poisson equation. This is shown in figure (p and n type materials) with biasing conditions applied. 
-
-\subsection{Interface States}
-As described in 1947 by Bardeen, localised states with energies within the bandgap may exist at the semiconductor's surface \cite{bardeen:1947}. These states could be formed during the chemical bonding of metal and semiconductor (metal induced gap states), or they may already be present in a semiconductor-vacuum system (surface states). Dense surface states absorb a large quantity of charge from the metal, shielding the semiconductor and affecting the local band alignment. Hence, the semiconductor bands will align relative to these surface states which are "pinned" to the Fermi level, prior to the formation of a metal contact, affecting the Schottky barrier height. This removes the dependency of the Schottky barrier height metal work function, with an enhanced band diagram as shown in figure (more complicated band diagram like Sze figure 5).
-
-\subsection{Image-Force Lowering}
-Also commonly known as the Schottky effect or Schottky barrier lowering, when an electric field is applied to a barrier image-force lowering occurs. Consider the point charge case, in which an electron at a distance $x$ from a metal with work function $q\phi_{m}$ induces an equivalent positive charge on the metal surface, known as the "image charge". This image charge will cause a local attractive force for the electron towards the metal, which is given by:
-\begin{equation}
-	F=\frac{-q^{2}}{4\pi \epsilon_{0} (2x)^{2}}=\frac{-q^{2}}{16\pi\epsilon_{0}x^{2}}
-	\label{eq:image force effect force}
-\end{equation}
-Where $\epsilon_{0}$ is the permittivity of free space. The total work done on an electron in its transfer from infinity to the point x is:
-\begin{equation}
-	E(x)= \int_{\inf}^{x} Fdx = \frac{-q^{2}}{16\pi\epsilon_{0}x}
-	\label{eq:image force work done integral}
-\end{equation}
-The total work done is equivalent to the potential energy of an electron at a distance x from the metal surface, shown in figure (graph of the curved band diagram showing the image force effect). When an external electric field $E$ is applied, the total potential energy $PE$ as a function of the distance is given by the sum of both effects:
-\begin{equation}
-	PE(x) = \frac{-q^{2}}{16\pi\epsilon_{0}x} - q\left|E\right|x
-	\label{eq:image force total potential energy}
-\end{equation}
-The magnitude and location of the image-force lowering are given by $\Delta\phi$ and $x_{m}$ respectively, with the condition $d(PE)/dx = 0$:
-\begin{equation}
-	\Delta\phi = \sqrt{\frac{q\left|E\right|}{4\pi\epsilon_{0}}}=2\left|E\right|x_{m}
-	\label{eq:image force lowering magnitude}
-\end{equation}
-\begin{equation}
-	x_{m} = \sqrt{\frac{q}{16\pi\epsilon_{0}\left|E\right|}}
-	\label{eq:image force lowering location}
-\end{equation}
-
-\subsection{Barrier-Height Adjustment}
-The ideal Schottky barrier height is determined solely by the metal-semiconductor junction properties, independent of doping levels that results in a fixed number of possible barrier heights. In practice, it is possible to use a thin layer (~10 nm or below) of dopants on a semiconductor surface through techniques such as ion implantation. This will induce a change in the Schottky barrier height, allowing for some metals that would otherwise produce undesirable Schottky barriers to be used. (Plots of idealised controlled barrier contacts, electric field and effect of doping in reducing or increasing the barrier height.)
-
-(Depletion layer capacitance for reverse bias - $1/C^{2}$ -V plot yields the built in potential and doping density N - pn Sze pg85, also see diffusion capacitance 2.3.4 pg 100 for forward bias)
-
-\section{Current Transport Processes}
-\label{sec:current_transport_processes}
-For metal-semiconductor contacts, the current transport is primarily due to majority carriers, as opposed to p-n minority carrier junctions. There are five primary processes under forward bias, with the inverse occurring under a reverse bias. 
-
-First, electrons may have the thermal energy required to cross the potential barrier between the metal and the semiconductor. This is the dominant process in Schottky diodes for standard, moderately doped semiconductors such as silicon with a dopant concentration $N_{D}\leq10^{17}\si{\per\centi\metre\cubed}$ at room temperature ($\approx 300 \si{\kelvin})$. The current as governed by thermionic emission over a Schottky barrier is given typically by equations of the following form:
-\begin{equation}
-	J_{S} = A^{*}T^{2}e^{\frac{-2\Phi_{B}}{kT}}\left(e^{\frac{qV}{kT}} - 1\right)
-\end{equation}
-Where $A^{*}$ is Richardson's constant. The corresponding specific contact resistivity is then given by:
-\begin{equation}
-	\rho_{c}=\frac{k}{qA^{*}T}e^{\frac{2\Phi_{B}}{kT}}=\frac{kT}{qJ_{S}}
-\end{equation}
-
-Second, the electrons may pass through the barrier via quantum mechanical tunnelling. This is the dominant process in contacts to heavily doped semiconductors, as the induced depletion region will be significantly narrower than the case of low doping. Hence, these contacts result in an 'Ohmic' behaviour, where there is an unimpeded transfer of majority carriers. The depletion region will have width as defined by:
-\begin{equation}
-	X_{d} = \sqrt{\frac{2Kz\epsilon_{0}\Phi_{i}}{qN_{D}}}
-\end{equation}
-(Depletion width stanford, remillard, sze, all different basis....)
-
-Third, there may be recombination in the space-charge region, (sze chapter 2).
-
-Fourth, electrons may diffuse into the depletion region.
-
-Finally, holes may be injected from the metal that manage to diffuse into the semiconductor. This is the same process as recombination in the neutral region. There may also be some edge leakage current due to the geometric enhancement of sharp metal contacts, or an interface current due to traps at the metal-semiconductor interface.
-
-\subsection{Thermionic-Emission Theory}
-\label{sec:thermionic_emission_theory}
-Thermionic emission theory as derived by Bethe assumes that the barrier height $q\Phi_{Bn}$ is much larger than the thermal energy $kT$, the plane of emission is at thermal equilibrium and maintains thermal equilibrium with the presence of a net current flow. Due to these assumptions, the barrier profile shape has negligible effect and current flow is directly dependent on the Schottky barrier height. The effective current density travelling from semiconductor to metal is then defined as the concentration of electrons with enough energy to surpass the potential barrier, travelling in the x plane:
-
-\begin{equation}
-	J_{s\rightarrow m} = \int_{E_{Fn}+q\Phi_{Bn}}^{\infty}v_{x}dn
-	\label{eq:thermionic_emission1}
-\end{equation}
-With $E_{Fn}+q\Phi_{Bn}$ being the minimum energy that is required for emission into the metal and $v_{x}$ is the carrier velocity in the direction of effective transport.
-
-The Richardson constant, \( A^{*} \), which characterises the thermionic emission process, arises from the Richardson-Dushman equation for thermionic emission.  This equation relates the current density \( J_s \) of thermionic emission to the work function \( W \) and temperature \( T \) of the emitting material:
-
-\begin{equation}
-    J_s = A T^{2} \exp\left(-\frac{W}{kT}\right)
-\end{equation}
-
-Where:
-\begin{itemize}
-    \item \( J_s \): Current density of the emission (\si{\milli\ampere\per\milli\meter\squared})
-    \item \( A \): Theoretical Richardson constant, given by \( A = \frac{4\pi e k^{2} m}{h^{3}} \), where \( m \) is the electron mass, \( e \) is the elementary charge, and \( h \) is Planck's constant. Depending on the material, this theoretical value may be adjusted by a correction factor.
-    \item \( T \): Absolute temperature (\si{\kelvin})
-    \item \( W \): Work function of the cathode material (\si{\joule} or \si{\electronvolt})
-    \item \( k \): Boltzmann constant
-\end{itemize}
-
-In practice, \( A \) can vary for different materials. For instance, in polycrystalline metals, \( A \) can range from about \SI{32}{\ampere\per\centi\meter\squared\per\kelvin\squared} to \SI{160}{\ampere\per\centi\meter\squared\per\kelvin\squared} and can vary even more widely for oxide and composite surfaces.
-
-\subsection{Diffusion Theory}
-As derived by Schottky, this theory assumes that again the barrier height $q\Phi_{Bn}$ is much larger than the thermal energy $kT$ and the effect of electron collisions wihting the depletion region through the process of diffusion is included. Carrier concentrations at $x=0$ and $x=W_{D}$ remain in equilibrium and are unaffected by the flow of current and the semiconductor is doped below a degenerate level. The current in the depletion region depends upon the local electric field and concentration gradient following the current density equation:
-\begin{equation}
-	J_{x} = J_{n} = q\left(n\mu_{n}E+D_{n}\frac{dn}{dx}\right)
-\end{equation}
-
-\subsection{Thermionic Emission Diffusion Theory}
-Crowell and Sze developed a combination of the thermionic and diffusion limited current mechanisms, derived with a bouncary condition of a thermionic recombination velocity $v_{r}$ near the metal-semiconductor junction. The diffusion of carriers is strongly influenced by the electric potential within the diffusion region, so the Schottky lowering effect of the potnetial barrier must be considered. Through the region between $x_{m}$ and $W_{D}$ the current is given by:
-\begin{equation}
-	J=n\mu_{n}\frac{dE_{Fn}}{dx}
-\end{equation}
-With the electron density at any location x:
-\begin{equation}
-	n=N_{C}e^{-\frac{E_{C}-E_{Fn}}{kT}}
-\end{equation}
-
-\subsection{Direct Tunnelling Current}
-As mentioned previously, the dominant transport process in ohmic contacts is that of direct quantum tunnelling between the metal and degenerately doped semiconductor. Tunnelling can occur more generally in the case of heavy doping and operation at low temperatures, where thermionic emission is negligible. The tunnelling current is proportional to a product of the quantum transmission coefficient, the probability of carrier occupation within the semiconductor and of an unoccupied state in the metal:
-\begin{equation}
-	J_{s\rightarrow m} = \frac{A^{**}T^{2}}{kT}\int_{E_{Fn}}^{q\Phi_{Bn}} F_{s}T\left(E\right)\left(1-F_{m}\right)dE
-\end{equation}
-Where $F_{s,m}$ are the Fermi-Dirac distribution functions for the semiconductor and metal respectively and $T\left(E\right)$ is the quantum transmission coefficient or tunnelling probability. The tunnelling probability is proportional to the width of the potential barrier at a given energy. The expression for current passing in the opposite direction $\left(m\rightarrow s\right)$ simply interchanges the Fermi-Dirac distribution functions $F_{s,m}$.
-
-\subsection{Minority-Carrier Injection}
-At a sufficiently large forward bias, the drift component of minority carriers will increase and hence increase the overall injection efficiency of the Schottky barrier diode. With both the drift and diffusion of holes, there is a total current:
-\begin{equation}
-	J_{p} = q\mu_{p}p_{n}E-qD_{p}\frac{dp_{n}}{dx}
-\end{equation}
-With the increased field due to a large majority-carrier thermionic-emission of:
-\begin{equation}
-	J_{n} = q\mu_{n}N_{D}E
-\end{equation}
-\subsection{MIS Tunnel Diode?}
-Might not be worth including this. But does discuss the injection of current through an insulator soooo...?
-\section{Barrier Height Measurements}
-\label{sec:barrier_height_measurements}
-There are four methods which are used to measure the barrier height in a metal-semiconductor contact:
-\begin{itemize}
-	\item Current-Voltage. Most common for moderately doped semiconductors.
-	\item Activation energy. Removes the requirement for knowledge of the electrically active surface area.
-	\item Capacitance-Voltage. Useful for in-homogeneously doped semiconductors. (other benefits??)
-	\item Photo-electric measurements. Another reliable determination of barrier height. 
-\end{itemize}
-\subsection{Current-Voltage Measurements}
-When a moderately doped semiconductor with a Schottky barrier is forward biased with a magnitude $V>\frac{3kT}{q}$, the current density is given by:
-\begin{equation}
-	J = A^{**}T^{2}e^{-\frac{q\Phi_{B0}}{kT}}e^{\frac{q\left(\Delta\Phi+V\right)}{kT}}
-\end{equation}
-\subsection{Activation Energy Measurements}
-One of the key advantages in determining the Schottky barrier through activation energy measurements is that no assumption of electrically active areas is required. For example, this may be the case for contacts on diamond where annealing has not formed a complete layer of titanium carbide, and only a partial contact has been formed. The opposite effect may also be the case, where the metal-semiconductor reaction roughens the surface and forms a larger electrically active contact than expected. When (eq 84???) is taken as a product with the electrically active surface area $A$:
-\begin{equation}
-	ln\left(\frac{I_{F}}{T^{2}}\right) = ln\left(AA^{**}\right)-\frac{q\left(\Phi_{Bn}-V_{F}\right)}{kT}
-\end{equation}
-
-\subsection{Capacitance-Voltage Measurements}
-When a dc bias is superimposed with a small alternating voltage, a small build up of charges will accumulate on the metal surface. This collection of charged states will induce charges of the opposite sign within the semiconductor and hence, a capacitance. This can be determined with the equation:
-\begin{equation}
-	C_{D} = \frac{\epsilon_{s}}{W_{D}} = \sqrt{\frac{q\epsilon_{s}N_{D}}{2\left(\psi_{bi}-V-\left(kt/q\right)\right)}}
-	\label{eq:capacitance_of_metal_on_doped_semi}
-\end{equation}
-Which can also be written in the form:
-\begin{equation}
-	\frac{1}{C^{2}_{D}} = \frac{2\left(\psi_{bi}-V-\left(kT/q\right)\right)}{q\epsilon_{s}N_{D}}
-	\label{eq:1/capacitance^2_of_metal_on_doped_semi}
-\end{equation}
-Where $C_{D}$ is the depletion layer capacitance per unit area, $W_{D}$ is the width of the depletion region, $\psi_{bi}$ is the built in potential and $N_{D}$ is the dopant concentration. Where $N_{D}$ is constant through the depletion region, a graph of $\frac{1}{C^{2}_{D}}$ versus voltage $V$ should yield a straight line plot. If this is not the case, then a differential capacitance method can be used to obtain the doping profile from equation for capacitance (\ref{eq:capacitance_of_metal_on_doped_semi}). This solution has the form:
-\begin{equation}
-	N_{D} = \frac{2}{q\epsilon_{s}}\left(-\frac{1}{d\left(1/C^{2}_{D}\right)/dV}\right)
-	\label{eq:ND_from_capacitance_measurements}
-\end{equation}
-Which is similar to that of a one sided p-n junction.
-
-\subsection{Photoelectric Measurements}
-When photons of light are incident upon a metal surface, a photocurrent may be generated through the photoelectric, photoemissive or photovoltaic effects. This can be used with a monochromatic light source in order to determine the barrier height.
-
-For the Schottky barrier diode, photocurrent may be generated via excitation over the barrier and through band to band excitation. For measuring the barrier height then, the only process of interest is direct excitation over the barrier. To induce this process, the wavelength of light should be in the range of $q\Phi_{Bn} < hv < E_{g}$. The essential region for light absorption is at the metal-semiconductor interface, so when the metal contact itself is illuminated, the metal film should be thin enough for the light to penetrate. When light is illuminating the semiconductor side, it will typically be transparent to the light with prior condition $hv<E_{g}$. Hence, light intensity will peak at the metal-semiconductor interface. The induced photo-current can also be collected without an applied bias.
-
-From Fowler theory, the induced photocurrent per absorbed photon as a function of the photon energy $hv$, given as the photoresponse $R$:
-\begin{equation}
-	R\propto\frac{T^{2}}{\sqrt{E_{s}-hv}}\left[\frac{x^{2}}{2}+\frac{\pi^{2}}{6}\left\{e^{-x}-\frac{e^{-2x}}{4}+\frac{e^{-3x}}{9}-...\right\}\right]
-	\label{eq:photoresponse}
-\end{equation}
-With $E_{s}$ being the sum of $hv_{0}$ (which is equal to the barrier height $q\Phi_{Bn}$) and the Fermi energy as measured from the bottom of the metal's conduction band. $x=h\left(v-v_{0}\right)/kT$. With conditions $E_{s}>>hv$ and $x>3$, equation \ref{eq:photoresponse} becomes:
-\begin{equation}
-	R\propto\left(hv-hv_{0}\right)^{2}
-	\label{eq:photoresponse_simplified}
-\end{equation}
-This allows for a plot of the square root photoresponse and photon energy, which should yield a straight line. The extrapolated value on the energy axis will then be the barrier height. This technique can be used to determine the image-force dielectric constant, as it is possible to measure the shift of the photothreshold under differing potential biases (down to zero applied bias, as previously mentioned). With a plot of $\Delta\Phi$ against $\sqrt{E_{m}}$ the dielectric constant $\left(\frac{\epsilon_{s}}{\epsilon_{0}}\right)$ can be calculated. This can also be applied in the case of varying temperature, to examine the temperature dependence of the barrier height.
-
-\section{Ohmic Contacts}
-\label{sec:ohmic_contacts}
-Defined simply as a metal-semiconductor contact with negligible junction resistance when compared to the total device resistance, good ohmic contacts are essential for devices. A parameter that could be used to describe the ohmic quality of any given contact is that of the specific contact resistance. This is defined by the reciprocal rate of change in current density with respect to voltage at an interface:
-\begin{equation}
-	R_{c}\equiv\left(\frac{dJ}{dV}\right)^{-1}_{V=0}
-	\label{eq:sze_specific_contact_resistance}
-\end{equation}
-
-\begin{equation}
-	E_{00} = \frac{q\hbar}{2}\sqrt{\frac{N}{m^{*}\epsilon_{s}}}
-	\label{eq:E00_definition}
-\end{equation}
-
-To derive a solution for this equation, it is possible to use the current-voltage relationships described in section \ref{sec:current_transport_processes}. It is typical to determine the dominant process through a comparison of the doping energy level $E_{00}$ to the thermal energy $kT$. When the doping levels are low to moderate, and/or for high temperatures $kT>>E_{00}$ [Needs a small section RE $E_{00}$ I think. Show the difference between typical diamond and other wide bandgap semiconductors] then the dominant process is that of thermionic emission with the corresponding contact resistance: 
-\begin{equation}
-	R_{c}=\frac{k}{A^{**}Tq}e^{\left(\frac{q\Phi_{Bn}}{kT}\right)}\propto e^{\left(\frac{q\Phi_{Bn}}{kT}\right)}
-	\label{eq:specific_contact_resistance_thermionic}
-\end{equation}
-In this equation with a small applied voltage, the voltage dependence of the barrier height is ignored. Hence, to reduce the specific contact resistance in this case a low barrier height (through changing the metal used in formation of contacts) is required.
-
-At higher doping levels where $E_{00}\approx kT$ thermionic field emission takes hold: [finish entering massive equation... or not?]
-\begin{equation}
-	R_{c}=\frac{k\sqrt{E_{00}} cosh\left(E_{00}/kT\right)coth\left(E_{00}/kT\right)}{A^{**}Tq\sqrt{\pi q\left(\Phi_{Bn}-\Phi_{n}\right)}}
-\end{equation}
-Where $\Phi_{n}$ is negative for a degenerate semiconductor. In this situation, tunnelling is taking place at an energy above the conduction band, at the point of maximum carrier density and tunnelling probability.
-
-At higher doping levels yet again, $E_{00}>>kT$, the case of field effect emission:
-\begin{equation}
-	R+{c}=\frac{k sin\left(\pi c_{1}kT\right)}{A^{**}\pi qT}
-	\label{eq:specific_contact_resistance_field_effect}
-\end{equation}
-With the condition of a non-negligible barrier height, good ohmic contacts will typically behave as for field effect emission in heavily doped semiconductors.
-
-In all cases, the specific contact resistance depends upon the temperature, doping concentration and barrier height, with varying sensitivity to each factor depending upon the mode of emission. The qualitative dependence on these parameters for silicon and diamond are compared in (the following figure I need to plot with matplotlib.... E00 for a full range of doping concentrations - the specific contact resistance against doping concentration. Perhaps including the incomplete ionisation of diamond will produce a different curve?? Indicate regions of TE, TFE and FE for the two materials. Perhaps also include SiC or Ge for the sake of a middle ground comparison and perhaps some more experimental data down the line.)
-
-Generally, it can be stated that for low specific contact resistances and resistivities, a high doping concentration and/or a low barrier height must be used. The case of diamond and other wide-bandgap semiconductors presents a challenge in the formation of good ohmic contacts due to the limitations in metal work functions. I.e. the lowest metal work function (perhaps quoted as Caesium with 2.14 \si{\electronvolt}  \cite{tipler:1992}) is not low enough to form a good ohmic contact. Some of the more typical metals used in contact formation are summarised in table \ref{tab:metal_work_functions_general} with one of two planes included. As the work function is highly dependent on surface cleaning and the surface orientation, values for any given metal will vary in the literature, with the table representing values for reasonably clean surfaces. The method of measurement will also cause some variation in the measured work function.
-
-For miniaturised integrated circuits, another challenge is posed by the increased current density of smaller ohmic contacts. By necessity, this requires smaller ohmic resistances and smaller contact areas with the total contact resistance:
-\begin{equation}
-    R = \frac{R_{c}}{A}
-    \label{eq:total_contact_resistance}
-\end{equation}
-Which is valid only for a uniform current density across the contact. Another significant resistance component, for the small contact case, is that of a spreading resistance, which is linked in series with the ohmic contact and is defined by:
-\begin{equation}
-    R_{sp}=\frac{\rho}{2\pi r}\tan^{-1}\left(\frac{2h}{r}\right)
-    \label{eq:spreading_resistance}
-\end{equation}
-
-As $\frac{r}{h}$ increases, $R_{sp}$ approaches the bulk resistance. Additionally, a component can be added to account for a horizontal diffusion sheet, such as for the case of a MOSFET:
-
-\begin{equation}
-    R = \frac{\sqrt{R_{diff}R_{c}}}{W}\coth\left(L\sqrt{\frac{R_{diff}}{R_{c}}}\right)
-    \label{eq:diffusion_resistance}
-\end{equation}
-
-In which $R_{diff}$ is the sheet resistance of the diffusion later. This equation accouns for the current crowding effect, in which there is a nonuniform current density through the contact, and any contributions from the sheet resistance underneath the contact. As $R_{diff} \rightarrow0$, equation \ref{eq:diffusion_resistance} will reduce to equation \ref{eq:total_contact_resistance}.
-
-\begin{table}[]
-\begin{tabular}{|l|l|l|l|}
-\hline
-Element & Plane  & $\Phi$/eV & Method \\ \hline
-Ag      & 100    & 4.64   & PE     \\ \hline
-Ag      & 110    & 4.52   & PE     \\ \hline
-Al      & 100    & 4.20   & PE     \\ \hline
-Au      & 100    & 5.47   & PE     \\ \hline
-C       & Polycr & 5.0    & CPD    \\ \hline
-Mo      & 100    & 4.53   & PE     \\ \hline
-Mo      & 110    & 4.95   & PE     \\ \hline
-Ni      & 100    & 5.22   & PE     \\ \hline
-Ni      & 110    & 5.04   & PE     \\ \hline
-Pt      & Polycr & 5.64   & PE     \\ \hline
-Pt      & 110    & 5.84   & FE     \\ \hline
-Si      & p 111  & 4.60   & PE     \\ \hline
-Ti      & Polycr & 4.33   & PE     \\ \hline
-\end{tabular}
-\caption{A table of common metals used in contact formation and other references to work function, such as that for p-type \hkl[111] silicon. Methods of measurement are defined as: PE -- Photoelectric effect, FE -- Field emission, CPD -- Contact potential difference and Polycr -- Polycrystalline sample. \cite{holzl1979}, \cite{green1969}, \cite{michaelson1977}.}
-\label{tab:metal_work_functions_general}
-\end{table}
-
-\subsection{Fermi-Level Pinning}
-For III-V compounds, photoemission spectroscopy measurements have been taken for various Schottky barriers as formed by a variety of metals. On compound semiconductors such as GaAs, GaSb and InP, it has been demonstrated that the metal work function has a negligible effect on the surface Fermi-level position. Hence, the formed Schottky barrier height is independent of the metal which is used to form it. This marks a stark contrast to the ideal condition in which a semiconductor without surface states will form a barrier as defined by the difference in the electron affinity and metal work function:
-
-\begin{equation}
-    q\Phi_{Bn0} = q\left(\Phi_{m}-\chi\right)
-    \label{eq:ideal_schottky_barrier}
-\end{equation}
-
-\part{COMSOL Semiconductor Module/ Semiconductor Device Modelling?}
-
- % Chapter title
-
-\label{ch:semiconductor} % For referencing the chapter elsewhere, use \autoref{ch:mathtest}
-
-%----------------------------------------------------------------------------------------
-
-\section{P-N Junction 1D}
-
-A simple semiconductor diode is made up of two regions with different doping: an n-type region with dominant concentration of electrons and a p-type region which has a dominant hole concentration. The anode contact connects to the p-type region and the cathode is adjacent to the n=type region. The doping type is determined by the impurities which are added to the crystal lattice, with "donor" (n-type) impurities adding additional electrons to the materials conduction band. Impurities that lack electrons are known as "acceptors" and will remove electrons from the valence band (p-type). The three essential equations for modelling a semiconductor are derived from Maxwell's equations and the Boltzmann equation for carrier transport. For a stationary problem, these equations are:
-
-\begin{equation}
-\nabla\cdot\left(\epsilon\nabla V\right) = -q\left(p-n+N_{D}^{+}-N_{A}^{-}\right)
-\end{equation}
-
-\begin{equation}
-\nabla\cdot\bm{J}_{n}=-qR_{SRH}
-\end{equation}
-
-\begin{equation}
-\nabla\cdot\bm{J}_{p}=qR_{SRH}
-\end{equation}
-
-Where $\epsilon$ is the dielectric permittivity of the semiconductor, $V$ is the electric potential, $p,n$ are the hole and electron concentrations respectively, $N_{D}^{+}$ and $N_{A}^{+}$ are the concentrations of ionised donors and acceptors, $\bm{J}_{n,p}$ are the electron and hole currents and $R_{SRH}$ is the Shockley-Read-Hall recombination rate. 
-
-The electron and hole current can be expressed in terms of $V$, $n$, and $p$ assuming an isothermal, nondegenerate semiconductor with a constant band structure:
-
-\begin{equation}
-\bm{J_{n}}=-nq\mu_{n}\nabla V+\mu_{n}k_{B}T\nabla n
-\end{equation}
-
-\begin{equation}
-\bm{J_{p}}=-pq\mu_{p}\nabla V-\mu_{p}k_{B}T\nabla n
-\end{equation}
-
-Where $\mu_{n,p}$ are the electron and hole mobilities, $k_{B}$ is the Boltzmann constant and $T$ is the absolute temperature. With this model, the carrier mobility is a complex-valued function of the temperature and the carrier concentrations.
-
-Schockley-Read-Hall recombination is a process involving traps within the "forbidden" band gap of semiconductors and is often dominant in silicon. The recombination rate due to this process is defined as:
-
-\begin{equation}
-R_{SRH} \frac{np-n_{i}^2}{\tau_{p}\left(n+n_{1}\right)+\tau_{n}\left(p+p_{1}\right)}
-\end{equation}
-
-Where $n_{i}$ is the intrinsic carrier concentration, $\tau_{n,p}$ are the carrier lifetimes and $n_{1},p_{1}$ are parameters related to the trap energy level. When the trap level is located in the middle of the band gap $n_{1}$ and $p_{1}$ are equal to $N_{i}$.
-
-The model as presented in COMSOL simulates the behaviour of a p-n junction under reverse, equilibrium and forward bias. The modelled junction is of length 5 \si{\micro\metre} with a net doping concentration of $1\times10^{15}$ \si{\per\centi\metre\cubed} for both p and n sides. A Shockley-Read-Hall recombination feature is added to the model in order to simulate recombination usually observed in indirect band gap semiconductors such as silicon, which is the material used in the model. This uses the material parameters from Kramer 1997 \cite{kramer:1997} and compares the carrier concentration profiles obtained from the computation with those obtained in the reference under different biasing conditions ($-4$ \si{\volt}, $0$ \si{\volt} and $0.5$ \si{\volt}). Two different discretization methods are used to solve the model: a Finite Element Log Formation and Finite Volume discretization, with the two methods being found to have good agreement.
-
-\section{MOSCAP 1D}
-
-This model is of a simple 1 dimensional metal=oxide-silicon capacitor (MOSCAP).
-
-The metal-silicon-oxide (MOS) structure is a fundamental building block for many silicon planar devices. Capacitance measurements of it provide a wealth of insight into the working principles of such devices. In this example model, a 1D model of a MOS capacitor (MOSCAP) is computed with both low frequency and high frequency C-V curves.
-
-This model simulates the behaviour of a MOSCAP under a linear voltage ramp between -2 and 1 \si{\volt}, with a slew rate of $10^{-3}$ \si{\volt\per\second} for low frequency and $10^{3}$ \si{\volt\per\second} for high frequency. The modeled domain has a thickness of 1 \si{\milli\metre} and the built-in silicon material data is used. The device is grounded at the right endpoint and the oxide/silicon interface is placed at the left endpoint using a dedicated thin insulator gate boundary condition. A uniform doping and Schokley-Read-Hall recombination is applied to the entire domain. A user controlled mesh is used to refine the mesh under the oxide/silicon interface. The voltage sweep is done using a stationary study step for the initial condition followed by a time dependent study step.
-\section{Finite Element Modelling}
-Finite element analysis started out as an extension of matrix methods of structural analysis, but is now used in the solving of differential equations across engineering, physics and mathematical problems. To solve a problem in which differential equations must be used, a large system may be split into smaller, finite elements. This allows for the solution of partial differential equations across a small region, then by building up a large mesh of such elements a full model can be formed. This allows for an accurate representation of more complex geometries, the inclusion of local effects and dissimilar material properties and most importantly, a simple representation of the total model. An example of a typical differential equation in use is that of:
-\begin{equation}
-	AC\frac{d^{2}f}{dx^{2}}+q=0
-\end{equation}
-This differential equation is used to describe the axial deformation of a rod where $f$ represents the axial deformation, q is the load applied, $A$ is the cross sectional area and $C$ is the coefficient of thermal conductivity. In certain cases, the minimisation of a functional may be a more readily available solution to a given problem. In cases where both a functional and differential equation is available, they are equivalent and can be derived from each other. 
-\section{General Semiconductor Module}
-
-\subsection{Physics and Assumptions}
-The semiconductor module has been designed with length scales of hundreds of nanometres in mind, as at these length scales conventional drift-diffusion approaches using partial differential equations can be used to model devices. The assumptions implicit in this module include:
-
-\begin{itemize}
-	\item The relaxation time approximation is used to describe the scattering process. This is a simplified form of the scattering probability, being elastic and isotropic.
-	\item Magnetic fields are not included in this model.
-	\item The carrier temperature is assumed to be equal to the lattice temperature and as such the diffusion of hot carriers is not properly described.
-	\item Energy bands are assumed to be parabolic. The reality is that the band structure will be significantly altered in a complex manner in the vicinity of free surfaces or grain boundaries.
-	\item Velocity overshoot and other complex time dependent conductivity phenomena are not included. 
-\end{itemize}
-
-In addition to these intrinsic assumptions, the semiconductor interface allows additional assumptions to be made to simplify the solution.
-
-\begin{itemize}
-	\item For nondegenerate semiconductors it is possible to assume a Maxwell-Boltzmann distribution for carrier energies at a given temperature, which reduces the nonlinearity of the semiconductor equations. If degenerate semiconductors are used within the model, or at lower temperatures, then it is necessary to use Fermi-Dirac statistics.
-	\item In majority carrier devices, it is ofen only necessary to solve for one of the carrier concentrations, i.e. the majority carrier. The minority carrier concentration is not relevant for device performance and so can be estimated by assumption of the mass action law.
-\end{itemize}
-
-By default, Maxwell-Boltzmann statistics are assumed by the semiconductor interface and explicitly solves for both the electron and hole concentrations.
-
-The semiconductor interface solves Poisson's equation in conjuction with continuity equations for the charge carriers. An important length scale to consider when modeling electrostatic fields in the presence of mobile carriers is the Debye length of:
-
-\begin{equation}
-	L_{d} = \sqrt{\frac{k_{B}T\epsilon_{0} \epsilon_{r}}{q^{2}N_{ion}}}
-\end{equation}
-
-Where T is the lattice temperature, $\epsilon_{0,r}$ are the permittivity of free space and relative permittivity of the semiconductor respectively, $N_{ion}$ is the concentration of ionisded donors or acceptors and q is the electron charge. The Debye length is the length scale over which the electric field decays in the presence of mobile carriers and so it is important to resolve this length scale with the mesh in semiconductor models.
-
-\subsection{Equilibrium Carrier Concentrations}
-The carrier concentrations at equilibrium are given by:
-
-\begin{equation}
-n=\int \frac{g_{c}\left(E\right)}{1+\exp\left[\left(E-E_{f}\right)/\left(k_{B}T\right)\right]}dE
-\end{equation}
-
-\begin{equation}
-p=\int \frac{g_{v}\left(E\right)}{1+\exp\left[\left(E_{f}-E_{h}\right)/\left(k_{B}T\right)\right]}dE
-\end{equation}
-
-Variables $W, W_{h}$ are defined such that $E=E_{c}+W$ and $E_{h}=E_{v}-W_{h}$. The density of states for electrons and holes is then given by:
-
-\subsection{Discretization}
-
-In the semiconductor interface, linear and logarithmic finite element and finite volume formulations are available. The shape functions that can be used are directly related to the selected formulation. The finite volume formulation uses a constant shape function, while the two finite element formulations can use either linear or quadratic shape functions. I the different fomulations the carrier concentration dependent variables (which are Nr and Ph by default) represent different quantities. The linear finite element and finite volume formulations set $Ne=N, Ph=P$, where $N$ is the electron concentration and $P$ is the hole concentration. For the logarithmic finite element formulation $Ne=ln\left(N\right), Ph=ln\left(P\right)$. 
-
-Each discretisation has advantages and disadvantages. For instance, the finite volume discretisation inherently conserves current. Hence, this will usually provide the most accurate result for the current density of the charge carriers and is used by default. To enhance numerical stability, a Scharfetter-Gummel upwinding scheme is used for the charge carrier equations Poisson's equation is discretised using a centred difference scheme. In multiphysics simulations it is important to realise that the shape functions are constant. This, fluxes cannot be evaluated using spatial derivatives of the dependent variables (e.g. expressions such as $d\left(V,x\right)$ will evaluate to zero as $V$ is represented by a constant shape function within each element). Flux quantities such as fields and currents can be evaluated and used in equations if the predefined variables in table \ref{tab:predefined_variables} are used in expressions. \ref{tab:predefined_variables}
-
-
-\begin{table}[h]
-	\begin{tabular}{|l|l|}
-		\hline
-		Name                                       & Variable/s (semi.)                 \\ \hline
-		Electric field                             & E, (Ex,Ey,Ez)                      \\ \hline
-		Electron current density                   & Jn (Jnx, Jny, Jnz)                 \\ \hline
-		Hole current density                       & Jp (Jpx, Jpy, Jpz)                 \\ \hline
-		Electron drift current density             & Jn\_drift (driftx, drifty, driftz) \\ \hline
-		Hole drift current density                 & Jp\_drift (driftx, drifty, driftz) \\ \hline
-		Electron diffusion current density         & Jn\_diff (diffx, diffy, diffz)     \\ \hline
-		Hole diffusion current density             & Jp\_diff (diffx, diffy, diffz)     \\ \hline
-		Electron thermal diffusion current density & Jn\_th (thx, thy, thz)             \\ \hline
-		Hole thermal diffusion current density     & Jp\_th (thx, thy,thz)              \\ \hline
-	\end{tabular}
-\caption{The predefined variables contained within the semiconductor module.}
-\label{tab:predefined_variables}
-\end{table}
-
-Any variables involving expressions derived directly from variables in table \ref{tab:predefined_variables} can also be used in expression. For example, the electric displacement field, semi.D or the total current semi.J.
-
-The finite element formulation will typically solve faster than the finite volume formulation. One reason for this, in an identical mesh, is that the finite element method with linear shape functions will result in fewer degrees of freedom. In 3D for tetrahedral mesh elements, the number of degrees of freedom for the finite element method with a linear shape function is around five times less than for a finite volume discretisation. In 2D, for triangular mesh elements, the number of degrees of freedom for the finite element method with a linear shape function is approximately half of that for a finite volume discretisation. It is possible to couple this to other physics interfaces and variables can be differentiated with the $d$ operator. The finite element method is an energy conserving method and hence current conservation is not implicit. Current conservation for the linear formulation is poor and this formulation is provided for reasons of backward compatibility. Current conservation in the log formulation is better, but still not as good as the finite volume discretisation. To help with numerical stability a Galerkin least-squares stabilisation method is used. This enhances the ability to achieve a converged solution, especially when using tyhe linear formulation. However, it can be preferable to disable the stabilisation as the additional numerical diffusion the technique can introduce will produce slightly unphysical results. As a result of the reduced gradients in the dependent variables obtained with the log formulation, stabilisation is not often needed when using this technique.
-
-\subsection{Impact Ionisation}
-When carriers are accelerated by high electric fields between collisions to velocities where energies are greater than the gap energy, they can dissipate enough energy during collisions to generate additional electron hole pairs. Impact ionisation is the mechanism responsible for avalanche breakdowns. The carrier generation rate due to impact ionisation is given by:
-
-\begin{equation}
-	R_{n}^{II}=R_{p}^{II}=-\frac{\alpha_{n}}{q}\left|\bm{J}_{n}\right|-\frac{\alpha_{p}}{q}\left|\bm{J}_{p}\right|
-\end{equation}
-
-For the values $\alpha_{n,p}$, the semiconductor interface allows for either a user-defined expression or the model of Okuto and Crowell \cite{okuto:1975}:
-
-\begin{equation}
-	\alpha_{n}=a_{n}\left(1+c_{n}\left(T-T_{ref}\right)\right)E_{||,n}exp\left(-\left(\frac{b_{n}\left(1+d_{n}\left(T-T_{ref}\right)\right)}{E_{||,n}}\right)^{2}\right)
-\end{equation}
-
-\begin{equation}
-	\alpha_{p}=a_{p}\left(1+c_{p}\left(T-T_{ref}\right)\right)E_{||,p}exp\left(-\left(\frac{b_{p}\left(1+d_{p}\left(T-T_{ref}\right)\right)}{E_{||,p}}\right)^{2}\right)
-\end{equation}
-
-Where $E_{||,n,p}$ are the components of electric field parallel to the electron and hole currents, $T_{ref}, a_{n,p}, b_{n,p}, d_{n,p}$ are material properties as defined for silicon, germanium, gallium arsenide and gallium phosphate in the original work \cite{okuto:1975}.
-
-\section{Boundary Conditions}
-\subsection{Metal Contacts}
-In device physics, the metal-semiconductor interface is one of the most challenging problems to model precisely. A variety of physical phenomena such as the effect of scattering, image forces, potential fluctuations, interfacial layers, interface roughness and trap assisted tunneling makes the modelling of devices complicated. In practice, the usage of boundary conditions within models has to drastically reduce the complexity.
-\subsubsection{Ideal Ohmic}
-Thus contact assumes local thermdynamic equilibrium at the contact. In practice, this is often used in nonequilibrium situations where the boundary condition imposed is no longer is physical (e.g. in a forward biased p-n junction) which is reasonable if the junction in question is located some distance from the region of interest. Since equilibrium is assumed, both the hole and electron quasi-Fermi levels are equal at the boundary. Charge neutrality at the metal boundary is also assumed, hence there is no band bending and the band diagram takes the form shown in figure [BANDS].
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{gfx/COMSOL/ideal_ohmic_bands}
-	\caption{An energy band diagram for the ohmic contact with n-type (top) and p-type (bottom) semiconductors under different biasing and temperature conditions from left to right. On the left, the semiconductor is in the reference configuration at equilibrium temperature $T_{0}$ and zero bias $V_{0}=0$. In the centre, the semiconductor temperature is raised resulting in a different band gap $E_{g}$ and electron affinity $\chi$. Hence, the energy of the conduction band edge $E_{c}$, valence band edge $E_{v}$ and Fermi energy $E_{f}$ is shifted. In these conditions the vacuum energy $E_{0}$ also changes as a result of differences in the space charge distribution in the device. In the right band diagrams, in addition to the temperature change, a bias $V_{0}$ is applied to the metal, shifting the entire band structure up in energy by $qV_{0}$ from the centre configuration.}
-	\label{fig:idealohmicbands}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/overview of design.png}
+    \caption{An overview of the laser graphitisation design, including alignment markers for potential photolithography steps and various device structures as described in this section.}
+    \label{fig:design_overview}
 \end{figure}
 
-As equilibrium is assumed, equation 3-4 [ENTRY NEEDED] is used for the carrier concentrations, in alternative form this is expressed as:
+To test the reduction of specific contact resistivity via laser processing and the preliminary concept of laser graphitised emitters, the laser graphitisation layout as shown in figure \ref{fig:design_overview} was designed. Various strategies were employed to allow for the testing of various specific features. Of particular note are the LTLM structures, CTLM structures and the emitter array seen as an array of rectangular contacts. This allowed for some redundancy in the devices, and the direct comparison between different devices. The best example of this is between the LTLM array, which is a simple rectangular arrangement of contacts with channel spacings between 2--9~\si{\micro\metre}, and the emitter arrays, which had similar rectangular contacts to the LTLM array, but with protruding emitters between the two contacts. The comparison between planar contacts and these geometrically enhanced contacts can then be compared to look for signs of field effect emission due to the sharp emitter features.
 
-\begin{equation}
-n_{eq}=\gamma_{n}N_{c}\exp\left(-\frac{E_{c}-E_{f}}{k_{B}T}\right)=\gamma_{n}n_{i,eff}\exp\left(\frac{E_{f}-E_{i}}{k_{B}T}\right)
-\end{equation}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/zoom1 LTLM area.png}
+    \caption{A close up of the LTLM design, including scale measurements of relevant feature sizes for clarity.}
+    \label{fig:design_ltlm }
+\end{figure}
 
-\begin{equation}
-p_{eq}=\gamma_{p}N_{v}\exp\left(-\frac{E_{f}-E_{v}}{k_{B}T}\right)=\gamma_{p}n_{i,eff}\exp\left(\frac{E_{i}-E-{f}}{k_{B}T}\right)
-\end{equation}
+\section{Laser Graphitisation Fabrication}
+Laser graphitisation of diamond surfaces allows for significant advancement in the fabrication of diamond-based electronic devices. This technique leverages focused laser beams to convert specific regions of the diamond substrate into graphitic material, facilitating the creation of conductive pathways and contacts essential for device functionality. Precise control over the graphitisation process enables the fabrication of complex structures, such as wires and contact pads, with tailored electrical properties. For a full review of this technique, see chapter \ref{sec:laser}. The laser fabrication of the following sample as tested in this chapter was performed at Oxford University in collaboration with Patrick Salter and Ravi Shivaraman, using the mask designed by the candidate.
 
-Where equation 74 [ANOTHER] is used to derive the expression for $n$ and $p$ in terms of the effective intrinsic carrier concentration with the charge neutrality condition:
+\subsection{Laser Fabrication Processing}
+The laser graphitisation process employs a state-of-the-art Pharos laser system, operating at a wavelength of 515~\si{\nano\metre}. This system is characterised by its high repetition rate of 10~\si{\kilo\hertz}, which is crucial for achieving consistent graphitisation across the targeted areas. The choice of objective lens and the adjustment of laser pulse energy play significant roles in defining the morphology and conductivity of the graphitised structures.
 
-\begin{equation}
-	n_{eq}-p_{eq}+N_{a}^{-}-N_{d}^{+}=0
-\end{equation}
+\subsubsection{Laser Parameters and Setup} 
+The fabrication of graphitic wires and contact pads utilised objective lenses with numerical apertures (NA) of 0.75 and 0.5, respectively. The higher pulse energy facilitated by the 0.75 NA objective lens is preferred for creating wider wires, while the 0.5 NA lens is suited for processing the contact pads. Notably, the sequence in which these components are fabricated; starting with the contact pads before the wires, was observed during initial processing to influence the wire morphology, particularly near the pads. This suggests that the local thermal and structural changes induced by the pad fabrication can affect subsequent graphitisation steps.
 
-Continues...
-\subsubsection{Ideal Schottky}
-An ideal Schottky contact applies a simplified model based on the approach introduced by Crowell and Sze \cite{crowell:1966}. The semiconductor is assumed to be nondenerate as metal-degenerate semiconductor contacts are generally represented with the ideal ohmic boundary condition.
+\subsubsection{Calibration of Pulse Energy} 
+The precise calibration of pulse energy is critical for optimising the graphitisation process. Although initial settings were based on angular adjustments of the waveplate, detailed calibration is necessary to correlate these settings with specific pulse energies. This calibration ensures that the laser energy delivered to the diamond surface is precisely controlled, minimising damage to surrounding areas while maximising the quality and conductivity of the graphitic structures.
 
-The contact acts as a source or sink for carriers and such can be treated as a surface recombination mechanism:
+\subsubsection{Significance of Laser Processing Parameters} 
+\label{subsubsec:significance_of_laser_processing_parameters}
+The choice of laser parameters, including the repetition rate, pulse energy, and objective lens, directly impacts the efficiency and outcome of the graphitisation process. These parameters determine the depth, width, and electrical properties of the graphitic structures, influencing the performance of the final diamond-based devices. It is also important to note that the sample used here is different to that found in previous studies \cite{sun2014}, \cite{salter2024}, the samples are \hkl(111) oriented HPHT substrates, with a highly phosphorous doped surface layer of $\sim1.2$~\si{\micro\metre} thickness, whereas work in the literature is performed on \hkl(100) oriented, undoped CVD substrates.
 
-\begin{equation}
-	\bm{J}_{n}\cdot\bm{n}=-qv_{n}\left(n-n_{0}\right)
-\end{equation}
-\begin{equation}
-\bm{J}_{p}\cdot\bm{n}=qv_{p}\left(p-p_{0}\right)
-\end{equation}
+This subsection has outlined the foundational aspects of the laser graphitisation fabrication process, highlighting the critical role of laser parameters in achieving desired structural and electrical characteristics. Further characterisation techniques, such as AFM, PL, and Raman spectroscopy, provide deeper insights into the quality and properties of the graphitised diamond, which will be discussed in the subsequent sections.
 
-Where $\bm{n}$ is the outward normal of the semiconducting domain, $v_{n,p}$ are the recombination velocities for electrons and holes, $n,p_{0}$ are the quasi-equilibrium carrier densities, i.e. the carrier densities obtained if it were possible to reach equilibrium at the  contact without altering the local band structure. $n,p_{0}$ are then defined as though the Fermi level of the semiconductor at the boundary is equal to that of the metal. 
-\subsection{Thin Insulating Gates}
-\subsection{Continuity/Heterojunctions}
-\subsection{Boundary Conditions for Charge Conservation}
-\subsection{Boundary Conditions for the Density-Gradient Formulation}
+\subsection{AFM Characterisation}
+\label{subsec:afm_characterisation}
+To characterise the surface topology of the laser graphitised devices, AFM was used to provide broad overviews of the resulting structures following the fabrication at Oxford. 
 
-\subsection{Fowler Nordheim Tunneling}
-Fowler-Nordheim (FN) tunneling is a quantum mechanical phenomenon in which electrons tunnel through a potential barrier, typically from a metal into a vacuum or another material. FN electron emission refers specifically to the case where electrons tunnel from a metal into a vacuum under the influence of a strong electric field.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/21 meh 4k_white_annotated_downscaled.jpg}
+    \caption{A large area AFM scan of the LTLM channel that was designed to have a spacing of 2~\si{\micro\metre}.}
+    \label{fig:afm_21_big}
+\end{figure}
 
-The derivation of FN electron emission involves considering the energy barrier that the electrons must overcome in order to escape from the metal surface. This barrier is caused by the work function of the metal, which is the energy required to remove an electron from the surface. In the presence of a strong electric field, the electrons are accelerated towards the surface and can gain enough energy to overcome the work function barrier.
+Figure \ref{fig:afm_21_big} shows a broad scan of the LTLM contacts that were designed to have a spacing of 2~\si{\micro\metre}. The top left corner of this scan experienced a systematic error, visible as a raised blur. Preliminary low resolution scans of this region did not contain this error, and it can hence be identified as a scanning error unrelated to the sample. Otherwise, the scan managed to achieve a generally high level of detail, despite the 90~\si{\micro\metre} square area being close to the maximum scan area for the XE-150 system. Of note is the slightly inconsistent channel length between the two rectangular contacts, presented in the exact centre of the figure. At the top and bottom of the contacts, marked by the green capsules, the channel is visibly squeezed in, with the rest of the channel presenting a thicker separation. It is also possible to see that the laser graphitisation has etched down into the diamond surface on the order of 1~\si{\micro\metre}. This presented a concern that the laser graphitisation process may have etched through the active, phosphorous doped layer of $1.2$~\si{\micro\metre}, with thin graphite walls on the edges of the ablated regions providing electrical contact, in contrast to the intended block of graphitic material in full proximity to the phosphorous doped channel.
 
-To derive the FN equation, we start with the Schrödinger equation for the wave function of the electrons in the metal, which is given by:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/bone_scan_whiteh_downscaled.jpg}
+    \caption{A large area AFM scan of the wider graphitised surface wire, with adjacent contacts for emitter array testing.}
+    \label{fig:afm_bone}
+\end{figure}
 
-$ -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi(x) = E\psi(x) $
+Figure \ref{fig:afm_bone} displays a portion of the control surface wire that was included in the graphitisation design for calibration purposes. This surface wire had a designed thickness of 14~\si{\micro\metre}, to allow for preliminary testing of the written graphite resistivity. While this large scale AFM scan suffers from some noise in the centre of the scan region, it does provide another view of the as written structures, and how they deviate from the design with specific topological features apparent on the sides of the contact wires. The laser written contacts are observed to be up to approximately 2~\si{\micro\metre} deep relative to the diamond surface, with steep walls at the side of the written trenches.
+\clearpage
+\subsubsection{Trench Wall Steepness and AFM Tip Profile}
+\label{subsubsec:trench_wall_steepness}
 
-where $\hbar$ is the reduced Planck constant, $m$ is the mass of the electron, $\psi(x)$ is the wave function, $V(x)$ is the potential energy at position $x$, and $E$ is the total energy of the electron.
+\begin{wrapfigure}{r}{0.5\textwidth} % 'r' for right, 'l' for left; and the width of the figure.
+  \centering
+  \includegraphics[width=0.48\textwidth]{Chapter7/Figs/Raster/ACTA tip.png}
+  \caption{An SEM scan of a typical ACTA tip, as provided in the technical specifications sheet by Applied NanoStructures Inc.}
+  \label{fig:acta_tip}
+\end{wrapfigure}
 
-We assume that the potential energy $V(x)$ can be approximated by a rectangular barrier of height $U_0$ and width $a$, where $U_0$ is the work function of the metal. We also assume that the electric field is parallel to the surface of the metal, so that the potential energy can be written as:
+It is important to note one detail in particular of the AFM scans, that of the graphitised trench steepness, or the profile of the trench walls. For the purpose of examining the large area AFM scans, it is necessary to consider more precisely the observed steepness of the written contacts and the possible impact of the AFM tip itself. Figure \ref{fig:acta_tip} shows a typical ACTA probe as were used in these scans, utilising a rectangular Si cantilever, a pyramidal tip of height $14$--$16$~\si{\micro\metre} and radius of curvature $6$~\si{\micro\metre}. The exact dimensions of the AFM tip may differ from probe to probe, but the pyramidal tip may have had some impact on the observed steepness of etched trenches due to the widening of the base away from the tip.
 
-$ V(x) = \begin{cases} U_0 &\text{if } 0 < x < a \ 0 &\text{otherwise} \end{cases} $
+In NC-AFM, D-AFM or C-AFM, when the tip passes from the diamond surface into the trench, it will quickly descend, with the rate of descent determined primarily by the chosen drive in the Z-scanner. This is then recorded as an incline and less steep wall, with the exact slope being determined by the scan rate if the tip is in relative free-fall after leaving the diamond surface. Equally, when the tip is instead passing from the trench and encounters the trench wall, it may detect the wall itself well beyond the point of the tip coming into contact, due to the pyramidal base meeting the wall first. The piezoelectric system will hence raise the tip, as it detects the side wall with the pyramidal base as for the tip. In this situation, the scan rate may also lead to the risk of direct collision between the pyramidal base and the sidewall, ultimately leading to damage of the AFM tip.
 
-Next, we assume that the wave function can be written as a product of a plane wave and a localized function:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/jet_legend_um.png}
+    \caption{A comparison of three different NC-AFM scan rates on a laser graphitised trench structure. The data are planarised based on the first and last data points, to represent the estimated diamond surface level.}
+    \label{fig:afm_scan_rate_small}
+\end{figure}
 
-$ \psi(x) = \frac{1}{\sqrt{L}} e^{ikx} f(x) $
+Figure \ref{fig:afm_scan_rate_small} has a few notable features which demonstrate this process when using NC-AFM. First, all three scan rates have distinct peaks and troughs as they pass through the laser graphitised channels. The sharp, triangular troughs perhaps directly reflect the triangular AFM tip in action when it meets a sharp drop in the z-axis. Second, it is clear that the direction of the scan impacts the observed edges of the graphitised trenches. In this figure, the scan is passing from the left to the right. While the first trench appears to have a relatively low slope, with agreement between all three scan rates, the descent into the second trench has a notable discrepancy between the two lower scan rates and the highest included scan rate of $15$~\si{\micro\metre\per\second}. In contrast, the walls as seen by the ascending AFM tip are in relative agreement, as they all encounter the wall and must ascend very quickly to ensure that the tip does not impact the wall. It is also notable that the observed trench depth decreases as a function of the AFM scan rate, indicating that at the lowest scan rates the system is better recognising the correct altitude of the tip, as it has time to adjust based on the specific features within the channels.
 
-where $L$ is the length of the metal, $k$ is the wave vector of the electron, and $f(x)$ is a localized function that describes the probability of finding the electron near the surface.
+\subsubsection{Further AFM Scans}
+\label{subsubsec:further_afm_scans}
 
-Substituting this wave function into the Schrödinger equation and solving for $f(x)$ yields:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/AF emitter array afm.jpg}
+    \caption{A large area AFM scan of emitter array AF that was used for electrical characterisation.}
+    \label{fig:afm_af_large}
+\end{figure}
 
-$ f(x) = \begin{cases} A e^{-\kappa x} &\text{if } 0 < x < a \ B e^{qx} &\text{otherwise} \end{cases} $
+Figure \ref{fig:afm_af_large} shows a large area AFM scan that was taken to examine the effective topology of an emitter array type structure as written via laser graphitisation. In this figure, almost the entirety of contact A (top left) is visible, with contact F directly below (bottom left). In-between these two contacts, extending downwards from contact A, the beginnings of the laser written wire structures are just about visible as depressions in the topology. This also provides another general view of the laser writing process and the sometimes inconsistent structures that are written on the diamond surface. In some places, there are very noticeable protrusions from the sidewalls into the otherwise rectangular etched contact structures. As this is purely a topological scan, this hence displays a lack of ablation in these regions, perhaps due to a lack of graphitisation processes, lower laser absorption, or other changes in the writing process. Similarly, some areas within the contact structures appear to have a greater depth than the majority of written area, perhaps due to a greater absorption of laser power in these specific regions, or perhaps more readily graphitised and subsequently ablated diamond.
 
-where $\kappa$ and $q$ are constants given by:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/af_cropped_emitters.jpg}
+    \caption{A cropped AFM scan of emitter array AF that was used for electrical characterisation.}
+    \label{fig:afm_af_crop}
+\end{figure}
 
-$ \kappa = \frac{\sqrt{2m(U_0-E)}}{\hbar} \qquad q = \frac{\sqrt{2mE}}{\hbar} $
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{Chapter7/Figs/Raster/af_emitter_design1.png}
+    \caption{A cropped view of the AF emitter array design, with feature size measurements provided.}
+    \label{fig:afm_af_design}
+\end{figure}
 
-and $A$ and $B$ are constants determined by the boundary conditions.
+For clarity, the region between contacts A (upper) and F (lower) is cropped down and expanded in figure \ref{fig:afm_af_crop}. When compared directly with the designed array in figure \ref{fig:afm_af_design}, the topology does not directly reveal the presence of 0.8~\si{\micro\metre} width emitter wires extending down towards contact F. However, it is possible to see what may be the very start of all but the two outer emitter wires, with notable triangular depressions extending nearly as deep as the larger width contact structures.
 
-To calculate the probability of tunneling through the barrier, we need to find the transmission coefficient $T$, which is the probability that the electron will tunnel through the barrier and emerge in the vacuum. This coefficient can be calculated using the WKB approximation, which assumes that the wave function is exponentially damped in the barrier region and that the transmission probability is proportional to the square of the amplitude of the transmitted wave.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/CH_cropped.jpg}
+    \caption{A cropped AFM scan of the CH emitter array, with scan direction parallel to the emitter wires (y-axis).}
+    \label{fig:afm_ch_array}
+\end{figure}
 
-The transmission coefficient is given by:
+Figure \ref{fig:afm_ch_array} shows another of the emitter array structures that were fabricated on the diamond surface. In contrast to the unclear topology observed with array AF, array CH appears to clearly demonstrate the presence of ablated diamond, and hence the fabrication of emitter wires leading down from contact C into the channel towards contact H. As observed in the wider AFM scans, the intended rectangular contact design for contact H in particular displays some deformation, with notable incongruities along the top of the graphitised region. The success of this AFM scan in displaying topographical results may be attributed to the y-axis scan direction, which is the fast direction. Based on the general observation from scan rate testing that higher scan rates will tend to show a lower slope of descent, and a higher angle of ascent, one clear practical approach to accurately detecting sub-micron thickness graphitised wires is to scan along the length of the emitter, rather than across the width. This ensures that the tip does not need to descend into the emitter channel, and instead as it passes down from the contact region, it will tend to only require a raised elevation as it progresses. When running in the reverse direction (up from contact H), again only one clear descent is necessary to enter the emitter channel, where the tip then remains as it passes down the channel. Hence, the slow scan rate direction is then across the width of the emitters, and is best able to detect any change in topology. A further detail with this approach is that this requires a suitable pixel density, as the number of pixels across the width of the emitter channel directly translates to the number of points along the length of the emitter where the tip will travel, measuring the depth of ablated material. Hence, in this example with a fast scan rate of 7.5~\si{\micro\metre\per\second} and a raw scan size of 62~\si{\micro\metre} x 15~\si{\micro\metre}, to observe emitter widths of 0.8~\si{\micro\metre}, the effective pixel width must be below 0.4~\si{\micro\metre} to ensure that the AFM tip does indeed enter the graphitised emitter channel, in a near central location. For this scan a pixel width of $\sim0.24$~\si{\micro\metre} appears to have been sufficient to positively identify ablation related to the formation of graphitised emitters, especially combined with the slow scan rate direction and the top-down AFM tip pass scan direction.
 
-$ T = e^{-2\gamma} $
+The design of emitter array CH was otherwise very similar to AF, with 10 emitter cathodes of width 0.8~\si{\micro\metre} spaced 4.2~\si{\micro\metre} apart across the 60~\si{\micro\metre} contact structure (C). The only difference was in the cathode-anode spacing, due to a slight shortening of the emitter wire, which in the case of AF was 2~\si{\micro\metre}, and for CH was 2.5~\si{\micro\metre}. Preliminary low resolution AFM scans indicated that array CH was one of the clearest examples of the intended emitter structure, and so this was selected for electrical characterisation alongside AF.
 
-where $\gamma$ is the tunneling attenuation factor, given by:
+\subsection{Fluorescence Characterisation}
+\label{subsec:fluorescence_characterisation}
 
-$ \gamma = \frac{1}{\hbar} \int_{x_1}^{x_2} \sqrt{2m(U(x)-E)},dx $
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/ESID_rotated_downscaled_further.jpg}
+    \caption{An overview of the laser graphitised structure as seen using a backlit 488~\si{\nano\metre} light source and mapping with a confocal microscope.}
+    \label{fig:bio_esid}
+\end{figure}
 
-\section{Introduction to Finite Element Method in Electronic Device Modeling}
+One possible source of material characterisation is that of fluorescence. Figure \ref{fig:bio_esid} shows the optical overview provided by the Zeiss LSM 800 system, providing a grouped map of confocal scans that allows for near-diffraction-limited imaging across the entirety of the laser-written structures. The images provided by this system allow for good optical comparisons with the topological AFM measurements, with the change in observed 488~\si{\nano\metre} absorbance due to the graphitisation or amorphisation of carbon perhaps providing a more reliable picture of how well the fabrication of the thinnest laser treated features have formed. Further to this, diamond fluorescence centres offer a unique examination of the composition of diamond defects. In particular, it should be expected that HPHT samples such as those used for the substrates in the current work will have a large concentration of singly substitutional nitrogen, aka C-centres. This imparts the deep yellow-orange colour as is typical for HPHT samples when seen by the naked eye, and is a substantial factor in the characteristic fluorescence of HPHT grown diamonds. 
 
-\subsection{Overview of Finite Element Method}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/FL_overview.jpg}
+    \caption{A confocal microscope mapping overview of the laser written structures as seen using a backlit 488~\si{\nano\metre} light source. The green false colour is provided by fluorescence using an excitation laser of 408~\si{\nano\metre}.}
+    \label{fig:fl_overview}
+\end{figure}
 
-The finite element method (FEM) is a powerful numerical technique used to solve complex engineering problems, including those related to electronic device modeling. In particular, FEM has become increasingly important for modeling the behavior of wide band gap semiconductors such as diamond.
+Figure \ref{fig:fl_overview} shows the overlay of a false colour (green) fluorescence scan with excitation laser 408~\si{\nano\metre} onto the original 488~\si{\nano\metre} absorption imaging from figure \ref{fig:bio_esid}. A few observations can be made regarding this experiment, beginning with the clear background fluorescence throughout the sample. This is due to the substrate itself, as is expected for a typical HPHT sample \cite{eaton2017, zhao2023}. However, while the background fluorescence has a reasonably steady profile, there are significant deviations visible. 
 
-FEM involves dividing the problem domain into a finite number of smaller elements, each represented by a set of equations describing its behavior. By assembling these equations for all the elements, the overall behavior of the system can be accurately approximated. This approach is particularly well-suited for modeling the unique properties of diamond-based electronic devices.
+\subsubsection{Source of Fluorescence}
+\label{subsubsec:source_of_fluorescence}
+During the setup of the fluorescence imaging shown in this section, a sweep of the fluorescence emission spectrum was performed by utilising the range of colour filters available in the Zeiss LSM 800 system. The available colour filters thus provided an estimate of the wavelength of fluorescence emission within 20~\si{\nano\metre} ranges, and showed that the most significant wavelength detection was within the 500--520~\si{\nano\metre} range. The exact defects responsible for the fluorescence that is concentrated on the laser processed portions cannot be determined precisely with the collected data presented here. The exact defect emission wavelengths can differ due to temperature differences, crystal strain and excitation wavelength, making exact identification difficult even under ideal circumstances \cite{Jones2020} though more recent applications of machine learning statistical methods allow for much lower error rates \cite{Hardman2022}. 
 
-\subsection{Advantages of Finite Element Method in Modeling Wide Band Gap Semiconductors}
+Despite the challenge in defect identification, one possibility that must be considered for the observed regions of intense fluorescence at the edges of laser processing is that of etching through the phosphorous doped surface layer to allow for more light emission from the substrate underneath. This is unlikely, as the AFM appears to show an inverse correlation with the fluorescent laser processed diamond and the height. That is to say that the regions which display discolouration (darkening) and hence an increased concentration of amorphous carbon without deep etching through the phosphorous doped layer also appear to have fluorescent regions in certain locations.
 
-The use of FEM in electronic device modeling offers several advantages for the analysis of wide band gap semiconductors. These materials have unique properties that require careful consideration in modeling, such as high breakdown voltages and large thermal conductivity. FEM allows for a more precise and accurate representation of these properties in the simulation.
+The incorporation of nitrogen into the HPHT grown substrate in the absence of a nitrogen getter is largely dependent upon growth facets, with the growth sectors \hkl{111} containing the highest concentrations of nitrogen \cite{kanda2000}. This leads to a clear pattern of colour corresponding to a change in optically active defects, with the sample used for laser graphitisation in this case being no exception to this growth process. A notable observation from figure \ref{fig:fl_overview} was that of a relatively uniform background fluorescence, alongside the non-uniform, concentrated fluorescence of the laser processed devices. This also implies that the larger concentration of C centres leading to visible colouration of growth facets has not altered the concentration or distribution of fluorescing colour centres within the diamond, though the possibility of fluorescence being due to organic molecules etc cannot be excluded entirely based on this analysis alone. 
 
-Additionally, FEM provides a flexible approach for modeling complex geometries and boundary conditions, which is often required in electronic device design. This allows for more comprehensive analysis of the behavior of the system under different operating conditions and scenarios.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Defect Type} & \textbf{Excitation (nm)} & \textbf{Fluorescence (nm)} \\
+\hline
+N3V & 365 (LW) & 415,  440 (1) \\
+H3 (NVN$^{0}$) & 365 (LW) & 503, 530 (1), 510 (3,4) \\
+H4 (N$_{4}$V$_{2}$) & 365 (LW) & 496, 520 (1,3) \\
+480 nm band & 365 (LW), varies & 480, varies (1), $\sim$540 (3) \\
+NV\textsuperscript{0} & 532 & 575 (ZPL) (1,2) \\
+NV\textsuperscript{-} & 532 & 637 (ZPL) (1,2) \\
+Unknown & Not specified & 370-380 (Newly observed) (2) \\
+3H Split interstitial $\langle100\rangle$ & Not specified & 504--510, 532 (Paired bands) (2,5) \\
+\hline
+\end{tabular}
 
-Overall, the finite element method has become an essential tool for modeling diamond-based electronic devices and other wide band gap semiconductors, allowing for a more accurate and comprehensive understanding of their behavior and potential applications.
+\caption{Overview of defects in HPHT diamonds, excitation wavelengths (long wave LW, short wave SW), and specific fluorescence wavelengths as discussed in (1) \cite{eaton2017}, (2) \cite{burachenko2021}, (3) \cite{shigley2013}, (4) \cite{shenderova2019}, (5) \cite{Hardman2022}.}
+\label{tab:fl_defects}
+\end{table}
 
-% I remain unconvinced by the general structure of this chapter... the metal contacts/numerical methods is not really on display... I need to come back to this and restructure etc.
+Table \ref{tab:fl_defects} provides a general overview of defects observed in diamond fluorescence spectroscopy. This represents only a small sub-sample of the many identified fluorescent defects and a couple of unidentified defects to help illustrate the number of unknowns within this spectroscopic analysis. While effort has been made to associate the observed fluorescence wavelength with the excitation wavelength, this is a parameter which is less commonly reported in full, and so the usage of a 408~\si{\nano\metre} laser does complicate the direct comparison to literature values. Of particular note for HPHT samples is the general identification of fluorescence when exposed to SW-UV \cite{eaton2017, shigley2013}, in contrast to the LW dependent fluorescence of natural diamonds. Identification of the exact colour centres responsible for this fluorescence varies from sample to sample, however NV centres of various charge states are the most likely candidate for the HPHT samples used in this work. Additional defects which should not have appreciable concentrations are included to give a broader overview of diamond fluorescence, with the H3 aggregate in particular providing one potential colour centre in the range observed by the spectroscopic estimate provided with the Zeiss LSM 800 system. This is despite the expectation of a lack of nitrogen aggregation in typical \hkl(111) HPHT diamond due to the growth process itself \cite{Burns1999}. Another possibility is the unintentional introduction of NV colour centres via laser processing \cite{chen2016}, which may then be possible to see around laser processing for device manufacturing. 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[t]{0.47\textwidth}
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/optical front light.jpg}
+    \caption{Typical frontal white LED illumination.}
+    \label{fig:G_front}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.47\textwidth}
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/optical back light.jpg}
+    \caption{Back-lighting provided by a RGB array.}
+    \label{fig:G_back}
+\end{subfigure}
+
+\vspace{1em} % this will add some vertical space between the rows
+
+\begin{subfigure}[t]{0.47\textwidth}
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/optical front light overlay.jpg}
+    \caption{Frontal illumination and fluorescence overlay.}
+    \label{fig:G_front_overlay}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.47\textwidth}
+    \includegraphics[width=\textwidth]{Chapter7/Figs/Raster/optical back light overlay.jpg}
+    \caption{Back-lighting and fluorescence overlay.}
+    \label{fig:G_back_overlay}
+\end{subfigure}
+\caption{Sample G as seen with a 3.6X magnification optical microscope, either direct front facing light or back-lighting, and the fluorescence imaging overlaid on these two images of differing lighting.}
+\label{fig:G_illuminations}
+\end{figure}
+
+Figure \ref{fig:G_illuminations} includes two different approaches to taking optical images of the sample at a macroscopic scale, to demonstrate the visually apparent growth sectors within the HPHT sample. Back-lighting has a significant impact on the clarity and colour of the different growth sectors, as seen in figures \ref{fig:G_back}, \ref{fig:G_back_overlay}. In particular, a change in the substrate background colour can be observed near the top of the laser processed region, and it is possible to pick out the differing growth regions from the HPHT seed crystal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Chapter7/Figs/Raster/48MP white 5 aperture graphite focus_crop_annotated 1_low.jpg}
+    \caption{An annotated version of the back-lit optical microscope image to highlight growth sectors and the significant change in colouration running through the laser processed region.}
+    \label{fig:G_annotated}
+\end{figure}
+
+Figure \ref{fig:G_annotated} provides an annotated form of figure \ref{fig:G_back}, to clarify the relevant growth sectors and also highlight the distinct change in colour centres that is observed across line A. Comparisons to the fluorescence reveal that the background fluorescence does not change significantly in density despite this change in absorbed/transmitted light.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Chapter7/Figs/Raster/FL_crop 3_low_annotated.jpg}
+    \caption{A section of the fluorescence microscopy.}
+    \label{fig:fl_crop3}
+\end{figure}
+
+In figure \ref{fig:fl_crop3}, the section around line A from figure \ref{fig:G_annotated} is presented to highlight the lack of background growth sector specificity in the observed, relatively constant background fluorescence. The estimated location of the optically observed growth sector change and subsequent change in nitrogen content is indicated by line A.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Chapter7/Figs/Raster/FL_crop 2_low.jpg}
+    \caption{A cropped down form of the fluorescent track only, demonstrating the non-uniformity of fluorescence concentrations.}
+    \label{fig:fl_crop2}
+\end{figure}
+
+Figure \ref{fig:fl_crop2} takes a closer look at the laser processed region of the sample, with only the fluorescence track from the confocal microscopy represented in this image. Note that while the effective spectroscopic analysis of colour filtering did reveal a fluorescence peak in the region of 500--520~\si{\nano\metre}, the green colouration of the fluorescence is a false colour applied to all detected fluorescence used to aid in contrast and the actual colouring may differ. Some fluorescence appears to be present on the surface of the diamond sample, marked by the red circles. In select locations it appears to be on the edge of the laser processed material and yet it is also on the unaltered diamond surface. Due to this inconsistency, it is assumed that this fluorescence is neither due to the substrate or the laser processing, and is likely caused by organic surface contamination despite solvent cleaning steps.
+
+\subsection{Raman Characterisation}
+\label{subsec:raman_characterisation}
+\begin{table}[ht]
+\centering
+\begin{tabular}{ccc}
+\hline
+Position (cm$^{-1}$) & Typical FWHM (cm$^{-1}$) & Assignment \\ \hline
+1332                 & 5--10                    & first-order diamond Raman line \\
+1355                 & 250                      & $sp^2$ (D peak) \\
+1575                 & 100                      & $sp^2$ (G peak) \\ \hline
+\end{tabular}
+\caption{Raman peaks of interest in diamond and carbon related materials \cite{prawer2004, Tuinstra1970}.}
+\label{tab:raman_peaks}
+\end{table}
+
+As outlined in section \ref{subsubsec:raman}, raman microscopy provides an effective tool for examining the composition of diamond samples. Table \ref{tab:raman_peaks} summarises the relevant peaks of interest for diamond, with the general deconvolution of CVD diamond raman spectra into a diamond line and the D or G modes of amorphous carbon. The relative intensity of diamond to D or G signals is strongly dependent upon excitation wavelength, with the exact mechanisms behind this likely linked to resonance enhancement of the sp$^{3}$ component and decreasing resonance in the sp$^{2}$ component \cite{prawer2004}. Another noteworthy point on excitation wavelength is that the typical rising background seen with excitation sources such as the green argon ion laser at 514.5~\si{\nano\metre} is commonly attributed to strong photoluminescence from nitrogen-vacancy defects \cite{Filik2005}. The laser wavelengths used can be varied depending upon the application, but background subtraction allows for visible peaks even in the case of high background photoluminescence. A laser wavelength of 532~\si{\nano\metre} was used with the LabRam HR-800 Jobin Yvon at the SAgE analytical facility for the purposes of characterising the laser processed device structures and heavily phosphorous doped surface layer. 
+
+One other relevant consideration for raman spectroscopy of samples which have two components, such as amorphous carbon, is the relative polarisability of the components. $\pi$ bonds formed by sp$^{2}$ hybridised carbons have a higher polarisability than that of the $\sigma$ bonds within sp$^{3}$ hybridised carbon, which results in a larger raman cross-section \cite{Zhang2022}. Additionally, $\pi$ bonds are resonantly enhanced with visible excitation lasers while $\sigma$ bonds are not. This tends to lead to a dominance of sp$^{2}$ signal in samples where even low ($\sim20$\%) fractions of sp$^{2}$ material is present \cite{Ferrari2004}. 
+To summarise, for single crystal diamond the position and FWHM of the diamond line, and relative intensity of the diamond line to the G and D peaks are used as crude measures of crystallinity \cite{Bennett2024}. This is due to single crystal diamond only displaying the first order diamond line while grain boundaries in polycrystalline films will produce varying intensities of D and G peaks depending upon the grain sizes \cite{Bachmann1994}. At the extreme of pure graphite, only the crystalline G peak remains, while in all other forms of graphitic materials the disorder D peak appears \cite{Tuinstra1970}. 
+
+\subsubsection{Amorphous Carbon}
+Amorphous carbon (a-C) is made up of unstructured mixtures of sp$^{3}$ and sp$^{2}$ hybridised carbon. The properties of such material is dependent upon the ratio of sp$^{3}$ and sp$^{2}$ bonding, with amorphous carbon films of high sp$^{3}$ content forming a harder material which is more transparent and of higher resistivity than of materials with high sp$^{2}$ content \cite{Suzuki20042}. Films of high sp$^{3}$ content are also highly stressed \cite{Marques2000}, and are hence more likely to delaminate from the substrate surface. Amorphous carbon films can also be hydrogenated, which is quite common for CVD grown films \cite{Robertson1996}. These hydrogenated amorphous carbon films are softer, more stable, and will tend to be more transparent than hydrogen-free films. There is also a variable range hopping conduction mechanism between clusters of hydrogenated sp$^{2}$ carbon in amorphous carbon films which may represent a possible conductive path in the case of laser processed diamond \cite{Tomidokoro2021}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Chapter7/Figs/Raster/raman_both.png}
+    \caption{Relative intensities of raman spectra for untreated and laser-treated portions of sample G. The spectra are normalised such that the sp$^{3}$ peak for both examples is set to 1.}
+    \label{fig:raman_both}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{cccc}
+\hline
+Material Type & Raman Shift (\si{\per\centi\metre}) & Relative Intensity & FWHM (\si{\per\centi\metre}) \\ \hline
+Non-Processed & 1334 & 1.00 & 2.24 \\ 
+Non-Processed & 1554.3 & 0.08 & 63.81\\
+Laser Processed & 1333.6 & 0.99 & 2.28 \\
+Laser Processed & 1582.2 & 0.12 & 29.53 \\ \hline
+\end{tabular}
+\caption{Raman spectrum data comparing non-processed and laser-processed materials.}
+\label{tab:raman_data_combined}
+\end{table}
+
+In figure \ref{fig:raman_both}, two different raman spectra are plotted, which represent a portion of the sample that has been laser processed, and another region which was well away from any laser processing on the phosphorous doped diamond surface. The exact location used for the laser processed region is indicated by the red square in figure \ref{fig:raman_section}, which was chosen due to the large radius of laser processed material that surrounds the centre point. While it is not possible to guarantee that the laser spot will only be absorbed and otherwise interact with the visibly darkened, laser affected region of diamond, this location was chosen to maximise any sp$^{2}$ raman signal. 
+\clearpage
+
+\begin{wrapfigure}{r}{0.4\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{Chapter7/Figs/Raster/raman_section_anno.jpg}
+  \caption{A 488~\si{\nano\metre} confocal microscope image of the raman area, showing the section of the sample under investigation.}
+  \label{fig:raman_section}
+\end{wrapfigure}
+
+The "Non-Processed" region was strategically chosen on the opposite side of the diamond sample (on the same face with a phosphorous doped surface layer), away from any laser-written areas. However, due to the optical transparency of diamond, it remains a slim possibility that any sp$^{2}$ raman signal from this location may be due to a distant, laser processed portion. 
+
+As shown in figure \ref{fig:raman_both} and table \ref{tab:raman_data_combined}, there is a shift in what may be considered the G peak, rising from a small hump that may be attributable to the highly phosphorous grown surface layer, to a moderate peak in the raman spectra of laser processed material. Both spectra show a small shift in the 1332~\si{\per\centi\metre} diamond peak, and they also have a similar FWHM for this line. While there is a visible difference between these two raman spectra, it is difficult to say that the laser processed material represents highly graphitised material, especially compared to the relative shifts that are typical for laser modified diamond \cite{kononenko1998, kononenko:2008}. However, the rise in G peak does indicate a change in the material structure due to the laser processing, in accordance with a rise in sp$^{2}$ carbon content.
+
+\printbibliography[heading=subbibliography]
+\end{refsection}

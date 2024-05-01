@@ -10,7 +10,8 @@
 \fi
 
 % Add spaces between paragraphs
-%\setlength{\parskip}{0.5em}
+\setlength{\parskip}{0em}
+\setlength{\parindent}{1em}
 % Ragged bottom avoids extra whitespaces between paragraphs
 \raggedbottom
 % To remove the excess top spacing for enumeration, list and description
@@ -73,6 +74,9 @@
 
 \DeclareSIUnit{\atom}{at}
 \DeclareSIUnit{\atoms}{at}
+\DeclareSIUnit\sq{\ensuremath{\Box}}
+\DeclareSIUnit\square{\ensuremath{\Box}}
+\DeclareSIUnit\pixel{px}
 
 \usepackage{lmodern}
 % from your class definition
@@ -99,6 +103,9 @@
 
 \usepackage{bm}%bold italics in math mode for vectors and stuff
 
+\usepackage{wrapfig}%figures with text wrapping around them - useful for small images
+
+
 
 % ******************************* Line Spacing *********************************
 
@@ -120,22 +127,14 @@
 
 % *****************************************************************************
 % *************************** Bibliography  and References ********************
-
 %\usepackage{cleveref} %Referencing without need to explicitly state fig /table
 
 % Add `custombib' in the document class option to use this section
-\ifuseCustomBib
-   \RequirePackage[square, sort, numbers, authoryear]{natbib} % CustomBib
+%\ifuseCustomBib
+   %\RequirePackage[square, sort, numbers, authoryear]{natbib} % CustomBib
 
 % If you would like to use biblatex for your reference management, as opposed to the default `natbibpackage` pass the option `custombib` in the document class. Comment out the previous line to make sure you don't load the natbib package. Uncomment the following lines and specify the location of references.bib file
 
-%\RequirePackage[backend=biber, style=numeric-comp, citestyle=numeric, sorting=nty, natbib=true]{biblatex}
-%\bibliography{References/references} %Location of references.bib only for biblatex
-
-\fi
-
-% changes the default name `Bibliography` -> `References'
-\renewcommand{\bibname}{References}
 
 
 % ******************************************************************************
@@ -144,8 +143,8 @@
 
 % ********************** TOC depth and numbering depth *************************
 
-\setcounter{secnumdepth}{2}
-\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 
 
 % ******************************* Nomenclature *********************************
@@ -198,3 +197,11 @@
 % *****************************************************************************
 % ******************* Better enumeration my MB*************
 \usepackage{enumitem}
+
+%\RequirePackage[backend=biber, style=numeric-comp, citestyle=numeric, sorting=nty, natbib=true]{biblatex}
+%bibliography{References/references} %Location of references.bib only for biblatex
+\addbibresource{References/references.bib} 
+%\fi
+
+% changes the default name `Bibliography` -> `References'
+\renewcommand{\bibname}{References}

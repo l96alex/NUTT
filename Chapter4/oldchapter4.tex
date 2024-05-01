@@ -1,0 +1,569 @@
+%!TEX root = ../thesis.tex
+%*******************************************************************************
+%****************************** Third Chapter **********************************
+%*******************************************************************************
+\chapter{Theory and Modelling of Semiconductor Contacts}
+
+% **************************** Define Graphics Path **************************
+\ifpdf
+    \graphicspath{{Chapter3/Figs/Raster/}{Chapter3/Figs/PDF/}{Chapter3/Figs/}}
+\else
+    \graphicspath{{Chapter3/Figs/Vector/}{Chapter3/Figs/}}
+\fi
+
+% Chapter 3
+% Chapter X
+
+\part{Metal-Semiconductor Contacts} % Chapter title
+
+\label{ch:contacts} % For referencing the chapter elsewhere, use \autoref{ch:name} 
+
+The first observations of rectifying metal-semiconductor contacts were made in 1874 by F. Braun, who made mercury contacts to copper and iron sulfide semiconductors \cite{braun:1874}. In 1907 G.W. Pierce published his work on the rectification properties of various metals made by sputtering on semiconductors \cite{pierce:1907}, which led to the proposal of a MESFET (metal-semiconductor field effect transistor) in 1926 by J. Lilienfeld \cite{lilienfeld:1926}. The theory of field effect transistors was then described by W. Shockley in 1939 \cite{shockley:1939}. In 1938, Schottky suggested the potential barrier between metal and semiconductor could be due to the presence of stable space charges without any chemical interaction \cite{schottky:1938}, which is now commonly known as the Schottky barrier. In the following year, Mott published the first theoretical model predicting the direction of rectification, entitled "The theory of crystal rectifiers" \cite{mott:1939}. Hence, this rectification will sometimes be referred to as the Mott barrier. Bethe expanded upon this theory in a 1942 technical report \cite{bethe:1942}, with further detail given in the book by Torrey and Whitmer in 1948 \cite{torrey:1948} forming a full thermionic-emission model of electrical behaviour.
+
+
+\section{Barrier Formation}
+In the case of a metal making direct contact with a semiconductor, a potential barrier is formed at the interface which controls the current conductivity as well as the capacitance. In this section, the principles behind metal-semiconductor contacts are considered.
+%----------------------------------------------------------------------------------------
+\subsection{Ideal}
+In perfect conditions, there are no anomalous surface states. The typical energy band diagram of a high work function metal and an n-type semiconductor is shown in figure(MAKE A BAND DIAGRAM and then explain not in contact, with a reduced gap and zero gap equilibrium state...)
+
+The work function $q\phi_{m}$ is defined as the energy difference between the Fermi and vacuum levels. For a semiconductor, the bandgap and corresponding conduction band gives rise to the electron affinity $q\chi$, defined as the difference in energy between the bottom of the conduction band and the vacuum level, which can be defined in terms of the work function as $q(\chi+\phi_{n})$ where $\phi_{n}$ is the difference in energy between the bottom of the conduction band and the Fermi level $\phi_{n}=E_{C}-E_{F}$. This distinction is not made for the metal, as conduction will occur in one or more partially filled bands which take on properties of the conduction and valence bands.  
+
+As the metal and semiconductor are brought together, the metal and semiconductor Fermi energies do not change immediately, as shown by typical flat-band energy level diagrams such as [flatband diagram]. The barrier height in a flat=band model is hence defined as the potential difference between the Fermi energy of the metal and the band edge of majority carriers within the semiconductor:
+
+\begin{equation}
+    \phi_{Bn} = \phi_{m} - \chi
+    \label{eq:barrier_height_ideal_n_type}
+\end{equation}
+
+\begin{equation}
+    \phi_{Bp} = \frac{E_{g}}{q} + \chi - \Phi_{m}
+    \label{eq:barrier_height_ideal_p_type}
+\end{equation}
+
+Hence, a barrier is formed for electrons and holes if the Fermi energy of the metal in the flat-band model is between the conduction and valence band edge. The difference between the Fermi energy of the metal and that of the semiconductor is defined as the built in potential $\phi_{bi}$.
+
+\subsection{Depletion Layer}
+At thermal equilibrium with no externally applied votage with a metal brought into contact with the semiconductor, a region within the semiconductor which is close to the junction will be depleted of mobile carriers. This is known as the depletion region, with a potential difference that is equal to the built in potential $\psi_{bi}$.
+
+This is outlined by the band diagram model, the surface conduction and valence bands of the semiconductor will be brought into an energy relationship with the metal Fermi level. Once established, this forms a boundary condition to the Poisson equation. This is shown in figure (p and n type materials) with biasing conditions applied. 
+
+\subsection{Interface States}
+As described in 1947 by Bardeen, localised states with energies within the bandgap may exist at the semiconductor's surface \cite{bardeen:1947}. These states could be formed during the chemical bonding of metal and semiconductor (metal induced gap states), or they may already be present in a semiconductor-vacuum system (surface states). Dense surface states absorb a large quantity of charge from the metal, shielding the semiconductor and affecting the local band alignment. Hence, the semiconductor bands will align relative to these surface states which are "pinned" to the Fermi level, prior to the formation of a metal contact, affecting the Schottky barrier height. This removes the dependency of the Schottky barrier height metal work function, with an enhanced band diagram as shown in figure (more complicated band diagram like Sze figure 5).
+
+\subsection{Image-Force Lowering}
+Also commonly known as the Schottky effect or Schottky barrier lowering, when an electric field is applied to a barrier image-force lowering occurs. Consider the point charge case, in which an electron at a distance $x$ from a metal with work function $q\phi_{m}$ induces an equivalent positive charge on the metal surface, known as the "image charge". This image charge will cause a local attractive force for the electron towards the metal, which is given by:
+\begin{equation}
+	F=\frac{-q^{2}}{4\pi \epsilon_{0} (2x)^{2}}=\frac{-q^{2}}{16\pi\epsilon_{0}x^{2}}
+	\label{eq:image force effect force}
+\end{equation}
+Where $\epsilon_{0}$ is the permittivity of free space. The total work done on an electron in its transfer from infinity to the point x is:
+\begin{equation}
+	E(x)= \int_{\inf}^{x} Fdx = \frac{-q^{2}}{16\pi\epsilon_{0}x}
+	\label{eq:image force work done integral}
+\end{equation}
+The total work done is equivalent to the potential energy of an electron at a distance x from the metal surface, shown in figure (graph of the curved band diagram showing the image force effect). When an external electric field $E$ is applied, the total potential energy $PE$ as a function of the distance is given by the sum of both effects:
+\begin{equation}
+	PE(x) = \frac{-q^{2}}{16\pi\epsilon_{0}x} - q\left|E\right|x
+	\label{eq:image force total potential energy}
+\end{equation}
+The magnitude and location of the image-force lowering are given by $\Delta\phi$ and $x_{m}$ respectively, with the condition $d(PE)/dx = 0$:
+\begin{equation}
+	\Delta\phi = \sqrt{\frac{q\left|E\right|}{4\pi\epsilon_{0}}}=2\left|E\right|x_{m}
+	\label{eq:image force lowering magnitude}
+\end{equation}
+\begin{equation}
+	x_{m} = \sqrt{\frac{q}{16\pi\epsilon_{0}\left|E\right|}}
+	\label{eq:image force lowering location}
+\end{equation}
+
+\subsection{Barrier-Height Adjustment}
+The ideal Schottky barrier height is determined solely by the metal-semiconductor junction properties, independent of doping levels that results in a fixed number of possible barrier heights. In practice, it is possible to use a thin layer (~10 nm or below) of dopants on a semiconductor surface through techniques such as ion implantation. This will induce a change in the Schottky barrier height, allowing for some metals that would otherwise produce undesirable Schottky barriers to be used. (Plots of idealised controlled barrier contacts, electric field and effect of doping in reducing or increasing the barrier height.)
+
+(Depletion layer capacitance for reverse bias - $1/C^{2}$ -V plot yields the built in potential and doping density N - pn Sze pg85, also see diffusion capacitance 2.3.4 pg 100 for forward bias)
+
+\section{Current Transport Processes}
+\label{sec:current_transport_processes}
+For metal-semiconductor contacts, the current transport is primarily due to majority carriers, as opposed to p-n minority carrier junctions. There are five primary processes under forward bias, with the inverse occurring under a reverse bias. 
+
+First, electrons may have the thermal energy required to cross the potential barrier between the metal and the semiconductor. This is the dominant process in Schottky diodes for standard, moderately doped semiconductors such as silicon with a dopant concentration $N_{D}\leq10^{17}\si{\per\centi\metre\cubed}$ at room temperature ($\approx 300 \si{\kelvin})$. The current as governed by thermionic emission over a Schottky barrier is given typically by equations of the following form:
+\begin{equation}
+	J_{S} = A^{*}T^{2}e^{\frac{-2\Phi_{B}}{kT}}\left(e^{\frac{qV}{kT}} - 1\right)
+\end{equation}
+Where $A^{*}$ is Richardson's constant. The corresponding specific contact resistivity is then given by:
+\begin{equation}
+	\rho_{c}=\frac{k}{qA^{*}T}e^{\frac{2\Phi_{B}}{kT}}=\frac{kT}{qJ_{S}}
+\end{equation}
+
+Second, the electrons may pass through the barrier via quantum mechanical tunnelling. This is the dominant process in contacts to heavily doped semiconductors, as the induced depletion region will be significantly narrower than the case of low doping. Hence, these contacts result in an 'Ohmic' behaviour, where there is an unimpeded transfer of majority carriers. The depletion region will have width as defined by:
+\begin{equation}
+	X_{d} = \sqrt{\frac{2Kz\epsilon_{0}\Phi_{i}}{qN_{D}}}
+\end{equation}
+(Depletion width stanford, remillard, sze, all different basis....)
+
+Third, there may be recombination in the space-charge region, (sze chapter 2).
+
+Fourth, electrons may diffuse into the depletion region.
+
+Finally, holes may be injected from the metal that manage to diffuse into the semiconductor. This is the same process as recombination in the neutral region. There may also be some edge leakage current due to the geometric enhancement of sharp metal contacts, or an interface current due to traps at the metal-semiconductor interface.
+
+\subsection{Thermionic-Emission Theory}
+\label{sec:thermionic_emission_theory}
+Thermionic emission theory as derived by Bethe assumes that the barrier height $q\Phi_{Bn}$ is much larger than the thermal energy $kT$, the plane of emission is at thermal equilibrium and maintains thermal equilibrium with the presence of a net current flow. Due to these assumptions, the barrier profile shape has negligible effect and current flow is directly dependent on the Schottky barrier height. The effective current density travelling from semiconductor to metal is then defined as the concentration of electrons with enough energy to surpass the potential barrier, travelling in the x plane:
+
+\begin{equation}
+	J_{s\rightarrow m} = \int_{E_{Fn}+q\Phi_{Bn}}^{\infty}v_{x}dn
+	\label{eq:thermionic_emission1}
+\end{equation}
+With $E_{Fn}+q\Phi_{Bn}$ being the minimum energy that is required for emission into the metal and $v_{x}$ is the carrier velocity in the direction of effective transport.
+
+The Richardson constant, \( A^{*} \), which characterises the thermionic emission process, arises from the Richardson-Dushman equation for thermionic emission.  This equation relates the current density \( J_s \) of thermionic emission to the work function \( W \) and temperature \( T \) of the emitting material:
+
+\begin{equation}
+    J_s = A T^{2} \exp\left(-\frac{W}{kT}\right)
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item \( J_s \): Current density of the emission (\si{\milli\ampere\per\milli\meter\squared})
+    \item \( A \): Theoretical Richardson constant, given by \( A = \frac{4\pi e k^{2} m}{h^{3}} \), where \( m \) is the electron mass, \( e \) is the elementary charge, and \( h \) is Planck's constant. Depending on the material, this theoretical value may be adjusted by a correction factor.
+    \item \( T \): Absolute temperature (\si{\kelvin})
+    \item \( W \): Work function of the cathode material (\si{\joule} or \si{\electronvolt})
+    \item \( k \): Boltzmann constant
+\end{itemize}
+
+In practice, \( A \) can vary for different materials. For instance, in polycrystalline metals, \( A \) can range from about \SI{32}{\ampere\per\centi\meter\squared\per\kelvin\squared} to \SI{160}{\ampere\per\centi\meter\squared\per\kelvin\squared} and can vary even more widely for oxide and composite surfaces.
+
+\subsection{Diffusion Theory}
+As derived by Schottky, this theory assumes that again the barrier height $q\Phi_{Bn}$ is much larger than the thermal energy $kT$ and the effect of electron collisions wihting the depletion region through the process of diffusion is included. Carrier concentrations at $x=0$ and $x=W_{D}$ remain in equilibrium and are unaffected by the flow of current and the semiconductor is doped below a degenerate level. The current in the depletion region depends upon the local electric field and concentration gradient following the current density equation:
+\begin{equation}
+	J_{x} = J_{n} = q\left(n\mu_{n}E+D_{n}\frac{dn}{dx}\right)
+\end{equation}
+
+\subsection{Thermionic Emission Diffusion Theory}
+Crowell and Sze developed a combination of the thermionic and diffusion limited current mechanisms, derived with a bouncary condition of a thermionic recombination velocity $v_{r}$ near the metal-semiconductor junction. The diffusion of carriers is strongly influenced by the electric potential within the diffusion region, so the Schottky lowering effect of the potnetial barrier must be considered. Through the region between $x_{m}$ and $W_{D}$ the current is given by:
+\begin{equation}
+	J=n\mu_{n}\frac{dE_{Fn}}{dx}
+\end{equation}
+With the electron density at any location x:
+\begin{equation}
+	n=N_{C}e^{-\frac{E_{C}-E_{Fn}}{kT}}
+\end{equation}
+
+\subsection{Direct Tunnelling Current}
+As mentioned previously, the dominant transport process in ohmic contacts is that of direct quantum tunnelling between the metal and degenerately doped semiconductor. Tunnelling can occur more generally in the case of heavy doping and operation at low temperatures, where thermionic emission is negligible. The tunnelling current is proportional to a product of the quantum transmission coefficient, the probability of carrier occupation within the semiconductor and of an unoccupied state in the metal:
+\begin{equation}
+	J_{s\rightarrow m} = \frac{A^{**}T^{2}}{kT}\int_{E_{Fn}}^{q\Phi_{Bn}} F_{s}T\left(E\right)\left(1-F_{m}\right)dE
+\end{equation}
+Where $F_{s,m}$ are the Fermi-Dirac distribution functions for the semiconductor and metal respectively and $T\left(E\right)$ is the quantum transmission coefficient or tunnelling probability. The tunnelling probability is proportional to the width of the potential barrier at a given energy. The expression for current passing in the opposite direction $\left(m\rightarrow s\right)$ simply interchanges the Fermi-Dirac distribution functions $F_{s,m}$.
+
+\subsection{Minority-Carrier Injection}
+At a sufficiently large forward bias, the drift component of minority carriers will increase and hence increase the overall injection efficiency of the Schottky barrier diode. With both the drift and diffusion of holes, there is a total current:
+\begin{equation}
+	J_{p} = q\mu_{p}p_{n}E-qD_{p}\frac{dp_{n}}{dx}
+\end{equation}
+With the increased field due to a large majority-carrier thermionic-emission of:
+\begin{equation}
+	J_{n} = q\mu_{n}N_{D}E
+\end{equation}
+\subsection{MIS Tunnel Diode?}
+Might not be worth including this. But does discuss the injection of current through an insulator soooo...?
+\section{Barrier Height Measurements}
+\label{sec:barrier_height_measurements}
+There are four methods which are used to measure the barrier height in a metal-semiconductor contact:
+\begin{itemize}
+	\item Current-Voltage. Most common for moderately doped semiconductors.
+	\item Activation energy. Removes the requirement for knowledge of the electrically active surface area.
+	\item Capacitance-Voltage. Useful for in-homogeneously doped semiconductors. (other benefits??)
+	\item Photo-electric measurements. Another reliable determination of barrier height. 
+\end{itemize}
+\subsection{Current-Voltage Measurements}
+When a moderately doped semiconductor with a Schottky barrier is forward biased with a magnitude $V>\frac{3kT}{q}$, the current density is given by:
+\begin{equation}
+	J = A^{**}T^{2}e^{-\frac{q\Phi_{B0}}{kT}}e^{\frac{q\left(\Delta\Phi+V\right)}{kT}}
+\end{equation}
+\subsection{Activation Energy Measurements}
+One of the key advantages in determining the Schottky barrier through activation energy measurements is that no assumption of electrically active areas is required. For example, this may be the case for contacts on diamond where annealing has not formed a complete layer of titanium carbide, and only a partial contact has been formed. The opposite effect may also be the case, where the metal-semiconductor reaction roughens the surface and forms a larger electrically active contact than expected. When (eq 84???) is taken as a product with the electrically active surface area $A$:
+\begin{equation}
+	ln\left(\frac{I_{F}}{T^{2}}\right) = ln\left(AA^{**}\right)-\frac{q\left(\Phi_{Bn}-V_{F}\right)}{kT}
+\end{equation}
+
+\subsection{Capacitance-Voltage Measurements}
+When a dc bias is superimposed with a small alternating voltage, a small build up of charges will accumulate on the metal surface. This collection of charged states will induce charges of the opposite sign within the semiconductor and hence, a capacitance. This can be determined with the equation:
+\begin{equation}
+	C_{D} = \frac{\epsilon_{s}}{W_{D}} = \sqrt{\frac{q\epsilon_{s}N_{D}}{2\left(\psi_{bi}-V-\left(kt/q\right)\right)}}
+	\label{eq:capacitance_of_metal_on_doped_semi}
+\end{equation}
+Which can also be written in the form:
+\begin{equation}
+	\frac{1}{C^{2}_{D}} = \frac{2\left(\psi_{bi}-V-\left(kT/q\right)\right)}{q\epsilon_{s}N_{D}}
+	\label{eq:1/capacitance^2_of_metal_on_doped_semi}
+\end{equation}
+Where $C_{D}$ is the depletion layer capacitance per unit area, $W_{D}$ is the width of the depletion region, $\psi_{bi}$ is the built in potential and $N_{D}$ is the dopant concentration. Where $N_{D}$ is constant through the depletion region, a graph of $\frac{1}{C^{2}_{D}}$ versus voltage $V$ should yield a straight line plot. If this is not the case, then a differential capacitance method can be used to obtain the doping profile from equation for capacitance (\ref{eq:capacitance_of_metal_on_doped_semi}). This solution has the form:
+\begin{equation}
+	N_{D} = \frac{2}{q\epsilon_{s}}\left(-\frac{1}{d\left(1/C^{2}_{D}\right)/dV}\right)
+	\label{eq:ND_from_capacitance_measurements}
+\end{equation}
+Which is similar to that of a one sided p-n junction.
+
+\subsection{Photoelectric Measurements}
+When photons of light are incident upon a metal surface, a photocurrent may be generated through the photoelectric, photoemissive or photovoltaic effects. This can be used with a monochromatic light source in order to determine the barrier height.
+
+For the Schottky barrier diode, photocurrent may be generated via excitation over the barrier and through band to band excitation. For measuring the barrier height then, the only process of interest is direct excitation over the barrier. To induce this process, the wavelength of light should be in the range of $q\Phi_{Bn} < hv < E_{g}$. The essential region for light absorption is at the metal-semiconductor interface, so when the metal contact itself is illuminated, the metal film should be thin enough for the light to penetrate. When light is illuminating the semiconductor side, it will typically be transparent to the light with prior condition $hv<E_{g}$. Hence, light intensity will peak at the metal-semiconductor interface. The induced photo-current can also be collected without an applied bias.
+
+From Fowler theory, the induced photocurrent per absorbed photon as a function of the photon energy $hv$, given as the photoresponse $R$:
+\begin{equation}
+	R\propto\frac{T^{2}}{\sqrt{E_{s}-hv}}\left[\frac{x^{2}}{2}+\frac{\pi^{2}}{6}\left\{e^{-x}-\frac{e^{-2x}}{4}+\frac{e^{-3x}}{9}-...\right\}\right]
+	\label{eq:photoresponse}
+\end{equation}
+With $E_{s}$ being the sum of $hv_{0}$ (which is equal to the barrier height $q\Phi_{Bn}$) and the Fermi energy as measured from the bottom of the metal's conduction band. $x=h\left(v-v_{0}\right)/kT$. With conditions $E_{s}>>hv$ and $x>3$, equation \ref{eq:photoresponse} becomes:
+\begin{equation}
+	R\propto\left(hv-hv_{0}\right)^{2}
+	\label{eq:photoresponse_simplified}
+\end{equation}
+This allows for a plot of the square root photoresponse and photon energy, which should yield a straight line. The extrapolated value on the energy axis will then be the barrier height. This technique can be used to determine the image-force dielectric constant, as it is possible to measure the shift of the photothreshold under differing potential biases (down to zero applied bias, as previously mentioned). With a plot of $\Delta\Phi$ against $\sqrt{E_{m}}$ the dielectric constant $\left(\frac{\epsilon_{s}}{\epsilon_{0}}\right)$ can be calculated. This can also be applied in the case of varying temperature, to examine the temperature dependence of the barrier height.
+
+\section{Ohmic Contacts}
+\label{sec:ohmic_contacts}
+Defined simply as a metal-semiconductor contact with negligible junction resistance when compared to the total device resistance, good ohmic contacts are essential for devices. A parameter that could be used to describe the ohmic quality of any given contact is that of the specific contact resistance. This is defined by the reciprocal rate of change in current density with respect to voltage at an interface:
+\begin{equation}
+	R_{c}\equiv\left(\frac{dJ}{dV}\right)^{-1}_{V=0}
+	\label{eq:sze_specific_contact_resistance}
+\end{equation}
+
+\begin{equation}
+	E_{00} = \frac{q\hbar}{2}\sqrt{\frac{N}{m^{*}\epsilon_{s}}}
+	\label{eq:E00_definition}
+\end{equation}
+
+To derive a solution for this equation, it is possible to use the current-voltage relationships described in section \ref{sec:current_transport_processes}. It is typical to determine the dominant process through a comparison of the doping energy level $E_{00}$ to the thermal energy $kT$. When the doping levels are low to moderate, and/or for high temperatures $kT>>E_{00}$ [Needs a small section RE $E_{00}$ I think. Show the difference between typical diamond and other wide bandgap semiconductors] then the dominant process is that of thermionic emission with the corresponding contact resistance: 
+\begin{equation}
+	R_{c}=\frac{k}{A^{**}Tq}e^{\left(\frac{q\Phi_{Bn}}{kT}\right)}\propto e^{\left(\frac{q\Phi_{Bn}}{kT}\right)}
+	\label{eq:specific_contact_resistance_thermionic}
+\end{equation}
+In this equation with a small applied voltage, the voltage dependence of the barrier height is ignored. Hence, to reduce the specific contact resistance in this case a low barrier height (through changing the metal used in formation of contacts) is required.
+
+At higher doping levels where $E_{00}\approx kT$ thermionic field emission takes hold: [finish entering massive equation... or not?]
+\begin{equation}
+	R_{c}=\frac{k\sqrt{E_{00}} cosh\left(E_{00}/kT\right)coth\left(E_{00}/kT\right)}{A^{**}Tq\sqrt{\pi q\left(\Phi_{Bn}-\Phi_{n}\right)}}
+\end{equation}
+Where $\Phi_{n}$ is negative for a degenerate semiconductor. In this situation, tunnelling is taking place at an energy above the conduction band, at the point of maximum carrier density and tunnelling probability.
+
+At higher doping levels yet again, $E_{00}>>kT$, the case of field effect emission:
+\begin{equation}
+	R+{c}=\frac{k sin\left(\pi c_{1}kT\right)}{A^{**}\pi qT}
+	\label{eq:specific_contact_resistance_field_effect}
+\end{equation}
+With the condition of a non-negligible barrier height, good ohmic contacts will typically behave as for field effect emission in heavily doped semiconductors.
+
+In all cases, the specific contact resistance depends upon the temperature, doping concentration and barrier height, with varying sensitivity to each factor depending upon the mode of emission. The qualitative dependence on these parameters for silicon and diamond are compared in (the following figure I need to plot with matplotlib.... E00 for a full range of doping concentrations - the specific contact resistance against doping concentration. Perhaps including the incomplete ionisation of diamond will produce a different curve?? Indicate regions of TE, TFE and FE for the two materials. Perhaps also include SiC or Ge for the sake of a middle ground comparison and perhaps some more experimental data down the line.)
+
+Generally, it can be stated that for low specific contact resistances and resistivities, a high doping concentration and/or a low barrier height must be used. The case of diamond and other wide-bandgap semiconductors presents a challenge in the formation of good ohmic contacts due to the limitations in metal work functions. I.e. the lowest metal work function (perhaps quoted as Caesium with 2.14 \si{\electronvolt}  \cite{tipler:1992}) is not low enough to form a good ohmic contact. Some of the more typical metals used in contact formation are summarised in table \ref{tab:metal_work_functions_general} with one of two planes included. As the work function is highly dependent on surface cleaning and the surface orientation, values for any given metal will vary in the literature, with the table representing values for reasonably clean surfaces. The method of measurement will also cause some variation in the measured work function.
+
+For miniaturised integrated circuits, another challenge is posed by the increased current density of smaller ohmic contacts. By necessity, this requires smaller ohmic resistances and smaller contact areas with the total contact resistance:
+\begin{equation}
+    R = \frac{R_{c}}{A}
+    \label{eq:total_contact_resistance}
+\end{equation}
+Which is valid only for a uniform current density across the contact. Another significant resistance component, for the small contact case, is that of a spreading resistance, which is linked in series with the ohmic contact and is defined by:
+\begin{equation}
+    R_{sp}=\frac{\rho}{2\pi r}\tan^{-1}\left(\frac{2h}{r}\right)
+    \label{eq:spreading_resistance}
+\end{equation}
+
+As $\frac{r}{h}$ increases, $R_{sp}$ approaches the bulk resistance. Additionally, a component can be added to account for a horizontal diffusion sheet, such as for the case of a MOSFET:
+
+\begin{equation}
+    R = \frac{\sqrt{R_{diff}R_{c}}}{W}\coth\left(L\sqrt{\frac{R_{diff}}{R_{c}}}\right)
+    \label{eq:diffusion_resistance}
+\end{equation}
+
+In which $R_{diff}$ is the sheet resistance of the diffusion later. This equation accouns for the current crowding effect, in which there is a nonuniform current density through the contact, and any contributions from the sheet resistance underneath the contact. As $R_{diff} \rightarrow0$, equation \ref{eq:diffusion_resistance} will reduce to equation \ref{eq:total_contact_resistance}.
+
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|}
+\hline
+Element & Plane  & $\Phi$/eV & Method \\ \hline
+Ag      & 100    & 4.64   & PE     \\ \hline
+Ag      & 110    & 4.52   & PE     \\ \hline
+Al      & 100    & 4.20   & PE     \\ \hline
+Au      & 100    & 5.47   & PE     \\ \hline
+C       & Polycr & 5.0    & CPD    \\ \hline
+Mo      & 100    & 4.53   & PE     \\ \hline
+Mo      & 110    & 4.95   & PE     \\ \hline
+Ni      & 100    & 5.22   & PE     \\ \hline
+Ni      & 110    & 5.04   & PE     \\ \hline
+Pt      & Polycr & 5.64   & PE     \\ \hline
+Pt      & 110    & 5.84   & FE     \\ \hline
+Si      & p 111  & 4.60   & PE     \\ \hline
+Ti      & Polycr & 4.33   & PE     \\ \hline
+\end{tabular}
+\caption{A table of common metals used in contact formation and other references to work function, such as that for p-type \hkl[111] silicon. Methods of measurement are defined as: PE -- Photoelectric effect, FE -- Field emission, CPD -- Contact potential difference and Polycr -- Polycrystalline sample. \cite{holzl1979}, \cite{green1969}, \cite{michaelson1977}.}
+\label{tab:metal_work_functions_general}
+\end{table}
+
+\subsection{Fermi-Level Pinning}
+For III-V compounds, photoemission spectroscopy measurements have been taken for various Schottky barriers as formed by a variety of metals. On compound semiconductors such as GaAs, GaSb and InP, it has been demonstrated that the metal work function has a negligible effect on the surface Fermi-level position. Hence, the formed Schottky barrier height is independent of the metal which is used to form it. This marks a stark contrast to the ideal condition in which a semiconductor without surface states will form a barrier as defined by the difference in the electron affinity and metal work function:
+
+\begin{equation}
+    q\Phi_{Bn0} = q\left(\Phi_{m}-\chi\right)
+    \label{eq:ideal_schottky_barrier}
+\end{equation}
+
+\part{COMSOL Semiconductor Module/ Semiconductor Device Modelling?}
+
+ % Chapter title
+
+\label{ch:semiconductor} % For referencing the chapter elsewhere, use \autoref{ch:mathtest}
+
+%----------------------------------------------------------------------------------------
+
+\section{P-N Junction 1D}
+
+A simple semiconductor diode is made up of two regions with different doping: an n-type region with dominant concentration of electrons and a p-type region which has a dominant hole concentration. The anode contact connects to the p-type region and the cathode is adjacent to the n=type region. The doping type is determined by the impurities which are added to the crystal lattice, with "donor" (n-type) impurities adding additional electrons to the materials conduction band. Impurities that lack electrons are known as "acceptors" and will remove electrons from the valence band (p-type). The three essential equations for modelling a semiconductor are derived from Maxwell's equations and the Boltzmann equation for carrier transport. For a stationary problem, these equations are:
+
+\begin{equation}
+\nabla\cdot\left(\epsilon\nabla V\right) = -q\left(p-n+N_{D}^{+}-N_{A}^{-}\right)
+\end{equation}
+
+\begin{equation}
+\nabla\cdot\bm{J}_{n}=-qR_{SRH}
+\end{equation}
+
+\begin{equation}
+\nabla\cdot\bm{J}_{p}=qR_{SRH}
+\end{equation}
+
+Where $\epsilon$ is the dielectric permittivity of the semiconductor, $V$ is the electric potential, $p,n$ are the hole and electron concentrations respectively, $N_{D}^{+}$ and $N_{A}^{+}$ are the concentrations of ionised donors and acceptors, $\bm{J}_{n,p}$ are the electron and hole currents and $R_{SRH}$ is the Shockley-Read-Hall recombination rate. 
+
+The electron and hole current can be expressed in terms of $V$, $n$, and $p$ assuming an isothermal, nondegenerate semiconductor with a constant band structure:
+
+\begin{equation}
+\bm{J_{n}}=-nq\mu_{n}\nabla V+\mu_{n}k_{B}T\nabla n
+\end{equation}
+
+\begin{equation}
+\bm{J_{p}}=-pq\mu_{p}\nabla V-\mu_{p}k_{B}T\nabla n
+\end{equation}
+
+Where $\mu_{n,p}$ are the electron and hole mobilities, $k_{B}$ is the Boltzmann constant and $T$ is the absolute temperature. With this model, the carrier mobility is a complex-valued function of the temperature and the carrier concentrations.
+
+Schockley-Read-Hall recombination is a process involving traps within the "forbidden" band gap of semiconductors and is often dominant in silicon. The recombination rate due to this process is defined as:
+
+\begin{equation}
+R_{SRH} \frac{np-n_{i}^2}{\tau_{p}\left(n+n_{1}\right)+\tau_{n}\left(p+p_{1}\right)}
+\end{equation}
+
+Where $n_{i}$ is the intrinsic carrier concentration, $\tau_{n,p}$ are the carrier lifetimes and $n_{1},p_{1}$ are parameters related to the trap energy level. When the trap level is located in the middle of the band gap $n_{1}$ and $p_{1}$ are equal to $N_{i}$.
+
+The model as presented in COMSOL simulates the behaviour of a p-n junction under reverse, equilibrium and forward bias. The modelled junction is of length 5 \si{\micro\metre} with a net doping concentration of $1\times10^{15}$ \si{\per\centi\metre\cubed} for both p and n sides. A Shockley-Read-Hall recombination feature is added to the model in order to simulate recombination usually observed in indirect band gap semiconductors such as silicon, which is the material used in the model. This uses the material parameters from Kramer 1997 \cite{kramer:1997} and compares the carrier concentration profiles obtained from the computation with those obtained in the reference under different biasing conditions ($-4$ \si{\volt}, $0$ \si{\volt} and $0.5$ \si{\volt}). Two different discretization methods are used to solve the model: a Finite Element Log Formation and Finite Volume discretization, with the two methods being found to have good agreement.
+
+\section{MOSCAP 1D}
+
+This model is of a simple 1 dimensional metal=oxide-silicon capacitor (MOSCAP).
+
+The metal-silicon-oxide (MOS) structure is a fundamental building block for many silicon planar devices. Capacitance measurements of it provide a wealth of insight into the working principles of such devices. In this example model, a 1D model of a MOS capacitor (MOSCAP) is computed with both low frequency and high frequency C-V curves.
+
+This model simulates the behaviour of a MOSCAP under a linear voltage ramp between -2 and 1 \si{\volt}, with a slew rate of $10^{-3}$ \si{\volt\per\second} for low frequency and $10^{3}$ \si{\volt\per\second} for high frequency. The modeled domain has a thickness of 1 \si{\milli\metre} and the built-in silicon material data is used. The device is grounded at the right endpoint and the oxide/silicon interface is placed at the left endpoint using a dedicated thin insulator gate boundary condition. A uniform doping and Schokley-Read-Hall recombination is applied to the entire domain. A user controlled mesh is used to refine the mesh under the oxide/silicon interface. The voltage sweep is done using a stationary study step for the initial condition followed by a time dependent study step.
+\section{Finite Element Modelling}
+Finite element analysis started out as an extension of matrix methods of structural analysis, but is now used in the solving of differential equations across engineering, physics and mathematical problems. To solve a problem in which differential equations must be used, a large system may be split into smaller, finite elements. This allows for the solution of partial differential equations across a small region, then by building up a large mesh of such elements a full model can be formed. This allows for an accurate representation of more complex geometries, the inclusion of local effects and dissimilar material properties and most importantly, a simple representation of the total model. An example of a typical differential equation in use is that of:
+\begin{equation}
+	AC\frac{d^{2}f}{dx^{2}}+q=0
+\end{equation}
+This differential equation is used to describe the axial deformation of a rod where $f$ represents the axial deformation, q is the load applied, $A$ is the cross sectional area and $C$ is the coefficient of thermal conductivity. In certain cases, the minimisation of a functional may be a more readily available solution to a given problem. In cases where both a functional and differential equation is available, they are equivalent and can be derived from each other. 
+\section{General Semiconductor Module}
+
+\subsection{Physics and Assumptions}
+The semiconductor module has been designed with length scales of hundreds of nanometres in mind, as at these length scales conventional drift-diffusion approaches using partial differential equations can be used to model devices. The assumptions implicit in this module include:
+
+\begin{itemize}
+	\item The relaxation time approximation is used to describe the scattering process. This is a simplified form of the scattering probability, being elastic and isotropic.
+	\item Magnetic fields are not included in this model.
+	\item The carrier temperature is assumed to be equal to the lattice temperature and as such the diffusion of hot carriers is not properly described.
+	\item Energy bands are assumed to be parabolic. The reality is that the band structure will be significantly altered in a complex manner in the vicinity of free surfaces or grain boundaries.
+	\item Velocity overshoot and other complex time dependent conductivity phenomena are not included. 
+\end{itemize}
+
+In addition to these intrinsic assumptions, the semiconductor interface allows additional assumptions to be made to simplify the solution.
+
+\begin{itemize}
+	\item For nondegenerate semiconductors it is possible to assume a Maxwell-Boltzmann distribution for carrier energies at a given temperature, which reduces the nonlinearity of the semiconductor equations. If degenerate semiconductors are used within the model, or at lower temperatures, then it is necessary to use Fermi-Dirac statistics.
+	\item In majority carrier devices, it is ofen only necessary to solve for one of the carrier concentrations, i.e. the majority carrier. The minority carrier concentration is not relevant for device performance and so can be estimated by assumption of the mass action law.
+\end{itemize}
+
+By default, Maxwell-Boltzmann statistics are assumed by the semiconductor interface and explicitly solves for both the electron and hole concentrations.
+
+The semiconductor interface solves Poisson's equation in conjuction with continuity equations for the charge carriers. An important length scale to consider when modeling electrostatic fields in the presence of mobile carriers is the Debye length of:
+
+\begin{equation}
+	L_{d} = \sqrt{\frac{k_{B}T\epsilon_{0} \epsilon_{r}}{q^{2}N_{ion}}}
+\end{equation}
+
+Where T is the lattice temperature, $\epsilon_{0,r}$ are the permittivity of free space and relative permittivity of the semiconductor respectively, $N_{ion}$ is the concentration of ionisded donors or acceptors and q is the electron charge. The Debye length is the length scale over which the electric field decays in the presence of mobile carriers and so it is important to resolve this length scale with the mesh in semiconductor models.
+
+\subsection{Equilibrium Carrier Concentrations}
+The carrier concentrations at equilibrium are given by:
+
+\begin{equation}
+n=\int \frac{g_{c}\left(E\right)}{1+\exp\left[\left(E-E_{f}\right)/\left(k_{B}T\right)\right]}dE
+\end{equation}
+
+\begin{equation}
+p=\int \frac{g_{v}\left(E\right)}{1+\exp\left[\left(E_{f}-E_{h}\right)/\left(k_{B}T\right)\right]}dE
+\end{equation}
+
+Variables $W, W_{h}$ are defined such that $E=E_{c}+W$ and $E_{h}=E_{v}-W_{h}$. The density of states for electrons and holes is then given by:
+
+\subsection{Discretization}
+
+In the semiconductor interface, linear and logarithmic finite element and finite volume formulations are available. The shape functions that can be used are directly related to the selected formulation. The finite volume formulation uses a constant shape function, while the two finite element formulations can use either linear or quadratic shape functions. I the different fomulations the carrier concentration dependent variables (which are Nr and Ph by default) represent different quantities. The linear finite element and finite volume formulations set $Ne=N, Ph=P$, where $N$ is the electron concentration and $P$ is the hole concentration. For the logarithmic finite element formulation $Ne=ln\left(N\right), Ph=ln\left(P\right)$. 
+
+Each discretisation has advantages and disadvantages. For instance, the finite volume discretisation inherently conserves current. Hence, this will usually provide the most accurate result for the current density of the charge carriers and is used by default. To enhance numerical stability, a Scharfetter-Gummel upwinding scheme is used for the charge carrier equations Poisson's equation is discretised using a centred difference scheme. In multiphysics simulations it is important to realise that the shape functions are constant. This, fluxes cannot be evaluated using spatial derivatives of the dependent variables (e.g. expressions such as $d\left(V,x\right)$ will evaluate to zero as $V$ is represented by a constant shape function within each element). Flux quantities such as fields and currents can be evaluated and used in equations if the predefined variables in table \ref{tab:predefined_variables} are used in expressions. \ref{tab:predefined_variables}
+
+
+\begin{table}[h]
+	\begin{tabular}{|l|l|}
+		\hline
+		Name                                       & Variable/s (semi.)                 \\ \hline
+		Electric field                             & E, (Ex,Ey,Ez)                      \\ \hline
+		Electron current density                   & Jn (Jnx, Jny, Jnz)                 \\ \hline
+		Hole current density                       & Jp (Jpx, Jpy, Jpz)                 \\ \hline
+		Electron drift current density             & Jn\_drift (driftx, drifty, driftz) \\ \hline
+		Hole drift current density                 & Jp\_drift (driftx, drifty, driftz) \\ \hline
+		Electron diffusion current density         & Jn\_diff (diffx, diffy, diffz)     \\ \hline
+		Hole diffusion current density             & Jp\_diff (diffx, diffy, diffz)     \\ \hline
+		Electron thermal diffusion current density & Jn\_th (thx, thy, thz)             \\ \hline
+		Hole thermal diffusion current density     & Jp\_th (thx, thy,thz)              \\ \hline
+	\end{tabular}
+\caption{The predefined variables contained within the semiconductor module.}
+\label{tab:predefined_variables}
+\end{table}
+
+Any variables involving expressions derived directly from variables in table \ref{tab:predefined_variables} can also be used in expression. For example, the electric displacement field, semi.D or the total current semi.J.
+
+The finite element formulation will typically solve faster than the finite volume formulation. One reason for this, in an identical mesh, is that the finite element method with linear shape functions will result in fewer degrees of freedom. In 3D for tetrahedral mesh elements, the number of degrees of freedom for the finite element method with a linear shape function is around five times less than for a finite volume discretisation. In 2D, for triangular mesh elements, the number of degrees of freedom for the finite element method with a linear shape function is approximately half of that for a finite volume discretisation. It is possible to couple this to other physics interfaces and variables can be differentiated with the $d$ operator. The finite element method is an energy conserving method and hence current conservation is not implicit. Current conservation for the linear formulation is poor and this formulation is provided for reasons of backward compatibility. Current conservation in the log formulation is better, but still not as good as the finite volume discretisation. To help with numerical stability a Galerkin least-squares stabilisation method is used. This enhances the ability to achieve a converged solution, especially when using tyhe linear formulation. However, it can be preferable to disable the stabilisation as the additional numerical diffusion the technique can introduce will produce slightly unphysical results. As a result of the reduced gradients in the dependent variables obtained with the log formulation, stabilisation is not often needed when using this technique.
+
+\subsection{Impact Ionisation}
+When carriers are accelerated by high electric fields between collisions to velocities where energies are greater than the gap energy, they can dissipate enough energy during collisions to generate additional electron hole pairs. Impact ionisation is the mechanism responsible for avalanche breakdowns. The carrier generation rate due to impact ionisation is given by:
+
+\begin{equation}
+	R_{n}^{II}=R_{p}^{II}=-\frac{\alpha_{n}}{q}\left|\bm{J}_{n}\right|-\frac{\alpha_{p}}{q}\left|\bm{J}_{p}\right|
+\end{equation}
+
+For the values $\alpha_{n,p}$, the semiconductor interface allows for either a user-defined expression or the model of Okuto and Crowell \cite{okuto:1975}:
+
+\begin{equation}
+	\alpha_{n}=a_{n}\left(1+c_{n}\left(T-T_{ref}\right)\right)E_{||,n}exp\left(-\left(\frac{b_{n}\left(1+d_{n}\left(T-T_{ref}\right)\right)}{E_{||,n}}\right)^{2}\right)
+\end{equation}
+
+\begin{equation}
+	\alpha_{p}=a_{p}\left(1+c_{p}\left(T-T_{ref}\right)\right)E_{||,p}exp\left(-\left(\frac{b_{p}\left(1+d_{p}\left(T-T_{ref}\right)\right)}{E_{||,p}}\right)^{2}\right)
+\end{equation}
+
+Where $E_{||,n,p}$ are the components of electric field parallel to the electron and hole currents, $T_{ref}, a_{n,p}, b_{n,p}, d_{n,p}$ are material properties as defined for silicon, germanium, gallium arsenide and gallium phosphate in the original work \cite{okuto:1975}.
+
+\section{Boundary Conditions}
+\subsection{Metal Contacts}
+In device physics, the metal-semiconductor interface is one of the most challenging problems to model precisely. A variety of physical phenomena such as the effect of scattering, image forces, potential fluctuations, interfacial layers, interface roughness and trap assisted tunneling makes the modelling of devices complicated. In practice, the usage of boundary conditions within models has to drastically reduce the complexity.
+\subsubsection{Ideal Ohmic}
+Thus contact assumes local thermdynamic equilibrium at the contact. In practice, this is often used in nonequilibrium situations where the boundary condition imposed is no longer is physical (e.g. in a forward biased p-n junction) which is reasonable if the junction in question is located some distance from the region of interest. Since equilibrium is assumed, both the hole and electron quasi-Fermi levels are equal at the boundary. Charge neutrality at the metal boundary is also assumed, hence there is no band bending and the band diagram takes the form shown in figure [BANDS].
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{gfx/COMSOL/ideal_ohmic_bands}
+	\caption{An energy band diagram for the ohmic contact with n-type (top) and p-type (bottom) semiconductors under different biasing and temperature conditions from left to right. On the left, the semiconductor is in the reference configuration at equilibrium temperature $T_{0}$ and zero bias $V_{0}=0$. In the centre, the semiconductor temperature is raised resulting in a different band gap $E_{g}$ and electron affinity $\chi$. Hence, the energy of the conduction band edge $E_{c}$, valence band edge $E_{v}$ and Fermi energy $E_{f}$ is shifted. In these conditions the vacuum energy $E_{0}$ also changes as a result of differences in the space charge distribution in the device. In the right band diagrams, in addition to the temperature change, a bias $V_{0}$ is applied to the metal, shifting the entire band structure up in energy by $qV_{0}$ from the centre configuration.}
+	\label{fig:idealohmicbands}
+\end{figure}
+
+As equilibrium is assumed, equation 3-4 [ENTRY NEEDED] is used for the carrier concentrations, in alternative form this is expressed as:
+
+\begin{equation}
+n_{eq}=\gamma_{n}N_{c}\exp\left(-\frac{E_{c}-E_{f}}{k_{B}T}\right)=\gamma_{n}n_{i,eff}\exp\left(\frac{E_{f}-E_{i}}{k_{B}T}\right)
+\end{equation}
+
+\begin{equation}
+p_{eq}=\gamma_{p}N_{v}\exp\left(-\frac{E_{f}-E_{v}}{k_{B}T}\right)=\gamma_{p}n_{i,eff}\exp\left(\frac{E_{i}-E-{f}}{k_{B}T}\right)
+\end{equation}
+
+Where equation 74 [ANOTHER] is used to derive the expression for $n$ and $p$ in terms of the effective intrinsic carrier concentration with the charge neutrality condition:
+
+\begin{equation}
+	n_{eq}-p_{eq}+N_{a}^{-}-N_{d}^{+}=0
+\end{equation}
+
+Continues...
+\subsubsection{Ideal Schottky}
+An ideal Schottky contact applies a simplified model based on the approach introduced by Crowell and Sze \cite{crowell:1966}. The semiconductor is assumed to be nondenerate as metal-degenerate semiconductor contacts are generally represented with the ideal ohmic boundary condition.
+
+The contact acts as a source or sink for carriers and such can be treated as a surface recombination mechanism:
+
+\begin{equation}
+	\bm{J}_{n}\cdot\bm{n}=-qv_{n}\left(n-n_{0}\right)
+\end{equation}
+\begin{equation}
+\bm{J}_{p}\cdot\bm{n}=qv_{p}\left(p-p_{0}\right)
+\end{equation}
+
+Where $\bm{n}$ is the outward normal of the semiconducting domain, $v_{n,p}$ are the recombination velocities for electrons and holes, $n,p_{0}$ are the quasi-equilibrium carrier densities, i.e. the carrier densities obtained if it were possible to reach equilibrium at the  contact without altering the local band structure. $n,p_{0}$ are then defined as though the Fermi level of the semiconductor at the boundary is equal to that of the metal. 
+\subsection{Thin Insulating Gates}
+\subsection{Continuity/Heterojunctions}
+\subsection{Boundary Conditions for Charge Conservation}
+\subsection{Boundary Conditions for the Density-Gradient Formulation}
+
+\subsection{Fowler Nordheim Tunneling}
+Fowler-Nordheim (FN) tunneling is a quantum mechanical phenomenon in which electrons tunnel through a potential barrier, typically from a metal into a vacuum or another material. FN electron emission refers specifically to the case where electrons tunnel from a metal into a vacuum under the influence of a strong electric field.
+
+The derivation of FN electron emission involves considering the energy barrier that the electrons must overcome in order to escape from the metal surface. This barrier is caused by the work function of the metal, which is the energy required to remove an electron from the surface. In the presence of a strong electric field, the electrons are accelerated towards the surface and can gain enough energy to overcome the work function barrier.
+
+To derive the FN equation, we start with the Schrödinger equation for the wave function of the electrons in the metal, which is given by:
+
+$ -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x)\psi(x) = E\psi(x) $
+
+where $\hbar$ is the reduced Planck constant, $m$ is the mass of the electron, $\psi(x)$ is the wave function, $V(x)$ is the potential energy at position $x$, and $E$ is the total energy of the electron.
+
+We assume that the potential energy $V(x)$ can be approximated by a rectangular barrier of height $U_0$ and width $a$, where $U_0$ is the work function of the metal. We also assume that the electric field is parallel to the surface of the metal, so that the potential energy can be written as:
+
+$ V(x) = \begin{cases} U_0 &\text{if } 0 < x < a \ 0 &\text{otherwise} \end{cases} $
+
+Next, we assume that the wave function can be written as a product of a plane wave and a localized function:
+
+$ \psi(x) = \frac{1}{\sqrt{L}} e^{ikx} f(x) $
+
+where $L$ is the length of the metal, $k$ is the wave vector of the electron, and $f(x)$ is a localized function that describes the probability of finding the electron near the surface.
+
+Substituting this wave function into the Schrödinger equation and solving for $f(x)$ yields:
+
+$ f(x) = \begin{cases} A e^{-\kappa x} &\text{if } 0 < x < a \ B e^{qx} &\text{otherwise} \end{cases} $
+
+where $\kappa$ and $q$ are constants given by:
+
+$ \kappa = \frac{\sqrt{2m(U_0-E)}}{\hbar} \qquad q = \frac{\sqrt{2mE}}{\hbar} $
+
+and $A$ and $B$ are constants determined by the boundary conditions.
+
+To calculate the probability of tunneling through the barrier, we need to find the transmission coefficient $T$, which is the probability that the electron will tunnel through the barrier and emerge in the vacuum. This coefficient can be calculated using the WKB approximation, which assumes that the wave function is exponentially damped in the barrier region and that the transmission probability is proportional to the square of the amplitude of the transmitted wave.
+
+The transmission coefficient is given by:
+
+$ T = e^{-2\gamma} $
+
+where $\gamma$ is the tunneling attenuation factor, given by:
+
+$ \gamma = \frac{1}{\hbar} \int_{x_1}^{x_2} \sqrt{2m(U(x)-E)},dx $
+
+\section{Introduction to Finite Element Method in Electronic Device Modeling}
+
+\subsection{Overview of Finite Element Method}
+
+The finite element method (FEM) is a powerful numerical technique used to solve complex engineering problems, including those related to electronic device modeling. In particular, FEM has become increasingly important for modeling the behavior of wide band gap semiconductors such as diamond.
+
+FEM involves dividing the problem domain into a finite number of smaller elements, each represented by a set of equations describing its behavior. By assembling these equations for all the elements, the overall behavior of the system can be accurately approximated. This approach is particularly well-suited for modeling the unique properties of diamond-based electronic devices.
+
+\subsection{Advantages of Finite Element Method in Modeling Wide Band Gap Semiconductors}
+
+The use of FEM in electronic device modeling offers several advantages for the analysis of wide band gap semiconductors. These materials have unique properties that require careful consideration in modeling, such as high breakdown voltages and large thermal conductivity. FEM allows for a more precise and accurate representation of these properties in the simulation.
+
+Additionally, FEM provides a flexible approach for modeling complex geometries and boundary conditions, which is often required in electronic device design. This allows for more comprehensive analysis of the behavior of the system under different operating conditions and scenarios.
+
+Overall, the finite element method has become an essential tool for modeling diamond-based electronic devices and other wide band gap semiconductors, allowing for a more accurate and comprehensive understanding of their behavior and potential applications.
+
+% I remain unconvinced by the general structure of this chapter... the metal contacts/numerical methods is not really on display... I need to come back to this and restructure etc. fuck you - 26/04/2024

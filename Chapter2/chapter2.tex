@@ -1,332 +1,198 @@
-% Chapter 2
+\begin{refsection}
+\chapter{Theory and Background}
+\label{ch:theory_and_background}
+In this chapter, the necessary methodologies and theoretical footing necessary for later chapters is established. Additionally, background into the application of diamond within the context of power electronics engineering is given to assist in the progression from electronics to diamond electronics.
+\section{Electronics Background}
+\subsection{Introduction}
+Electronic devices based on semiconductors are the backbone of modern technology, long since replacing vacuum-tube based devices in power electronics and consumer electronic applications. As implied by the name, power electronic devices in particular deal with applications where the conversion and control of electrical power is concerned. Over the past half a century, the global electrical consumption has slowly, and continuously grown. Between 1980 and 2022, electrical consumption rose from 7300 to 25,000 terawatt-hours \cite{enerdata2023net}. This is likely to increase ever further, with the electricity consumption due to data centres, artificial intelligence (AI) and cryptocurrency sectors predicted to double by 2026 \cite{IEA2024}. This is supported in large by the significant growth in renewable energy sources, which are set to provide more than a third of total electricity generation globally by early 2025, overtaking the market share of coal.
 
-% Chapter X
+When it comes to the power electronics themselves, a mix of silicon-based devices with more recent wide bandgap substrates such as GaN and SiC are the most advanced solutions for power applications that range from high voltage direct current (HVDC) converter stations to flexible ac transmission system (FACTS) devices. These devices are used for variable-speed drivers in motors, the regulation of ac power grids and more recently throughout the electric vehicle (EV) market in the form of EV battery chargers in particular \cite{Tolbert2005, Afonso2020}. Depending on the application, various blocking voltages and maximum operating frequencies can be readily acquired.
 
-\chapter{Review of Diamond and Diamond for Technology} % Chapter title
-
-\label{ch:review_of_diamond} % For referencing the chapter elsewhere, use \autoref{ch:name} 
-
-%----------------------------------------------------------------------------------------
-\part{Semiconductor Physics and Diamond}
-\section{Introduction}
-
-%This chapter will be used as a set of notes from Yu 2010, perhaps with a blending of Sze and Schroder. Yes I should have written this 3 years ago. I know. Let's get a good 2k words of it done this weekend and have it in my pocket for more advanced writing such as the metal-semiconductor chapter and graphitisation of diamond etc...
-Semiconductors can be defined in several ways, all of which are correct, depending on the context. For example, they could be defined based on the resistivity range of typical metals. Metals such as aluminium, caesium, copper, gold, iron, molybdenum, platinum and silver have resisitivities in the range of $1.62\times10^{-8}\si{\ohm\metre}\text{--}20.5\times10^{-8}\si{\ohm\metre}$ at room temperature, as shown in table \ref{tab:metal_resisitivities}. Slightly atypical metals include bismuth and gadolinium, with an order of magnitude greater resistivity. Semiconductors could then be defined as being in the range of around $10^{-5}\text{--}10^{7}\si{\ohm\metre}$, as having a significant resistance while still providing a conduction pathway.
-
-\begin{table}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
-Metallic Element            & Al   & Cs   & Cu   & Au   & Fe   & Mo   & Pt   & Ag   & Bi  & Gd  \\ \hline
-$\rho \left(10^{-8}\si{\ohm\metre}\right)$ 273--300 K & 2.71 & 20.5 & 1.72 & 2.21 & 9.87 & 5.47 & 10.5 & 1.62 & 107 & 131 \\ \hline
+ID          & Type & x (\si{\milli\metre}) & $V_{B}$ (\si{\kilo\volt}) & F (\si{\kilo\hertz}) & I (\si{\kilo\ampere}) & $R_{t}$ (\si{\kelvin\per\kilo\watt}) & $T_{max}$ (°C)  \\ \hline
+
+T1503             & Thyristor & 150 & 8   & 0.06  & 55  & 6.3  & 120   \\ \hline
+DZ950                & Diode     & 70  & 4.4   & 0.06  & 29  & 42   & 150   \\ \hline
+TT240               & Thyristor & 60  & 3.8 & 0.05   & 6.1  & 39  & 125    \\ \hline
+D2601               & Diode    & 121  & 9   & 0.06  & 52   & 8.9    & 160    \\ \hline
+AIKQ120        & IGBT     & 16   & 750    & 4.1  & 0.36    & 170   & 175    \\ \hline
 \end{tabular}
-\caption{Some typical metal resisitivities at room temperature with the values for Bismuth and Gadolinium from the CRC Handbook of Chemistry and Physics 97th edition \cite{haynes:2017}.}
-\label{tab:metal_resisitivities}
+\caption{A sample of readily available current power electronic devices, as sourced from Infineon Technologies AG \cite{infineon:T1503N, infineon:DZ950N, infineon:TT240N, infineon:D2601N, infineon:AIKQ120N75CP2}.}
+\label{tab:components}
 \end{table}
 
-They can also be defined as a material in which the highest occupied energy band is completely filled with electrons at zero temperature, with an energy gap to the next highest band ranging from 0 to $4\text{--}5\si{\electronvolt}$. With this definition, at increasing temperatures electrons are excited from the highest occupied band (valence band) to the lowest unoccupied band (conduction band), increasing conductivity or reducing resistivity, in direct contrast to the behaviour of metals. However the commonly accepted bandgap range may vary from source to source, with diamond regularly being presented as a semiconductor despite its wide bandgap of $5.47\si{\electronvolt}$ \cite{wort:2008}.
+Table \ref{tab:components} summarises a small sample of current power electronic devices. In this table, x is is the approximate diameter (thyristors are in a circular package, diodes and IGBT's are in a rectangular package), $V_{B}$ is the maximum reverse bias or blocking voltage, F is the estimated maximum operating frequency, I is the maximum forward surge current, $R_{t}$ is the maximum thermal resistance from junction to case and $T_{max}$ is the maximum operating junction temperature. The exact type of device used will always be a trade-off, while thyristors of up to 10~\si{\kilo\volt} are available, these devices inevitably require a significantly larger junction size, which increases the challenge of thermal management solutions, the cost of such devices overall, and also raises the complexity of such devices. While variations of thyristors such as the integrated gate-commutated thyristor (IGCT) or gate turn off (GTO) thyristors both allow for higher operating frequencies of between 0.1--1~\si{\kilo\hertz}, this comes at the expense of a lower blocking voltage and peak surge current rating. IGCT or GTOs are widely used within motor control, renewable energy management and anywhere with large power draws like in rail travel \cite{Tolbert2005}. In the case of power inverters, where fast switching frequency is necessary, insulated gate bipolar transistors (IGBT) due to the ideal balance between breakdown voltage and operating frequency offered. For smaller systems such as conventional power supplies, amplifiers and consumer electronics in general, less specific transistors such as metal oxide semiconductor field effect transistors (MOSFETs), junction field effect transistors (JFETs) and bipolar junction transistors (BJTs) are in wide usage.
 
-\subsection{A Survey of Semiconductors}
-\subsubsection{Elemental}
-The most ubiquitous semiconductor is naturally silicon, which forms a 'diamond', cubic tetrahedral crystal structure with a lattice parameter of $0.543\si{\nano\metre}$ and nearest neighbour distance of $0.235\si{\nano\metre}$ \cite{haynes:2017}. A few other key properties are  The unit cell of a diamond cubic crystal structure has a face centred cubic (fcc) lattice with a basis of two silicon atoms. This is depicted in figure \ref{fig:silicon_unit_cell}.
-\begin{figure}
-\centering
-\begin{subfigure}[b]{0.45\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{gfx/Silicon_unit_cell.png}
-    \caption{}
-    \label{fig:silicon_unit_cell}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.45\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{gfx/periodic_table-black_cropped.png}
-    \caption{}
-    \label{fig:periodic_table_groupIV_crop}
-\end{subfigure}
-\caption{(a) The diamond unit cell for silicon and (b) the elemental semiconductors in group IVA with neighbouring elements.}
-\end{figure}
-
-Germanium and carbon also have a diamond crystal structure, each atom has four-fold coordination, forming the tetrahedron shape. Some other elements may also be considered semiconductors, such as phosphorus, sulphur, selenium and tellurium. These form three-fold (P), two-fold (S, Se, Te) and four-fold coordinated structures, the differing crystal structures allowing for the formation of glass.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.45\textwidth]{gfx/GaAs_structure.png}
-    \caption{The crystal structure of GaAs}
-    \label{fig:GaAs_unit_cell}
-\end{figure}
-
-\subsubsection{Binary Compounds}
-As opposed to the single elements typically from group IVA, it is also possible to join elements from either side (group III and V), resulting in compounds that have similar properties to that of a group IV element. A good example of this is gallium arsenide (GaAs), which has a quasi cubic-close packed array of ions (arsenic) with another set of ions (gallium) residing within tetrahedral interstices between the closely packed layers. This is known as the 'zinc blende' crystal structure. The resulting lattice constant is $0.565\si{\nano\metre}$ for GaAs. As the gap in the periodic table groupings increases, the ionicity of the resulting crystal increases further and so the electronic bandgap will also increase. Hence, most of the II--VI compounds have bandgaps that are larger than 1\si{\electronvolt}. In I--VII compounds such as CuCl, the bandgaps will tend to bandgaps above 3\si{\electronvolt}. These compounds are mostly considered to be insulating materials, and not semiconductors. Two key large bandgap compound semiconductors are that of GaN and \ce{Ga_{1-x}In_{x}N} which are now widely used in blue light emitting diodes and lasers.
-
-\subsubsection{Oxides}
-Most oxides are used as effective insulators, such as \ce{SiO2}, but oxides like \ce{CuO} or \ce{Cu2O} instead are widely known to be semiconductors. The growth processes of oxide semiconductors generally limits the potential applications however. A II--VI compound of  \ce{ZnO} forms one exception, with applications as a transducer and adhesive tapes. Copper oxides have found alternative applications with the discovery of high temperature superconductivity based originally on lanthanum copper oxide (\ce{La2CuO4}).
-
-\subsubsection{Layered}
-Compound semiconductors may also be characterised by their layered crystal structures. For example, molybdenum disulfide (\ce{MoS2}) and lead iodide (\ce{PbI2}). Bonding within the layer is usually covalent, hence being significantly stronger than the van der Waals forces that stick the layers together. Electrons within these layers will have quasi-two-dimensional properties and the inter-layer interactions can be modified through the introduction of foreign atoms inbetween the layers by the process of "intercalation".
-
-\subsubsection{Organic}
-These solids are made up of carbon and hydrogen pi-bonded molecules or polymers, with heteroatoms such as oxygen, sulphur and nitrogen. These organic semiconductors will generally be in the form of molecular crystals, or amorphous thin films which are insulating, but behave as a semiconductor upon the injection of charges or through doping or photoexcitation. The first device to be built which incorporated an organic semiconductor was in 1973 by J. McGinness, which used synthetically produced melanins to act as an amorphous semiconductor threshold switch.
-
-More recently, organic light emitting diodes (OLEDs) have become commonplace, utilising an organic compound for the emissive electroluminescent layer. Practical OLED displays are now among the thinnest of display technologies, with a higher contrast ratio due to the small scale of OLEDs allowing for the ability to turn off the backlighting for individual pixels.
-
-\subsubsection{Magnetic}
-In quite an exotic category of semiconductors, compounds that contain magnetic ions such as manganese (\ce{Mn}) and europium (\ce{Eu}) can also display both semiconducting and magnetic properties. Depending on the quantity of magnetic ions included in alloys such as \ce{EuS} \cite{asuigui2020} or \ce{Cd_{1-x}Mn_{x}Te} \cite{hossain2015}, compounds may exhibit ferromagnetism and antiferromagnetism. Alloys containing a relatively low amount of magnetic ions have applications in optical modulators, due to their large significant magneto-optical effects. 
-
-\subsubsection{Other}
-There are still yet more semiconductors that do not fit any of the previous sections such as antimony sulphoiodide \ce{SbSI} which exhibits ferroelectricity at low temperatures. Compounds of group IB-IIIA-VIB and IIV-IVA-VA such as silver gallium sulphide \ce{AgGaS2} which is useful for near or mid-infrared applications due to its large nonlinear optical coefficients \cite{rudysh2022}, zinc silicon phosphide \ce{ZnSiP2} with pressure driven emergent superconductivity \cite{yuan2021} and copper indium selenium \ce{CuInSe2} which has applications in thin film solar cell applications \cite{haloui2015}. These compounds also have tetrahedral bonding and are hence related to the IIIA-VA or IIB-VIA semiconductors of zinc blende structure.
+Silicon based devices are limited by a few key factors. First, the low thermal conductivity of silicon and narrow bandgap limit operating temperatures to around 150\si{\degreeCelsius}. Second is the critical electric field of silicon, which is around 0.3~\si{\mega\volt\per\centi\metre} \cite{McCluskey1996-rz}. Due to the low critical electric field of silicon, there is a need for series stacking of silicon based devices with complex triggering systems to ensure that the potential bias across any single junction does not exceed the critical electric field \cite{ZhiweiLiu2010, Tolbert2005}. Finally, as a result of both the requirement for stacked silicon devices and also advanced thermal management solutions, the electrical power losses can rise significantly.
 
 \subsection{Wide Bandgap Semiconductors}
-Briefly mentioned in the previous section, there are numerous semiconducting materials with a bandgap above $\approx2\si{\electronvolt}$ which are referred to as wide bandgap semiconductors. As the bandgap increases, the maximum operating voltage, frequency and temperature of the material will also increase, offering high performance semiconductors that can operate in more extreme conditions than that of silicon or gallium arsenide.
+A key solution to the issues faced by silicon power electronics is to utilise a wide-bandgap semiconductor. In particular, Si can be compared to silicon carbide (SiC), gallium nitride (GaN), gallium oxide (\ce{Ga2O3}) and diamond. All of these materials have larger critical electric fields and higher thermal conductivities, significantly improving the viability of devices based on single structures in contrast to the series stacking of Si. Diamond stands apart from these comparators, with a critical field 30 times higher than Si and 3 times higher than SiC \cite{Zaitsev2010-vd}. The maximum carrier mobility of diamond is another best in class comparison, with intrinsic carrier mobilities of 4500 and 3800 ~\si{\centi\metre\squared\per\volt\per\second} for electrons and holes respectively \cite{Isberg2002}. Diamond's thermal conductivity is similarly high, at 2200~\si{\watt\per\metre\kelvin}, and also has a relative dielectric constant of 5.7 \cite{Zaitsev2010-vd}. To compare differing materials figures of merit (FOM) are typically used. In the case of diamond, two important FOMs were introduced by Baliga \cite{Baliga1989}. First is the Baliga FOM (BFOM), given by:
+\begin{equation}
+    BFOM = \epsilon_{r}\mu E_{max}^{3}
+\end{equation}
+where $\epsilon_{r}$ is the relative dielectric constant, $\mu$ is the carrier mobility and $E_{max}^{3}$ is the breakdown field, typically given in units of \si{\mega\volt\per\centi\metre}. The second is Baliga's high-frequency FOM (BHFOM), using the same notation:
+\begin{equation}
+    BHFOM = \mu E_{max}^{2}
+\end{equation}
+\noindent While the BFOM is used to estimate the trade off between conductive losses and breakdown voltage for a unipolar device, the BHFOM is used to include switching losses associated with a gate capacitance, as in FET's. There are further FOM's, but for the comparison of materials presented here, the BFOM and BHFOM are used.
 
-There are a number of wide bandgap semiconductors in usage today. For example, gallium nitride with a bandgap of $3.44\si{\electronvolt}$ was used in the first high efficiency blue LED's and lasers in the alloys of InGaN/AlGaN with an active layer of zinc doped InGaN \cite{nakamura1994}. This work utilised a two-flow metalorganic chemical vapor deposition (MOCVD) method to form the first candela class high brightness double hetero-structure blue LED's. Silicon carbide, in the 3C, 4H or 6H crystal polytypes, is again used in applications where performance at high temperature or high voltage is required.
-
-\begin{table}
-\begin{tabular}{|l|l|l|l|l|}
+\begin{table}[htbp]
+\centering
+\caption{Material properties and figures of merit (FOM) for various semiconductors \cite{Saslow1966, Yu2010, sze2006, Schroder2006-sx}.}
+\label{tab:material_properties}
+\begin{tabular}{@{}|c|c|c|c|c|c|c|@{}}
 \hline
-Properties                              & Si      & 4H-SiC    & GaAs       & GaN       \\ \hline
-Crystal Structure                       & Diamond & Hexagonal & Zincblende & Wurtzite \\ \hline
-Energy Gap: EG(eV)                      & 1.12    & 3.26      & 1.43       & 3.5       \\ \hline
-Electron Mobility: µn(cm2/VS)           & 1400    & 900       & 8500       & 1250      \\ \hline
-Hole Mobility: µp(cm2)                  & 600     & 100       & 400        & 200       \\ \hline
-Breakdown Field: EB(V/cm)           & 0.3     & 3         & 0.4        & 3         \\ \hline
-Thermal Conductivity(W/cm?)             & 1.5     & 4.9       & 0.5        & 1.3       \\ \hline
-Saturation Drift Velocity: vs(cm/s)& 1       & 2.7       & 2          & 2.7       \\ \hline
-Relative DC Dielectric Constant: eS        & 11.8    & 9.7       & 12.8       & 9.5       \\ \hline
+& & \textbf{Si} & \textbf{4H-SiC} & \textbf{GaN} & \textbf{\ce{Ga2O3}} & \textbf{Diamond} \\ 
+\hline
+$E_{g}$ (\si{\electronvolt}) & &1.12&3.20&3.45 &4.9 &5.47 \\
+$v_{s}$ ($10^{7}$~\si{\centi\metre\squared\per\volt\per\second}) & e- & 1.1& 1.9 & 2.5& 2& 2.5, 1.9 \cite{Pomorski2007, Pomorski2008}\\
+& h+& 0.8& 1.2& - & - & 1.0, 1.4 \cite{Pomorski2007}\\
+$\mu$ (\si{\centi\metre\squared\per\volt\per\second})& e-& 1500 & 1000& 1500& 300& 4500 \cite{Isberg2002}\\
+& h+& 450& 120& 200& -& 3800\cite{Isberg2002}\\
+$E_{max}$ (\si{\mega\volt\per\centi\metre})& & 0.3& 2.8& 5& 8& 10--22\cite{Volpe2010}\\
+$\epsilon_{r}$& & 11.9& 9.66& 8.9& 9.93& 5.7 \cite{Zaitsev2010-vd}\\
+$\gamma$ (\si{\watt\per\metre\per\kelvin})& &150 &490 &130 &23 &2200 \cite{Zaitsev2010-vd}\\
+BFOM& & 1.0& 440& 2950& 3516& 3380--473078\\
+BHFOM& & 1.0& 58& 237& 158& 1486--12510\\
+\hline
 \end{tabular}
-\caption{A table to show the relative properties of silicon, silicon carbide, gallium arsenide and gallium nitride.}
-\label{tab:wide_bandgap}
 \end{table}
-%Just a comment on dielectric constants. This constant is simply the resistance to electric fields and may vary based on dc and ac currents. When placed in a capacitor, the dielectric material is made of atoms and moleculaes and when placed inbetween the plates of a charged capacitor the negative charges in the dielectric are going to get attracted to the positive plate of the capacitor. but the negatives can't travel to the positive as the dielectric is a nonconducting material but the negatives can shift or lean towards the positive plate. this causes the charge in the atoms and the molecules within the dielectric to become polarised. to put it another way the atom kind of stretches and one end becomes overall negative and the other end becomes overall positive. it's also possible that the dielectric material started off polarised as some materials are naturally polarised like water. in this case when the dielectric is placed between the charged up capactior plates the attraction betweeen the negative side of the polarised molecule and the positive plate of the capacitor would cause the polarised molecules to rotate allowing the negatives to be a little bit closer to the positively charged capacitor plate, either way the end result is that the negatives in the atoms and molecules are going to face the positive capacitor plate and the positives in the atoms and molecules are going to face the negative capacitor plate. so how does this increase the capacitance? the reason this increases the capacitance is because this reduces the voltage between the capacitor plates. it reduces the voltage because even though there's still just as many charges on the capacitor plates their contribution to the voltage across the plates is being partially cancelled. in other words some of the positive charges on the capacitor plate are having their contribution to the voltage negated by the fact that there's a negative charge right next to them now. similarly on the negative side there's just as much negative charges there ever was but some of the negative charges are having their contribution to the voltage cancelled by the fact that there's a positive charge right next to them. so the total charge on this capacitor has remained the same but the voltage across the plates has been decreased because of the polarisation of the dielectric. if we look at the definition of capacitance we see that if the charge stays the same and the voltage decreases the capacitance is gonna increase c =q/v because divideing by a smaller number for the voltage is gonna result in a larger value for the capacitance. so, inserting a dielectric in this case increased the capacitance by lowering the voltage. let's look at another case of inserting a dielectric. the charge also increases due to more charge being induced on the plates. dielectric constant kappa k. capacitance C becomes kC where k is always >= 1. that was a bit of a waste of time but nice typing practice.
-\section{Band Structures}
-As noted in the introduction, a defining feature of semiconductors is the reduction of resistivity as temperatures increase. This arises due to the electronic band structure of semiconductors, which also generates the presence of gaps in their electronic excitation spectra. 
 
-\subsection{Quantum Mechanics}
-The Hamiltonian of a perfect crystal is defined as:
-\begin{equation*}
-\begin{aligned}
-    H = \sum_{i}\frac{p_{i}^{2}}{2m_{i}} + \sum_{j}\frac{p_{j}^{2}}{2M_{j}} + \frac{1}{2}\sum_{j\prime,j}\prime\frac{Z_{j}Z_{j\prime}e^{2}}{4\pi\epsilon_{0}\left|R_{j}-R_{j\prime}\right|} - \sum_{j,i}\frac{Z_{j}e^{2}}{4\pi\epsilon_{0}\left|r_{i}-R_{j}\right|}\\ + \frac{1}{2}\sum_{i,i\prime}\prime\frac{e^{2}}{4\pi\epsilon_{0}\left|r_{i}-r_{i}\right|}
-    \label{eq:hamiltonian_of_crystal_structure}
-\end{aligned}
-\end{equation*}
-Where $\epsilon_{0}$ is the permittivity of free space, e is the electronic charge, $r_{i}$ is the position of the $i$th electron, $R_{j}$ the position of the $j$th nucleus, $Z_{j}$ represents the atomic number and $p_{i},P_{j}$ are momentum operators of the electrons and nuclei respectively. Finally, $\sum\prime$ is used to denote summation over non-identical pairs of indicies. This Hamiltonian is often simplified with the Hartree-Fock method.
-%OK https://web.northeastern.edu/afeiguin/phys5870/phys5870/phys5870.html IS AMAZING..... MODERN COMPUTATIONAL METHODS IN SOLIDS
-\subsubsection{Schr{\"o}dinger's Equation}
-\subsubsection{Variational Methods}
-\subsubsection{Examples of Linear Variational Calculations}
-\paragraph{Infinite Potential Well}
-\paragraph{Hydrogen Atom}
-\subsubsection{Hartree-Fock Method}
-%https://web.northeastern.edu/afeiguin/phys5870/phys5870/node8.html
+Table \ref{tab:material_properties} provides the relevant material properties and the two FOM's for all materials. In this table, $\gamma$ is used to represent the thermal conductivity, and the second column is used to denote electrons (e-) or holes (h+) for the material properties that require this distinction, namely the saturation drift velocity $v_{s}$ and carrier mobility $\mu$. As the electrical properties of diamond are quite dependent upon the crystal structure, with defect centres strongly impacting the carrier mobility due to the rise in coulombic scattering events, it is typical go give a range of FOMs for diamond, which helps to represent the range of crystal dependent properties. At the low end, highly defective, disordered diamond with low carrier velocities and critical electric fields is considered. While at the high end, electronic grade diamond with less than 5 parts per billion nitrogen defect centres and highly oriented single crystal growth is used to represent the peak upper limit. These properties are also orientation specific \cite{Milln2012}, due in part to differing rates of compensation within doped diamond films \cite{pinault2021, stenger2021}, so care must be taken in the selection of crystal substrate if a high FOM is required.
+
+\subsection{Characterisation Techniques}
+In the following sections, an overview of the general principles behind characterisation techniques used throughout the experimental work in this thesis are given.
+
+\subsubsection{TLM}
+\label{subsubsection:ltlm_explained}
+
+The Transmission Line Method (TLM) is widely used for evaluating the contact resistivity between metal and semiconductor regions, especially when the semiconductor region is isolated from the substrate by a junction. This technique, however, faces challenges when the junction isolation is leaky, potentially resulting in incorrect parameter extraction due to parasitic leakage currents.
+
+\paragraph{Basic Assumptions and Limitations}
+TLM assumes a uniform sheet resistance, an isotropic interface between conducting regions and current flow restriction to the channel of interest.
+
+These assumptions may not hold in certain cases, such as in GaN/AlGaN two-dimensional electron gas systems where the sheet resistance under the contact area varies, leading to discrepancies in applying standard TLM equations for contact resistivity determination \cite{Bystrova2017}.
+
+\paragraph{Assumptions}
+The core assumption in TLM is that the metal’s resistivity in the contact is negligible compared to the contact resistivity, thus simplifying the resistance of a single contact to primarily \(R_{c}\). Under this assumption, total resistance can be expressed and analysed by constructing test structures of varying lengths and measuring the resultant resistance. By plotting these resistances against the length and extrapolating to zero length, the intercept gives twice the contact resistance, and the slope provides the sheet resistance of the semiconductor.
+
+\paragraph{Contact Resistivity and Current Crowding}
+Specific contact resistivity (\(\rho_{c}\)) is defined as \(\rho_{c} = A \cdot R_{c}\), where \(A\) is the contact area. It is critical to differentiate between physical and effective contact areas due to the non-uniformity of current flow, a phenomenon known as current crowding. Current crowding, particularly pronounced near the edges of the contact, leads to a variation in the effective current distribution.
+
+\paragraph{LTLM Theory}
 \begin{equation}
-    H = T_{N}\left(R\right) + T_{e}\left(r\right) + V_{NN}
+    R_{T}=2R_{m}+2R_{c}+R_{semi}
 \end{equation}
-
-In solving the many-particle Hamiltonian, a number of approximations are required:
-
-\begin{itemize}
-    \item Valence ($i$, $i\prime$) and core ($j$, $j\prime$) electrons.
-    \item Born-Oppenheimer or adiabatic approximation - stationary nucleus.
-    \item Mean-field approximation - average potential $V\left(r\right)$.
-    \item Also, Pauli's exclusion principle. 
-\end{itemize}
-
-\subsubsection{Valence and Core Electrons}
-
-To simplify the problem, the semiconductor electrons are divided into two groups, that of valence and core electrons. Core electrons are defined as those in filled orbitals, for silicon these are the $1s^{2}$, $2s^{2}$ and $2p^{6}$ electron configurations. Due to the proximity of core electrons with the nuclei, they are grouped with the nucleus and referred to as ion cores. Valence electrons (incomplete orbitals) for silicon are then in the $3s$ and $3p$ orbitals. With this approximation, indices $j$ and $j\prime$ represent the ion cores while $i$ and $i\prime$ give the valence electrons.
-
-\subsubsection{Born-Oppenheimer or Adiabatic Approximation}
-
-Another approximation is to assume that the electronic motion and nuclear motion within the solid can be separated. This will lead to a molecular wave function given in terms of electron and nuclear positions. This is also known as the adiabatic theorem as stated by Born and Fock in 1928: A physical system remains in its instantaneous eigenstate if a given perturbation is acting on it slowly enough and if there is a gap between the eigenvalue and the rest of the Hamiltonian's spectrum \cite{born1928}. 
-
-For example, consider a Hamiltonian which is separable into two terms with coordinates $q_{1,2}$:
-\begin{equation}
-    H=H_{1}\left(q_{1}\right) + H_{2}\left(q_{2}\right)
-    \label{eq:hamiltonian_seperable12}
-\end{equation}
-And the Schr{\"o}dinger equation:
-\begin{equation}
-    H\psi\left(q_{1},q_{2}\right) = E\psi\left(q_{1},q_{2}\right)
-    \label{eq:schrodinger_seperable}
-\end{equation}
-
-In this case, a wavefunction of the form $\psi\left(q_{1},q_{2}\right) = \psi_{1}\left(q_{1}\right)\psi_{2}\left(q_{2}\right)$ is taken, where $\psi_{1,2}\left(q_{1,2}\right)$ are eigenfunctions of $H_{1,2}$ with the eigenvalues $E_{1,2}$. Then, the eigenfunctions and eigenvalues of the Hamiltonian are given by solving the time independent Schr{\"o}dinger equation as written in the following form:
+The core derivation of linear TLM theory derives from the observation that total resistance $R_{T}$ is made up of two contact resistances $R_{c}$, two resistances due to wires in the circuits/probes $R_{m}$, and one resistance of the semiconductor in question $R_{semi}$. By measuring the total resistance across differing channel lengths, with known areas of metal contacts to the semiconductor, it is possible to derive the following \cite{Schroder2006-sx}:
 
 \begin{equation}
-    \left[T_{N} + T_{e} + V_{ee}\left(r\right) + V_{NN}\left(R\right) + V_{eN}\left(r,R\right)\right]\Psi\left(r,R\right) = E\Psi\left(r,R\right)
-    \label{eq:TISE_hartree_fock}
+    R_{T} = \frac{R_{sh}}{W}d+2R_{c}
 \end{equation}
+where $R_{sh} = \frac{R_{semi}W}{d}$ is the sheet resistance, $W$ is the width of the contacts and $d$ is the spacing between contacts. While more sophisticated transfer length methodologies are applicable, initial testing begain with this simple LTLM approach.
 
-Where $T_{N}$ is the kinetic energy of the nuclei, $T_{e}$ is the kinetic energy of the electrons and $V_{NN},V_{eN},V_{ee}$ are the nucleus-nucleus, nuclei-electron and electron-electron interactions respectively. These terms are 
+\subsubsection{AFM}
+Atomic Force Microscopy (AFM) is a type of scanning probe microscopy that offers nanoscale resolution. It utilises a cantilever with a sharp tip to physically scan the surface of a sample. As the tip moves across the surface, forces between the tip and the sample cause the cantilever to deflect. These deflections are monitored via a laser beam reflected off the top of the cantilever into a photodiode, translating physical interactions into topographical maps of the surface \cite{Cheong2019}.
 
-The first approximation is then introduced by recognising the separation of time scales between electronic and nuclear motion. This is due to the electrons being lighter than nuclei by a factor of approximately 2000: $m_{e}\approx9.11\times10^{-31}\si{\kilogram}, \quad m_{n,p}\approx1.67\times10^{-27}\si{\kilogram}$. After application of this condition, the Hamiltonian and Schr{\"o}dinger equation are reduced down to:
+AFM operates in several modes, including contact, non-contact, and tapping (dynamic) modes. Contact mode maintains the tip in constant contact with the surface, suitable for hard and smooth surfaces but may damage soft or rough samples. Non-contact mode involves oscillating the cantilever near the surface to measure van der Waals forces without actual contact, ideal for delicate samples. Tapping mode, a hybrid approach, allows the tip to intermittently "touch" the surface, reducing sample damage while providing high-resolution images. This method is particularly useful in studying the surface properties of materials, such as the roughness and corrosion characteristics, without extensive preparation.
 
+\subsubsection{Raman}
+\label{subsubsec:raman}
+Raman spectroscopy is an analytical technique based on the raman effect, where monochromatic light (usually from a laser) interacts with molecular vibrations, leading to scattering of light at energy levels different from the incident light. This scattering results in a raman spectrum, unique to the molecular structure of the sample, allowing for both qualitative and quantitative analysis. The technique is especially valued for its non-destructive nature and minimal preparation requirements.
+
+In raman spectroscopy, when light interacts with a sample, most of the light scatters elastically (Rayleigh scattering) without a change in energy. However, a small fraction scatters inelastically (raman scattering), with a change in energy corresponding to vibrational energy levels of the molecules in the sample. This shift provides a fingerprint by which the molecule can be identified. The intensity of a raman signal varies with the polarisability of the molecular bonds, making it highly sensitive to the chemical structure and state of the substance \cite{Bumbrah2016}.
+
+\subsubsection{SIMS}
+Secondary Ion Mass Spectrometry (SIMS) is a technique used to analyse the composition of solid surfaces and thin films by sputtering the surface with a focused primary ion beam and then collecting and analysing ejected secondary ions. The process involves the use of a primary ion source such as \(O_2^+\), \(O^-\), \(Cs^+\), \(Ar^+\), or \(Ga^+\), which bombards the sample surface under ultra-high vacuum conditions, causing the ejection of secondary ions.
+
+SIMS is highly sensitive, capable of detecting elements from hydrogen (H) to uranium (U) and can achieve detection limits down to parts per billion. This makes it particularly useful for trace level analysis. The method also allows for the measurement of isotopic ratios with high precision, and the spatial distribution of elements can be mapped with high resolution due to the localised nature of the sputtering process.
+
+Despite its advantages, SIMS analysis can be complex due to the formation of molecular ions and clusters during sputtering, which can complicate the mass spectrum. Quantitative analysis requires the use of standards similar in composition to the sample because the ionisation probability of sputtered atoms is influenced by the matrix. Additionally, since SIMS requires the sample to be stable under high vacuum, it limits the type of samples that can be analysed \cite{Fearn2015}.
+
+\subsubsection{XPS}
+X-ray Photoelectron Spectroscopy (XPS) leverages the photoelectric effect to analyse surface chemical states by measuring the kinetic energy of electrons ejected from a material when irradiated with X-rays. The core principle involves directing X-rays of sufficient energy (typically >1200 eV) onto a sample to eject core-level electrons. The binding energy of these electrons is then precisely determined, providing a detailed electronic and chemical state analysis of the material's surface up to a depth of about 20~\si{\nano\metre}.
+
+The process is sensitive to all elements with an atomic number greater than hydrogen and can distinguish between different chemical states of the elements. For instance, variations in electron binding energy can indicate different oxidation states or the presence of chemical bonds. XPS spectra not only display peaks corresponding to the core levels of the elements present but may also show satellite peaks due to additional electron transitions such as shake-up and shake-down events, where electrons are excited to higher or lower energy states during the photoionisation process \cite{Morgan2012XRayPS}.
+
+\subsubsection{HIM}
+Helium Ion Microscopy (HIM) employs a gas field ionisation source to generate a focused beam of helium ions from a three-sided pyramidal tip, where ionisation occurs at the very apex consisting of only three atoms (a trimer). This setup allows for extremely high-resolution imaging, significantly surpassing that of conventional scanning electron microscopes (SEM). The helium ions penetrate deeper into the sample compared to electrons due to their additional mass, depositing energy primarily through forward scattering which enhances secondary electron emission and provides high contrast images with minimal surface damage. This makes HIM particularly effective for detailed surface studies of samples at resolutions five times greater than those achievable with modern SEMs. The deep penetration of helium ions also reduces surface charging, a common issue with non-conductive materials in SEM, which can be further mitigated by using a low-voltage electron flood gun \cite{Joens2013}.
+
+\section{Diamond}
+\subsection{Crystal Structure of Diamond}
+Diamond is a carbon allotrope characterised by each carbon atom being covalently bonded to four others in a tetrahedral configuration, forming a three-dimensional lattice. This structure arises from the sp$^{3}$ hybridisation of one 2s and three 2p orbitals, resulting in a face-centred cubic (FCC) crystal structure with two distinct sub-lattices \cite{Nor2010}. The unit cell of diamond contains eight carbon atoms and features bond lengths of 0.154 nm and bond angles of 109.5 degrees, embodying a tetrahedral symmetry. This closely packed arrangement yields diamond's exceptional atomic density of 3.52~\si{\gram\per\centi\metre\cubed}, equivalent to $1.76 \times 10^{23}$~\si{\atoms\per\centi\metre\cubed}, making it the solid with the highest atomic density known \cite{Narayan2011}. 
+\subsection{Diamond Synthesis}
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Chapter2/Figs/Raster/HDphase.png}
+	\caption{The simple phase diagram of carbon to 50 \si{\giga\pascal}, which corresponds to approximately a 1500 \si{\kilo\metre} depth within the Earth. Original data sourced from \cite{blank:2018}.}
+	\label{fig:phase11}
+\end{figure}
+The synthesis of diamond has been a focal point in materials science due to the ability to control the supply, quality, size, and dopant levels in synthetic diamonds as compared to their natural counterparts. High-pressure high-temperature (HPHT) and chemical vapour deposition (CVD) methods are the predominant methods employed for the manufacture of both polycrystalline and single-crystal diamonds. Figure \ref{fig:phase11} represents the key phase diagram of interest in the synthesis of diamond. HPHT and CVD synthetic diamonds are cultivated under distinctly different pressure and temperature conditions. The Berman-Simon line \cite{Bundy1961}, which represents the graphite-diamond equilibrium, demarcates the thermodynamically stable region for diamond under HPHT conditions from the graphite-stable region where CVD diamonds are grown \cite{Bovenkerk1993}.
+
+\subsection{HPHT}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{Chapter7/Figs/Raster/optical back light.jpg}
+	\caption{A HPHT substrate used for electrical devices in later chapters.}
+	\label{fig:sample1}
+\end{figure}
+High Pressure High Temperature (HPHT) synthesis replicates the natural conditions under which diamonds form, but allows for enhanced control over the diamonds qualities such as colour and clarity. Early attempts to synthesise diamonds using HPHT began in the 19th century, culminating in the first successful synthesis by General Electric in 1954 \cite{BUNDY1955}. Although high-clarity diamonds are challenging to obtain through HPHT, making this process less desirable for applications requiring optical clarity, advancements have enabled the production of larger, high-quality colourless diamonds for jewellery. One key factor in usage with modern HPHT presses is that of the usage of catalysts, and the careful control of catalyst mixtures \cite{Strong1963}. While it is common for HPHT growth to result in high nitrogen defect concentrations, leading to the characteristic yellow colour as might be seen in figure \ref{fig:sample1}, it is also possible to use nitrogen getters in the catalytic mix, such as Al, Ti, Zr and Mg which will combine with nitrogen atoms to form insoluble nitrates or nitrides, reducing the available nitrogen for incorporation within the growing diamond \cite{Soffner2020}.
+
+\subsection{LMD}
+Liquid Metal Diamond (LMD) synthesis represents a novel and promising approach to diamond manufacturing, which operates at significantly lower pressures (1 atm) and moderate temperatures (1025\si{\degreeCelsius}). Unlike traditional methods, LMD uses a liquid metal catalyst at atmospheric conditions composed of elements like gallium, iron, nickel, and silicon to facilitate the growth of diamonds. This method involves catalytic activation of methane and the diffusion of carbon atoms within the liquid metal. Additional hydrogen is also essential, though the exact mechanisms are unclear at this stage. The key physical mechanism of LMD is its ability to supersaturate carbon in the metal, leading to the nucleation and growth of diamond at conditions that are less extreme than those required for either HPHT or CVD \cite{Gong2024}. This method of diamond growth may grow substantially in the near future.
+
+\subsection{CVD}
+Chemical Vapour Deposition (CVD) is a highly controlled process used to produce synthetic diamonds by decomposing carbon-rich gases, such as methane, at elevated temperatures (typically 600--1200\si{\degreeCelsius}) in a vacuum chamber. This decomposition is often facilitated by a microwave plasma, although other methods like hot filaments \cite{Kromka2013} and acetylene flames \cite{Garcia1998} are also utilised. The resulting carbon atoms are deposited onto a substrate, forming diamond layers that are particularly useful for applications in electronics and optics due to the versatility in doping and the growth over large areas.
+
+The growth process, significantly influenced by the ratio of hydrogen to methane, is critical in determining the purity, morphology, and overall quality of the diamond films. A plasma generated by microwave power is common in modern CVD setups, but alternative techniques such as hot filaments or blowtorches are also employed. These methods facilitate the dissociation of gas precursors into radicals or ions necessary for diamond growth.
+
+Control over various parameters such as temperature, pressure, gas flow rates, and substrate misorientation is crucial in CVD \cite{Lobaev2019}. Diamond growth via CVD can be categorised into homoepitaxy and heteroepitaxy. Homoepitaxy describes the growth of diamond on a diamond substrate, typically derived from HPHT processes, while heteroepitaxy refers to diamond growth on non-diamond substrates. The latter poses significant challenges due to differences in thermal expansion coefficients and lattice constants, which can lead to defects and dislocations in the diamond film.
+
+CVD technology has evolved since the 1970s, following the pioneering work by Derjaguin et al., who in 1975 demonstrated the feasibility of diamond growth under metastable conditions with cyclic growth and etching processes \cite{derjaguin:1975}. This method was further refined by Spitsyn in 1981 \cite{spitsyn:1981} and Nakazawa in 1987 \cite{nakazawa:1987}, contributing to a deeper understanding of homoepitaxial growth. Concurrently, heteroepitaxial growth has also been explored, with early attempts by Spitsyn in 1981 to grow diamond layers on various substrates such as copper, silicon, and tungsten, among others. These efforts underscored the critical role of atomic hydrogen in suppressing unwanted graphite deposition and enhancing diamond nucleation \cite{kobashi:1988}.
+
+Despite advancements, the heteroepitaxial growth of high-quality, single-crystal CVD diamond remains challenging due to lattice mismatches causing significant strain in the grown layers \cite{Wang2022}. 
+
+\subsection{Doped Diamond}
+\subsubsection{Incorporation Efficiency}
+\label{subsection:incorporation_efficiency}
+In studies examining the growth of n or p-type diamond, it is possible to consider the incorporation efficiency of the dopants involved. First, the density and molar mass of diamond are utilised to calculate the number of carbon atoms present in a cubic centimetre of diamond. With an approximate density of 3.51 \si{\gram\per\centi\metre\cubed} and a molar mass of 12.01 \si{\gram\per\mole}, the number of carbon atoms present can be calculated:
 \begin{equation}
-    H_{el} = T_{e}\left(r\right) + V_{eN}\left(r,R\right) + V_{NN}\left(R\right) + V_{ee}\left(r\right)
-    \label{eq:hamiltonian_fixed_nuclear}
+    \text{Number of carbon atoms per \si{\centi\metre\cubed}} = \left(\frac{\text{Density}}{\text{Molar mass}}\right)\times N_{A}
+    \label{eq:incorporation_efficiency}
 \end{equation}
+Which results in $\approx1.76\times10^{23}$~\si{\atoms\per\centi\metre\cubed}. For simple reference, it is convenient to consider the magnitudes of phosphorous incorporation and their resulting atomic concentrations. Hence, incorporation efficiencies of 100\%, 10\%, 1\% and 0.1\% are used in the following sections in consideration of the doping concentrations. These efficiencies can then be considered for the various dopant:carbon sources for CVD growth. Naturally, it is unrealistic to consider the extreme cases in which there is no carbon source, but ratios of up to 50\% have been used to grow highly doped diamond films \cite{kato2009, grotjohn2014}. 
+
+Therefore, as in \cite{koizumi1997}, diamond growth where there is a dopant:carbon ratio of 0.1\%, an incorporation ratio of 10\% results in approximately 0.01\% of the dopant being grown into the diamond lattice, corresponding to $0.01\times1.76\times10^{23}=1.76\times10^{19}$~\si{\atoms\per\centi\metre\cubed}. The actual measured concentration of dopant in this example had an incorporation efficiency of around 15\%, with the authors observing $2.5\times10^{19}$ \si{\atoms\per\centi\metre\cubed} of dopant as measured via SIMS analysis. 
+
+\subsection{Phosphorous Doped Diamond}
+\subsubsection{Effective Electron Masses}
+\label{subsubsec:effective_electron_masses_in_phosphorous_doped_diamond}
+Within semiconductors, the effective electron mass is generally determined via the energy-momentum (E-k) relationship for carriers. This describes the interactions of electrons, holes, photons and phonons, and is the basis of semiconductor physics in general. As defined in many semiconductor textbooks, the E-k relationship can be approximated at the band edges (bottom of conduction band $E_{c}$ and top of valence band $E_{v}$) by a quadratic equation \cite{sze2006, Schroder2006-sx, Yu2010, Singleton2001-um}:
 \begin{equation}
-    H_{el}\phi_{e}\left(r,R\right) = E_{el}\phi_{e}\left(r,R\right)
-    \label{eq:clamped_nuclear_schrodinger}
+    E(k) = \frac{\hbar^{2}k^{2}}{2m^{*}}
 \end{equation}
-
-Which is known as the "clamped nuclei" Schr{\"o}dinger equation. $V_{NN}\left(R\right)$ may also be neglected as $R$ is a parameter, making $V_{NN}\left(R\right)$ a constant. Without $V_{NN}\left(R\right)$:
+where $\hbar$ is the reduced Plank constant, $k$ is the momentum, given as wave vectors and $m^{*}$ is the effective mass. Along a given direction, it is possible to approximate these quadratic curves and estimate the effective mass from the second differential term:
 \begin{equation}
-    H_{e} = T_{e}\left(r\right) + V_{eN}\left(r,R\right) + V_{ee}\left(r\right)
-    \label{eq:electronic_hamiltonian_clamped}
+    \frac{1}{m_{ij}^{*}} = \frac{1}{\hbar^{2}}\frac{\partial^{2} E(k)}{\partial k_{i}\partial k_{j}}
 \end{equation}
-\begin{equation}
-    H_{e}\Phi_{e}\left(r,R\right) = E_{e}\Phi_{e}\left(r,R\right)
-    \label{eq:electronic_hamiltonian_clamped_2}
-\end{equation}
+where the indices i, j are used to indicate the tensorial components of effective mass in differing momentum space directions. The conduction band is made up of a number of sub-bands, with the bottom of the conduction band appearing either at the centre (given by the standard Wigner-Seitz cell symmetry notation of $\Gamma$) or at another position in k-space. Similarly, the valence band is made up of a number of sub-bands, which may or may not line up with the bottom of the conduction band. Semiconductors in which the bandgap is aligned are known as direct-bandgap semiconductors, such as InAs, GaN and GaAs. These semiconductors are of particular interest for applications involving radiative emission, as the emission of light in direct bandgap semiconductors has a significantly greater quantum efficiency due to the lack of change in momentum required (requiring phonon interactions). Indirect bandgaps in which a change in momentum space is necessary for electronic transitions across the bandgap are seen in Si, Ge and also C - that of the sp$^{3}$ bonded diamond crystal lattice of carbon. While it is common practice to refer to semiconductors by their shorthand elemental composition, this does not work very well with that of carbon due to the quantity, diversity and colossal range of carbon allotropes.
 
-With the subscript $e$ to distinguish the Hamiltonian and energy from the case with $V_{NN}$. Next, consider the original Hamiltonian for a crystal structure \ref{eq:hamiltonian_of_crystal_structure} with a wavefunction of form $\Psi\left(r,R\right) = \phi_{e}\left(r,R\right)\phi_{N}\left(R\right)$:
-%reference issue to the hamiltonian function I don't fucking know why but I'm not fixing it right now, you deal with it future me you're so smart and capable HAHAHA jk
-\begin{equation}
-    H\phi_{e}\left(r,R\right)\phi_{N}\left(R\right) = E_{tot}\phi_{e}\left(r,R\right)\phi_{N}\left(R\right)
-    \label{eq:hamiltonian_with_wavefunction_inserted}
-\end{equation}
-\begin{equation}
-    \left[ T_{N}\left(R\right) + T_{e}\left(r\right) + V_{eN}\left(r,R\right) + V_{NN}\left(R\right) \right] = E_{tot}\phi_{e}\left(r,R\right)\phi_{N}\left(R\right)
-    \label{eq:hamiltonian_with_wavefunction_inserted_full}
-\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter2/Figs/Raster/python_band_structure.png}
+    \caption{An approximate depiction of the parabolas responsible for diamond's electronic band structure. Loosely based on the full electronic structure as depicted in \cite{Willatzen1994}, including highly simplified defect states of phosphorous and boron.}
+    \label{fig:band_parabolas}
+\end{figure}
 
-As $T_{e}$ is not dependent upon $R$:
-\begin{equation}
-    T_{e}\phi_{e}\left(r,R\right)\phi_{N}\left(R\right) = \phi_{N}\left(R\right)T_{e}\phi_{e}\left(r,R\right)
-    \label{eq:Te_dependence}
-\end{equation}
-But this does not mean that it is possible to assume the following:
-\begin{equation}
-    T_{e}\phi_{e}\left(r,R\right)\phi_{N}\left(R\right) = \phi_{N}\left(R\right)T_{e}\phi_{e}\left(r,R\right)
-    \label{eq:Te_dependence}
-\end{equation}
-%https://web.northeastern.edu/afeiguin/phys5870/phys5870/node9.html#:~:text=The%20Born%2DOppenheimer%20Approximation%20is,electron%20positions%20and%20nuclear%20positions. for continuation, if I so want to do that..... probably not needed.
-%holy fuck I need to read one of these introductory textbooks and go through some lectures for this too god fuckin damnit hahahahahaha losing my mind trying to figure out what the fuck is going on with these hamiltonians and eigenshits
+Figure \ref{fig:band_parabolas} shows a simplified parabola representation of of diamond. Shown is an indirect bandgap, which is measured at low temperatures approaching 0~\si{\kelvin} to be 5.49~\si{\electronvolt} via transmission/absorption spectra \cite{clark1964, Mildren2013} and density of states calculations \cite{Sellam23}. For a full review of diamond dopant species and surface terminations on the electronic properties, such as the bandgap, see the work by Prof. K. Larsson \cite{Larsson2020}.
 
+The determination of effective carrier masses has been obtained in several ways throughout the literature. For the work described in following chapters, the effective mass of electrons within highly phosphorous doped diamond is of particular interest, but for ultra-pure intrinsic diamond, it has been experimentally observed via time-resolved cyclotron resonance that the transverse and longitudinal electron masses are $0.280m_{0}$ and $1.56m_{0}$ respectively \cite{Naka2013}. These values represent what is currently believed to be the top-end limit of high velocity carriers within intrinsic diamond. A more relevant example of experimental measurements is that of Gheeraert et al. \cite{Gheeraert2001} who used infrared absorption to observe the electronic transitions for phosphorous donors and hence determine the effective mass within electronically active, doped diamond films. In this work, the effective masses are determined to be $m_{\perp}=0.306m_{0}$ and $m_{\parallel} = 1.81m_{0}$. These are the values that are widely used as reference values for phosphorous doped diamond \cite{Pernot2006, Pernot2008}, and will hence be used in this work as a reference point also. These values can be contrasted to theoretically based work using a linear muffin-tin-orbital local density approximation for intrinsic diamond by Willatzen et al. who gave values of $m_{\perp}=0.341m_{0}$ and $m_{\parallel}=1.5m_{0}$. A final comparison is measured via a Monte Carlo analysis of electron drift velocity \cite{Nava1980} by Nava et al. This is one of the earliest works in studying this property via Hall effect measurements, giving values of $m_{\perp}=0.36m_{0}$ and $m_{\parallel}=1.4m_{0}$ for intrinsic diamond.
 
-\subsection{Brillouin Zones}
-The one dimensional Schr{\"o}dinger equation as simplified by the prior approximations is given by:
-\begin{equation}
-    H_{1e}\Phi_{n}\left(r\right)\Phi_{n}\left(r\right) = \left(\frac{p^{2}}{2m}+V\left(r\right)\right)\Phi_{n}\left(r\right) = E_{n}\Phi_{n}\left(r\right)
-    \label{eq:schrodinger_1d_equation_motion_of_electrons}
-\end{equation}
-Where $H_{1e}$ represents the one electron Hamiltonian and $\Phi_{n}$, $E_{n}$ are the wavefunction and 
-energy of an electron in an eigenstate $n$.
+\section{Graphitisation of Diamond} % Chapter title
 
-To calculate the electronic energies $E_{n}$, first the one electron potential $V\left(r\right)$ must be determined. This can be done from first principles with atomic numbers and positions, or with a semi-empirical approach. In the latter options, the electron potential is expressed with parameters that are determined by experimental data fitting. With this, it is still necessary to utilise the crystal symmetry in finding solutions of the Schr{\"o}dinger equation.
-
-All crystal structures possess translational symmetry, and most also have rotational or reflection symmetries. The majority of semiconductors have a high degree of rotational symmetry which allows for a significant simplification of the electronic states within these solids. This simplification is known as band theory.
-
-\subsubsection{Bloch Function}
-A particle moving in a periodic potential has a wavefunction which can be expressed in a so called Bloch function. To define this function, we use the one dimensional Schr{\"o}dinger equation \ref{eq:schrodinger_1d_equation_motion_of_electrons} and assume that the electron potential $V\left(x\right)$ is periodic with a translational period equivalent to $R$. Then, a translation operator $T_{R}$ can be defined as:
-\begin{equation}
-    T_{R}f\left(x\right) = f\left(x+R\right)
-    \label{eq:translation_operator}
-\end{equation}
-
-Then, the Bloch function $\Phi_{k}\left(x\right)$:
-\begin{equation}
-    \Phi_{k}\left(x\right) = e^{ikx}u_{k}\left(x\right)
-    \label{eq:bloch_function}
-\end{equation}
-Has a periodic function $u_{k}\left(x\right)$ with the same periodicity as $V$, so that $u_{k}\left(x + nR\right)  = u_{k}\left(x\right)$ for all integers $n$. If $\Phi_{k}\left(x\right)$ is then taken with the product of $e^{ikR}$ it will represent a plane wave with an amplitude that is modulated by the periodic function $u_{k}\left(x\right)$. Hence, $\Phi_{k}\left(x\right)$ is known as a Bloch function. When the position $x$ changes to $x+R$, then the Bloch function becomes:
-\begin{equation}
-    T_{R}\Phi_{k}\left(x\right) = \Phi_{k}\left(x + R\right) = e^{ikR}\Phi_{k}\left(x\right)
-    \label{eq:bloch_function_plusR}
-\end{equation}
-Then, $\Phi_{k}\left(x\right)$ is an eigenfunction of $T_{R}$ with eigenvalue $e^{ikR}$. The Hamiltonian $H_{1e}$ is invariant under translation by $R$, and $H_{1e}$ commutes with $T_{R}$. Hence, the eigenfunctions of $H_{1e}$ can also be expressed as the eigenfunctions of $T_{R}$. So, the eigenfunction $\Phi\left(x\right)$ of $H-{1e}$ can be written as a sum of Bloch functions:
-\begin{equation}
-    \Phi\left(x\right) = \sum_{k}A_{k}\Phi_{k}\left(x\right) = \sum_{k}A_{k}e^{ikx}u_{k}\left(x\right)
-    \label{eq:sum_of_bloch_functions}
-\end{equation}
-
-Where $A_{k}$ is a constant. Therefore the one electron wavefunctions can be indexed by constant k's, given by the wave vectors of the plane waves. The electronic band structure of a given crystal can then be represented by a plot of the electron energies from the one dimensional Schr{\"o}dinger equation \ref{eq:schrodinger_1d_equation_motion_of_electrons} against the wave vectors $k$. This $k$ plot is referred to as $k$ space, or the momentum space, due to the quantum mechanical link between wave vectors and momentum of particles. 
-
-An extended zone scheme is where $k$ is varied over all possible values. However, it is possible to reduce the range of the wave vectors by considering the translation symmetry of the crystal. From the definition of the Bloch function \ref{eq:bloch_function}, it can be seen that the values $k$ for indexing the wave function are not unique. Hence, $k$ and $k + \left(\frac{2n\pi}{R}\right)$ where n is any integer satisfies the Bloch function. Another way to choose k is in replacing $k$ with $k\prime = k - \left(\frac{2n\pi}{R}\right)$, with an integer n that limits $k\prime$ within the interval of $\left[\frac{-\pi}{R},\frac{\pi}{R}\right]$. This interval defines the first Brillouin zone and is also known as the reduced zone scheme. By using the reduced zone scheme, wave functions are indexed by the band index $n$ and the wave vector $k$ is restricted to the first Brillouin zone. Naturally, this definition can be expanded into three dimensions to give a general result for real semiconductors.
-
-In figure (figure I need to plot. matplotlib of the equation for a nice simple output similar to that of yu or sze perhaps?) the band structures with an extended and reduced zone scheme for an electron where $V \rightarrow 0$ is shown, which represents the nearly free electron within a one dimensional lattice of lattice constant a. The reduced zone scheme is used to display the band structures more compactly. Also, electrons which make a transition of state under a translationally invariant operator will conserve $k$ in the reduced zone scheme process.
-
-Generalised into three dimensions and some plots to display the Brillouin zones in 3d.
-
-Primitive lattice vectors:
-
-\begin{equation*}
-    \begin{aligned}
-        a_{1} = \left(0, \frac{a}{2}, \frac{a}{2}\right) \\a_{2} = \left(\frac{a}{2}, 0, \frac{a}{2}\right) \\a_{3} = \left(\frac{a}{2}, \frac{a}{2}, 0\right)
-    \end{aligned}
-    \label{eq:primitive_lattice_vectors}
-\end{equation*}
-
-Where a represents the side length of the crystallographic unit cell, or the smallest possible cube of the fcc lattice. 
-
-For the direct lattice representation it is also possible to define a reciprocal lattice in similar terms with the relationship:
-\begin{equation*}
-    b_{i}=2\pi\frac{\left(a_{j}\times a_{k}\right)}{\left(a_{1}\times a_{2}\right)\cdot a_{3}}
-    \label{eq:reciprocal_lattice_vectors}
-\end{equation*}
-
-In which case $i$, $j$ and $k$ give the cyclic permutation of all indicies and $\left(a_{1}\times a_{2}\right)\cdot a_{3}$ gives the volume of the primitive cell. The resulting reciprocal lattice from translation of the real lattice points is used to represent the wave vector $k$ as a point in reciprocal lattice space. When we bring the Brillouin zones into the reciprocal space, the first zone is defined by the smallest polyhedron that is confined by planes which bisect the reciprocal lattice vectors. The resulting symmetry of Brillouin zones in the reciprocal space are determined by the symmetry of the crystal lattice, with an fcc lattice forming a body-centred cubic (bcc) lattice. The resulting primitive reciprocal lattice vectors are calculated from equation \ref{eq:reciprocal_lattice_vectors}:
-
-\begin{equation*}
-    \begin{aligned}
-        b_{1} = \left(\frac{2\pi}{a}\right)\left(-1,1,1\right) \\
-        b_{2} = \left(\frac{2\pi}{a}\right)\left(1,-1,1\right) \\
-        b_{3} = \left(\frac{2\pi}{a}\right)\left(1,1,-1\right) \\
-    \end{aligned}
-    \label{eq:reciprocal_primitive_lattice_vectors}
-\end{equation*}
-
-\paragraph{High Symmetry Points}
-The Brillouin zone of a fcc lattice is unchanged by various rotations and is invariant under reflection through certain planes that contain the centre of the cube. Any operation such as this is known as a symmetry operation of the Brillouin zone and results from the symmetry of the direct lattice or real space crystal lattice. Points of high symmetry are by convention, Greek letters when inside the Brillouin zone and Roman letters when on the surfaces. The centre of the Brillouin zone is labelled $\Gamma$. In the three high symmetry directions \hkl[1 0 0], \hkl[1 1 1] and \hkl[1 1 0]:
-\begin{equation}
-\begin{aligned}
-    \relax[1 0 0] = \Gamma \rightarrow \Delta \rightarrow X \\
-    [1 1 1] = \Gamma \rightarrow \Lambda \rightarrow L\\
-    [1 1 0] = \Gamma \rightarrow \Sigma \rightarrow K    
-\end{aligned}
-\end{equation}
-
-This has two important impacts on the electronic band structure. 
-
-The first point is that if two wave vectors within the Brillouin zone have a transformation through a symmetry operation of the Brillouin zone, the electronic energies at these vectors must then be identical and the points in reciprocal lattice space are equivalent. 
-
-Secondly, wave functions can be expressed so that they have definite transformations within symmetry operations of the crystal, which results in a symmetric wave function.
-
-The result of the first of these two points is that any of the eight faces of the fcc Brillouin zone are equivalent, with the L point being identical on all eight planes. To calculate the electronic band structure of all eight faces then, only one needs to be calculated. Symmetric or symmetrized wave functions are responsible for the standard notation of wave functions for electrons in atoms, which are labelled based on their transformation properties under rotation with the labels $s$, $p$, $d$, etc. The $s$ wave function is unchanged by any rotation while the $p$ wave functions are triply degenerate and will transform under rotation. $d$ wave functions will transform in the same way that five components of a symmetric traceless second rank tensor would transform, and so on. As a result of this definition of the wave functions, it is possible to demonstrate that certain elements of operators will vanish, leading to selection rules for the wave functions.
-
-\subsection{Diamond Structure Symmetry}
-
-As mentioned previously, the diamond structure consists of two interpenetrating fcc lattices. At each lattice site, there will be two identical atoms that displace in relation to each other by a quarter of the body diagonal in the \hkl[111] direction. The primitive cell that this defines is repeated at every lattice site. When the origin is chosen to be the midpoint of the primitive cell, the crystal structure is invariant under inversion. With an origin located at an atomic site, a translation along the vector $\left(\frac{a}{4}\right)[1,1,1]$ is required for invariance under inversion. The carbon atoms in the \hkl[111] direction are shown in figure (simple drawing of atoms in 111 plane). The resulting space group of the diamond structure is nonsymmorphic, with three glide planes. In Sch{\"o}nflies notation this is denoted as $O_{h}^{7}$ and in international notation, $Fd3m$.
-
-\subsection{Transformations}
-Symmetry operations are represented with a transformation matrix. For example, consider a three-fold rotation $\left(xyz\right)\rightarrow\left(zxy\right)$ about the \hkl[111] axis, which transforms the axes $x$, $y$ and $z$ into $x\prime$, $y\prime$ and $z\prime$ with $x\prime=z$, $y\prime=x$ and $z\prime=y$. When represented with a transformation matrix:
-\begin{equation}
-    \begin{pmatrix}
-    0 & 0 & 1\\
-    1 & 0 & 0\\
-    0 & 1 & 0
-    \end{pmatrix}
-    \label{eq:three_fold_rotation_111}
-\end{equation}
-
-The four-fold transformation $\left(xyz\right)\rightarrow\left(xz\Bar{y}\right)$ about the $x$ axis is given by $x\prime=x$, $y\prime=z$ and $z\prime=-y$ or:
-\begin{equation}
-    \begin{pmatrix}
-    1 & 0 & 0\\
-    0 & 0 & 1\\
-    0 & -1 & 0
-    \end{pmatrix}
-    \label{eq:four_fold_roatation_100}
-\end{equation}
-
-
-\section{Fluorescence}
-\subsection{Diamond Spectrum}
-\subsection{Laser Induced Colour Centres}
-
-\part{Graphitisation of Diamond} % Chapter title
-
-\label{ch:laser} % For referencing the chapter elsewhere, use \autoref{ch:examples} 
+\label{sec:laser} % For referencing the chapter elsewhere, use \autoref{ch:examples} 
 
 %----------------------------------------------------------------------------------------
 
@@ -335,7 +201,7 @@ The roots of laser graphitisation in diamond can be traced back to 1996, with a 
 The advantages of this technique can also be seen through the lens of diamond device processing and graphitisation rather than the tuning of optical properties, though a significant portion of the current industrial applications for laser graphitisation within diamond are in writing serial numbers and other optical markers for jewellers to identify lab-grown diamond:
 
 \begin{itemize}
-	\item Laser fabrication is a direct, maskless technique. Without the need for complex clean room facilities it is possible to create surface tracks or buried wires within the diamond. This allows for the rapid prototyping and refinement of a small number of devices, without the added need of dedicated photolithographic masks.
+	\item Laser fabrication is a direct, mask-less technique. Without the need for complex clean room facilities it is possible to create surface tracks or buried wires within the diamond. This allows for the rapid prototyping and refinement of a small number of devices, without the added need of dedicated photolithographic masks.
 	\item This technique is highly flexible, as different irradiation parameters such as wavelength, pulse energy, translation speed, focusing conditions and repetition rate can be used to calibrate the laser for different materials like silicon carbide, diamond and other crystal structures. This also allows for more specific control over the graphitic content which is formed within the diamond substrate, with differing conductivities for various sp$^{2}$ and sp$^{3}$ content in the formed wires.
 	\item With the usage of adaptive optics it is possible to create fully three-dimensional graphitic wires within the diamond substrate, of various thicknesses and conductivities at arbitrary depths. The degrees of freedom offered by this technique allow for geometries that are impossible or highly difficult with standard fabrication techniques, which may be an important factor in the design and manufacturing of certain device structures. 
 \end{itemize}
@@ -345,28 +211,28 @@ The advantages of this technique can also be seen through the lens of diamond de
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{"gfx/Phase diagram/HDphase"}
-	\caption{The phase diagram of carbon to 50 \si{\giga\pascal}, which corresponds to approximately a 1500 \si{\kilo\metre} depth within the Earth. Original data sourced from \cite{blank:2018}.}
+	\includegraphics[width=\linewidth]{Chapter2/Figs/Raster/HDphase.png}
+	\caption{The simple phase diagram of carbon to 50 \si{\giga\pascal}, which corresponds to approximately a 1500 \si{\kilo\metre} depth within the Earth. Original data sourced from \cite{blank:2018}.}
 	\label{fig:phase}
 \end{figure}
 
-The fundamental process of writing graphitic regions within diamond is governed by the crystal structure metastability. At room temperature and under atmospheric pressure the stable phase of carbon is that of graphite, as shown in figure \ref{fig:phase}, hence when the diamond lattice damage density exceeds a critical value, it will form graphite. This can also be viewed as a sufficient number of diamond sp$^{3}$ bonds being broken, then reforming into the stable graphitic phase with sp$^{2}$ bonds. One simple way to cause this damage to a diamond lattice is to essentially burn it, or otherwise raise the temperature of the sample. A diamond lattice will tend to rearrange globally when heated to $T_{G} \approx 2000$ \si{\kelvin}, which is called the process of thermal graphitisation \cite{davies:1972}. However, it has been observed that in cases where a laser pulse does not generate this critical temperature, graphitisation may still occur. 
+The fundamental process of writing graphitic regions within diamond is governed by the crystal structure meta-stability. At room temperature and under atmospheric pressure the stable phase of carbon is that of graphite, as shown in figure \ref{fig:phase}, hence when the diamond lattice damage density exceeds a critical value, it will form graphite. This can also be viewed as a sufficient number of diamond sp$^{3}$ bonds being broken, then reforming into the stable graphitic phase with sp$^{2}$ bonds. One simple way to cause this damage to a diamond lattice is to essentially burn it, or otherwise raise the temperature of the sample. A diamond lattice will tend to rearrange globally when heated to $T_{G} \approx 2000$ \si{\kelvin}, which is called the process of thermal graphitisation \cite{davies:1972}. However, it has been observed that in cases where a laser pulse does not generate this critical temperature, graphitisation may still occur. 
 
-\section{Ion Implantation}
+\subsection{Ion Implantation}
 Another way to break the diamond sp$^{3}$ bonds is to bombard the diamond lattice with ions of a sufficiently high kinetic energy to also break the sp$^{3}$ bonds. Ion implantation was first investigated in the 70s by Vavilov et al \cite{vavilov:1973}, and resulted in a series of studies examining the electrical properties of the resultant amorphous carbon. Hauser et al. demonstrated the similarities of sputtered graphite to that of the ion implanted diamond, with a high conductivity of $\approx10^{-2}$ \si{\per\ohm\per\centi\metre} and also concluded that the resulting hardness of the implanted regions was an intermediate between that of silicon and diamond \cite{hauser:1976,hauser:1977}. With the proper combinations of implanting ions, ion energies, dosages and post implantation annealing, diamond based heterostructure can be formed which have layers of insulating, semi-conducting, luminescent and fully conductive regions \cite{gippius:1999,prins:1983,prins:1985}. 
 
 One more specific case occurs in the case of implanting boron ions in polycrystalline diamond, where a "percolative threshold" fluence exists at which a conductive path of sp$^{3}$ bonded defects is formed in the diamond structure and a variable range hopping conduction mechanism is introduced. At a higher "amorphisation threshold", sp$^{2}$ bonded defects are formed, leading to permanent graphitisation in the implanted areas after annealing \cite{fontaine:1995}.
 
-\section{Laser Graphitisation}
-In the case of laser graphitisation, the mechanism of localised heating through the non-linear absorption of laser pulses requires some clarification, especially since diamond is generally regarded as a "thermal short" with its thermal conductivity of up to 2200-2500 \si{\watt\per\metre\per\kelvin} \cite{graebner:1995}. As presented in an article by Sundaram and Mazur in 2002, while intense laser pulses from a nanosecond pulsed laser within silicon is a thermally driven process, experimentally observed ultrashort femtosecond laser pulse effects cannot be explained with merely a thermal process \cite{sundaram:2002}. Instead, the femtosecond pulses drive a large fraction of the valence electrons ($>10\%$) into the conduction band, modifying the interatomic forces and destabilising the crystal lattice. A model presented by Kononenko et al. in 2015 relies primarily upon the expansion of graphitic inclusions through so called photographitisation, and argues that the laser induced direct creation of graphitic nucleation sites within diamond is unlikely \cite{kononenko:2015}. Instead, graphite inclusion defects within the diamond structure are the source, with inclusions forming the seeds of growing and overlapping graphitic regions. This growth of inclusions is then a two step process, with a distinct mechanism for each stage. Similar work presented by Bennington et al. in 2009 on single crystal (111) oriented HPHT diamonds concurs with this model, observing that the generated graphite was likely seeded by defects within the crystal lattice \cite{bennington:2009}.
+\subsection{Laser Graphitisation}
+In the case of laser graphitisation, the mechanism of localised heating through the non-linear absorption of laser pulses requires some clarification, especially since diamond is generally regarded as a "thermal short" with its thermal conductivity of up to 2200-2500 \si{\watt\per\metre\per\kelvin} \cite{graebner:1995}. As presented in an article by Sundaram and Mazur in 2002, while intense laser pulses from a nanosecond pulsed laser within silicon is a thermally driven process, experimentally observed ultrashort femtosecond laser pulse effects cannot be explained with merely a thermal process \cite{sundaram:2002}. Instead, the femtosecond pulses drive a large fraction of the valence electrons ($>10\%$) into the conduction band, modifying the inter-atomic forces and destabilising the crystal lattice. A model presented by Kononenko et al. in 2015 relies primarily upon the expansion of graphitic inclusions through so called photographitisation, and argues that the laser induced direct creation of graphitic nucleation sites within diamond is unlikely \cite{kononenko:2015}. Instead, graphite inclusion defects within the diamond structure are the source, with inclusions forming the seeds of growing and overlapping graphitic regions. This growth of inclusions is then a two step process, with a distinct mechanism for each stage. Similar work presented by Bennington et al. in 2009 on single crystal (111) oriented HPHT diamonds concurs with this model, observing that the generated graphite was likely seeded by defects within the crystal lattice \cite{bennington:2009}.
 
-\subsection{Photographitisation}
+\subsubsection{Photographitisation}
 Under femtosecond irradiation, it has been observed that the transition from diamond to graphite is not one driven by a thermal process, but instead it is one driven by an electron-hole plasma that is generated by the laser. Pulsed X-ray diffraction experiments in germanium, silicon, GaAs and InSb observed this same process in 1999 and 2001 with the laser-induced promotion of a large fraction of valence electrons (more than $10$\%) and with a low "melting time" on the order of femtoseconds \cite{siders:1999,rousse:2001}. Once excited, these electrons strongly interact with one another and reach thermal equilibrium in under 10 \si{\femto\second} \cite{elsaesser:1991}.
 Through the process of photoionisation, light is absorbed by the substrate and photon energy promotes electrons from bonding orbitals in the valence band to the conduction band, in unbound or even antibonding states. This absorption within diamond is a multiphoton process, depending upon the lasing wavelength. For $800$ \si{\nano\metre}, there is a four or five photon transition, while $400\text{ and }266$ \si{\nano\metre} wavelengths have an indirect and two photon transition respectively \cite{preuss:1995}. The direct band gap in intrinsic diamond for these transitions is $7.3$ \si{\electronvolt}. However, the presence of substitutional nitrogen or phosphorous will introduce donor like centres with a thermal ionisation energy of $1.7$ \si{\electronvolt} and $0.6$ \si{\electronvolt} respectively, complicating the band structure. The electron-hole density within diamond when illuminated by Kononenko et al. with a \ce{TiAl2O3} laser of wavelength $800$ \si{\nano\metre} at fluencies of under $10$ \si{\joule\per\centi\metre\squared} reached up to $10^{21}$ \si{\per\centi\metre\cubed}. The experimental data from this work is plotted in figure \ref{fig:electronholes}.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{"gfx/Electron hole pair diagram/HDelectronholes"}
+	\includegraphics[width=\linewidth]{Chapter2/Figs/Raster/HDelectronholes.png}
 	\caption{The concentration of electron hole pairs in single crystal diamond just below the crystal surface, as measured by Kononenko et al \cite{kononenko:2014}.}
 	\label{fig:electronholes}
 \end{figure}
@@ -383,16 +249,17 @@ Through the usage of DFT, atomistic calculations examining the transition from d
 	\item The energy barrier to graphitisation is lower in the case of higher electron temperatures, also corresponding to a reduced time required for complete graphitisation.
 \end{itemize}
 
-More recent studies examining the stability of diamond and graphite bonds with larger supercells provide further confirmation of the energy barrier between the two carbon hybridisations \cite{popov:2019,grochala:2014}. A first-principle study by F. Mauri in 1995 explored the electron lattice interactions, concluding that valence excitons are highly likely to bind together when in a high density electron-hole plasma \cite{mauri:1995}. Self-trapping does not occur in the case of isolated valence excitons, but it is predicted that self trapping should occur with valence biexcitons. This biexciton trapping will cause a distortion, involving the breaking of a bond perpendicular to the (111) direction. As graphite is semi-metallic in nature, electron-hole pairs migrating from the excited diamond regions to that of a graphite seed will rapidly multiply through impact ionisation. Impact will also reduce their energy below the diamond band gap, trapping such pairs and collecting them within the graphtitic region. Graphite's $\pi$ orbitals are able to hold a large number of electron-hole pairs without changing the covalent bond network, lending a greater stability to the graphite region than the diamond in conditions of high electron-hole pairs in addition to the refractory nature of graphite \cite{bennington:2009}.
+More recent studies examining the stability of diamond and graphite bonds with larger supercells provide further confirmation of the energy barrier between the two carbon hybridisations \cite{popov:2019,grochala:2014}. A first-principle study by F. Mauri in 1995 explored the electron lattice interactions, concluding that valence excitons are highly likely to bind together when in a high density electron-hole plasma \cite{mauri:1995}. Self-trapping does not occur in the case of isolated valence excitons, but it is predicted that self trapping should occur with valence biexcitons. This biexciton trapping will cause a distortion, involving the breaking of a bond perpendicular to the (111) direction. As graphite is semi-metallic in nature, electron-hole pairs migrating from the excited diamond regions to that of a graphite seed will rapidly multiply through impact ionisation. Impact will also reduce their energy below the diamond band gap, trapping such pairs and collecting them within the graphitic region. Graphite's $\pi$ orbitals are able to hold a large number of electron-hole pairs without changing the covalent bond network, lending a greater stability to the graphite region than the diamond in conditions of high electron-hole pairs in addition to the refractory nature of graphite \cite{bennington:2009}.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{"gfx/Fluence vs number of laser shots/HDfluencevsshots"}
+	\includegraphics[width=\linewidth]{Chapter2/Figs/Raster/HDfluencevsshots.png}
 	\caption{The number of laser shots required for visible damage of the diamond surface as a function of laser fluence, as measured by Kononenko et al \cite{kononenko:2008}.}
 	\label{fig:fluencevsshots}
 \end{figure}
 
-\subsection{Thermal Graphitisation}
+\subsubsection{Thermal Graphitisation}
+\label{subsubsec:thermal_graphitisation}
 As these graphite seeds grow due to the photostimulated lattice rearrangement of carbon atoms adjacent to the graphite, the amount of light that is absorbed due to the change in the optical properties will increase. Also, when stimulated by light, the electron subsystem of graphite will take longer to relax than its sp$^{3}$ counterpart from the excited $\pi$-band electron population. This effect slows the heating of graphitic regions on a scale of $\tau_{e-ph}\approx1$ \si{\pico\second}, where $\tau_{e-ph}$ is the electron-phonon thermalisation \cite{seibert:1990}. Diamond has a remarkably high thermal diffusivity of $\chi_{d}\approx10$ \si{\centi\metre\squared\per\second} \cite{tokmakoff:1993}. This is high enough that the process of thermalisation can overlap in time with the heat spreading from graphite seeds into the diamond lattice. Hence, the temperature of these diamond seeds as induced by laser stimulation will strongly depend upon the seed size, which can be expressed in the following way:
 
 \begin{equation}
@@ -412,7 +279,7 @@ Where $\sigma_{a}$ is the absorption cross section, $\epsilon_{g}=6.0825+10.673i
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{"gfx/Seed temperature/laser heating"}
+	\includegraphics[width=\linewidth]{Chapter2/Figs/Raster/laser heating.png}
 	\caption{The estimated laser-induced heating according to the model presented by Kononenko et al, represented by equations \ref{eq:deltaT}, \ref{eq:sigma laser}, \ref{eq:ld laser} at fluencies from $0.75$ \si{\joule\per\centi\metre\squared} to $3$ \si{\joule\per\centi\metre\squared}.}
 	\label{fig:laser-heating}
 \end{figure}
@@ -421,12 +288,12 @@ The critical seed radius at which thermal graphitisation becomes possible is mar
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{"gfx/Comparison of fluence and shots/comparisonshots"}
+	\includegraphics[width=\linewidth]{Chapter2/Figs/Raster/comparisonshots.png}
 	\caption{A comparison of the laser fluencies used in the calculation of critical seed radii and the observed number of laser shots required for the process of graphitisation. The lower fluence requires a larger seed radius for thermal graphitisation and hence requires many more laser pulses for the photographitisation growth.}
 	\label{fig:comparisonshots}
 \end{figure}
 
-\section{Graphite}
+\subsection{Graphite}
 Graphite is typically manufactured by pressing or extruding a mixture of carbon containing materials such as pitch, coal, petrochemicals or other high molecular weight hydrocarbon, followed by a super-heating bake at anywhere from 2000 \si{\degreeCelsius} to more than 4000 \si{\degreeCelsius} to crystallise the amorphous carbon precursors. 
 
 This heating is typically a multi-stage process, with the first step requiring a long, complex heating in vacuum of the carbon containing material to convert it into coke. This process is known as destructive distillation, with a "good coke" containing a very high carbon content and few if any impurities. The coke is then calcinated, crushed and sieved to obtain a certain distribution of particle sizes. These particles are then bound with a binding substance such as coal tar pitch, petroleum pitch or a synthetic resin and extruded or moulded to form the graphite products. Next, a carbonisation bake at around $1000\text{--}1200\si{\degreeCelsius}$ will thermally decompose the binder into elementary carbon and other volatile components, binding the powdered graphite together. The resulting volume of the formed carbon is lower than that of the binder, due to the formation of pores, with a relative volume or porosity depending upon the binder quantity.
@@ -437,21 +304,107 @@ A variety of precursors can be used, with gilsocarbon being a common choice for 
 
 It is also possible to form graphite via chemical vapour deposition (CVD) techniques, which is known as pyrolitic graphite. This form of graphite will have a very low porosity, approaching the theoretical density of graphite, with correspondingly improved material properties in most other aspects too.
 
-%Past a critical size, the graphite seeds will be able to reach the critical temperature ($T_{g}\approx 2000$ \si{\kelvin}) required for thermal graphitisation within diamond.
+\section{Metal-Semiconductor Contacts}
 
-%DEVICES
-\subsection{On-State Resistance in Diamond Schottky Barrier Diodes}
+\subsection{Image Force/Schottky Effect}
+\label{subsec:image_force_effect_schottky_effect}
+ Given a point charge q at a distance x from a conducting plate, an "image" surface charge of opposite polarity is induced in the plate, with an induced electric field that is equivalent in magnitude and opposite to the point charge \cite{Feynman1965}. The force exerted on the "real" point charge is the "image force", with a corresponding force of:
 
-\subsubsection{Significance of \( R_{\text{ON}}^{\text{spec}} \) in Diamond SBDs}
-The on-state resistance, denoted as \( R_{\text{ON}}^{\text{spec}} \), is a crucial figure of merit (FOM) in assessing the performance of diamond Schottky barrier diodes (SBDs). This parameter is critical in evaluating the efficiency and power handling capabilities of the diode under operational conditions. The specific on-state resistance is typically derived through pulsed I-V measurements or via analytical and numerical analyses. It's important to note that \( R_{\text{ON}}^{\text{spec}} \) provides a means to compare different devices or materials over a range of breakdown voltages (BVs) \cite{donato2019}.
+\begin{equation}
+\label{eq:image_charge_pe}
+    F = -\frac{q^{2}}{16\pi \epsilon_{0}x^{2}}
+\end{equation}
+ where q is the charge (typically the charge of an electron, though generally for the point charge it is the charge of the point charge), $\epsilon_{0}$ is the permittivity of free space and $x$ is the distance of the point charge from the conductive plate. When the point charge is an electron, with an external electric field $\vec{E}$ applied to the system, the total potential energy PE as a function of the distance is given by \cite{Schroder2006-sx}:
+ \begin{equation}
+ \label{eq:pe_image}
+     PE(x) = -\frac{q^{2}}{16\pi \epsilon_{0}x} - q\vec{E}x
+ \end{equation}
 
-\subsubsection{Trade-offs and Challenges}
-One of the key findings from the review is the trade-off in performance that is observed in diamond SBDs, particularly when comparing boron-doped (p-type) diamond devices at room temperature (RT) and high temperatures (HT). At HT, boron-doped diamond shows a more favourable trade-off, demonstrating its potential in high-temperature applications \cite{donato2019}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter2/Figs/Raster/PE_image_charge_diamond.png}
+    \caption{The potential energy of an electron due to the image charge effect at a metal-diamond boundary.}
+    \label{fig:pe_image_charge}
+\end{figure}
 
-However, predicting and optimising the on-state resistance in diamond SBDs poses challenges, particularly due to the incomplete ionisation of dopants in diamond, which is a factor in diamond bulk devices. This incomplete ionisation can lead to higher on-state resistances, thereby affecting the device's efficiency \cite{donato2019}.
+Figure \ref{fig:pe_image_charge} shows the application of equation \ref{eq:pe_image} to a range of high electric fields ($10^{6}$--$10^{10}$~\si{\volt\per\metre}. This visualisation uses a colour map to show the full spread of data, with black dotted lines for every quarter in the log scale. Very high electric fields form very sharp barriers, with heights substantially below the lower electric field Schottky curves. It should be noted that for lower electric fields below $10^{7}$~\si{\volt\per\metre}, the barrier lowering effect is much more slight, and is not possible to see on the scales used for this figure. Extension of this model in vacuum leads to the derivations of field effect emission, due to the possibility of quantum-mechanical tunnelling through these very thin high field barriers. The peaks of the barriers, or the point at which the rate of change of the potential energy barrier $\frac{d}{dx}(PE)$ is zero, are defined to be the position of $x_{m}$, which is where the barrier is shifted by an amount $\Delta\phi$ \cite{deVisschere1986, sze2006}:
 
-\subsubsection{Impact on Switching Losses}
-The switching losses in diamond power devices, including SBDs, are an area that requires careful consideration. These losses depend on various parameters such as parasitic capacitances, gate driver characteristics, and circuit elements like parasitic inductances and capacitances. A fair assessment of switching losses requires the consideration of these factors along with constraints like electromagnetic compatibility and electromagnetic interference. However, due to the limited availability and small size of diamond FETs, studies on switching losses in diamond devices have been scarce. It is anticipated that diamond FETs would exhibit low switching losses due to their rapid turn-off capabilities and smaller input capacitance \cite{donato2019}.
+\begin{equation}
+\label{eq:image_force_barrier_lowering}
+    \Delta \phi = \sqrt{\frac{q\abs{\vec{E}}}{4\pi\epsilon_{0}}} = 2\abs{\vec{E}}x_{m}
+\end{equation}
+\begin{equation}
+    x_{m}= \sqrt{\frac{q}{16\pi\epsilon_{0}\abs{\Vec{E}}}}
+\end{equation}
+where $\vec{E}$ is a uniform electric field applied in the negative x direction of the conductor, determining the sign of $\Delta\phi$. 
 
-\subsubsection{Future Perspectives}
-Looking ahead, there is potential for significant advancements in diamond SBDs, particularly with regard to minimsing on-state resistance and optimising switching performances. Advances in doping techniques, growth methods, and device fabrication could enhance the electrical properties of diamond, leading to more efficient and reliable SBDs. Your work on reducing on-state resistance by examining ohmic contacts to n-type diamond could address some of these challenges, contributing to the development of more efficient diamond-based power devices.
+When the metal-semiconductor interface is considered, the Debye length is crucial. If the semiconductor Debye length is much less than the range of the image force, of the order of \si{\angstrom}, then the semiconductor acts as a metal and equation \ref{eq:image_force_barrier_lowering} is used. The Debye length for semiconductors is given as \cite{sze2006}:
+
+\begin{equation}
+\label{eq:debye_length}
+    L_{D}= \sqrt{\frac{\epsilon_{s}k_{B}T}{q^{2}N}}
+\end{equation}
+where N is either $N_{A}$ or $N_{D}$, depending upon whether the material is p or n-type respectively. When the Debye length is larger than the range of the image force, the semiconductor is considered to be a dielectric, and the modified form of image force barrier lowering is used for semiconductors:
+
+\begin{equation}
+    \label{eq:image_force_barrier_lowering_semiconductor}
+    \Delta\phi = \sqrt{\frac{q\vec{E}_{m}}{4\pi\epsilon_{s}}}
+\end{equation}
+
+Where $\epsilon_{s}$ is the permittivity of the semiconductor, and the electric field within the semiconductor is not zero due to built-in potential bias. $\Vec{E}_{m}$ is the maximum value of the electric field at the semiconductor at the surface based on a depletion approximation \cite{sze2006}:
+
+\begin{equation}
+    \label{eq:max_e_field_depletion_approx}
+    \vec{E}_{m} = \sqrt{\frac{2qN\abs{\Psi_{s}}}{\epsilon_{s}}}
+\end{equation}
+
+with surface potential $\Psi_{s}$ defined for ideal barrier heights $\phi_{Bn0}$ on n-type semiconductors:
+\begin{equation}
+    \label{eq:surface_potential}
+    \abs{\Psi_{s}}= \phi_{Bn0}-\phi_{n}+V_{R}
+\end{equation}
+
+Finally, the Schottky effect for metal contacts to n-type semiconductors under differing biasing conditions is given as:
+\begin{equation}
+    \label{eq:schottky_effect_or_image_force_barrier_lowering_n-type_semi}
+    \Delta\phi = \sqrt{\frac{q\vec{E}_{m}}{4\pi\epsilon_{s}}} = \left[ \frac{q^{3}N_{D}\abs{\Psi_{s}}}{8\pi^{2}\epsilon_{s}^{3}} \right]^{1/4}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Chapter2/Figs/Raster/barrier_lowering_image_charge.png}
+    \caption{The position and magnitude of the image force reduction of Schottky barrier height for metal-vacuum and metal-diamond.}
+    \label{fig:pe_image_charge_reduction}
+\end{figure}
+
+Figure \ref{fig:pe_image_charge_reduction} presents a visual application of equation \ref{eq:image_force_barrier_lowering} and \ref{eq:schottky_effect_or_image_force_barrier_lowering_n-type_semi}. The resulting magnitude and location of the image force or Schottky effect can be seen for both the case of a metal in a vacuum, and that of an ideal metal and n-type diamond boundary with relative dielectric constant of 5.7 within the diamond \cite{Fontanella1977, Zaitsev2010-vd}.
+
+\subsection{Double Schottky/Back-To-Back Schottky Estimation}
+The mathematical formulation of double Schottky barriers depends upon a few key assumptions, with different levels of complexity depending upon the number of physical assumptions taken for the device structure. First, the most pressing question is whether or not the two Schottky barriers $\phi_{B}$ are equal. Next, the ideality factor for the two barriers may also differ. Finally, the mechanism for electron transport across the barrier must also be considered. While the ideality factor is used to generally account for additional electron emission into the semiconducting region, once the characteristic energy $E_{00}$ is significant, thermionic field emission or field emission alone may dominate and the thermionic emission of electrons across a Schottky barrier is no longer the prevailing mechanism. 
+
+The double Schottky current density in the case of constant ideality factor between the two barriers is taken to be of the form \cite{Nouchi2014, Tang2006, Chiquito2012, Molinari2008}:
+
+\begin{equation}
+    J = \frac{J_{S1}J_{S2}\sinh{\frac{qV_{MSM}}{2nk_{B}T}}}{J_{S1}\exp{-\frac{qV_{MSM}}{2nk_{B}T}} + J_{S2}\exp{\frac{qV_{MSM}}{2nk_{B}T}}}
+    \label{eq:double_schottky_j}
+\end{equation}
+
+\noindent where $q$ is the electron charge, $V_{MSM}$ is the voltage across the full metal/semiconductor/metal junction, $n$ is the ideality factor, $k_{B}$ is the Boltzmann constant and $T$ is the temperature. $J_{S1}$, $J_{S2}$ are the reverse saturation current densities across the first and second Schottky barriers respectively, as given by:
+
+\begin{equation}
+    J_{S1,S2} = A^{*}T^{2}e^{-\frac{\phi_{B01,2}}{k_{B}T}}
+    \label{eq:reverse_saturation_j}
+\end{equation}
+
+\noindent where $A^{*}$ is the effective Richardson constant and $\phi_{B01,2}$ are the ideal barrier heights with no image force lowering effect for barriers 1 and 2 respectively. The inclusion of image force lowering or the Schottky effect \cite{Monch2004} in equation \ref{eq:double_schottky_j} is given by:
+
+\begin{equation}
+    V_{MSM} = n_{high}^{eff}\left(\phi_{B2}^{o}-\phi_{B1}^{o}\right) = n_{high}^{eff}\Delta\phi_{B}^{o}
+    \label{eq:vmsm_correction}
+\end{equation}
+
+\noindent where $n_{high}^{eff}$ is the effective ideality factor corresponding to the forwardly biased Schottky barrier and $\phi_{B1,2}^{o}$ are the image force lowered Schottky barrier heights for barriers 1 and 2 respectively at zero bias. In many instances, the double Schottky model
+
+\printbibliography[heading=subbibliography]
+
+\end{refsection}

@@ -469,8 +469,9 @@ supported!}
 % ******************************* Bibliography *********************************
 \ifPHD@authoryear
   \ifPHD@biblatex
-    \RequirePackage[backend=biber, style=authoryear, citestyle=alphabetic, 
-      sorting=nty, natbib=true]{biblatex}
+    %\RequirePackage[backend=biber, style=authoryear, citestyle=alphabetic, 
+    %  sorting=nty, natbib=true]{biblatex}
+    \RequirePackage[backend=biber, style=numeric-comp, citestyle=numeric, sorting=nty, natbib=true]{biblatex}
     \setBiBLaTeXtrue
   \else
     \RequirePackage[round, sort, numbers, authoryear]{natbib} %author year
@@ -1269,4 +1270,3 @@ wish to left align your text}
 			- \totalheightof{\usebox{\PHD@collegedate}}
 }
 }
-
